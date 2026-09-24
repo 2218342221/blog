@@ -462,4 +462,79 @@ const { kind = 'cache', compact = false, bilingual = false } = Astro.props;
       </g>
     </>
   )}
+  {kind === 'benchmark' && (
+    <>
+      <g
+        stroke="#5a465f"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M107 100h41m-7-5 7 5-7 5m125-5h23m-7-5 7 5-7 5" />
+        <rect x="20" y="60" width="84" height="106" rx="9" fill="#d8c5e4" />
+        <rect x="12" y="52" width="84" height="106" rx="9" fill="#fff" />
+        <path d="M67 52v21h29" fill="#ffe6b5" />
+        <path d="m32 81-7 6 7 6m11-12 7 6-7 6M60 87h18" />
+        <path d="M26 113h20m-15 0v13m10-13v13m19-8h18" />
+        <rect x="25" y="135" width="23" height="13" rx="2" fill="#bbd9ff" />
+        <path d="M25 139h23m12 3h18" />
+
+        <path d="M209 47V33" />
+        <circle cx="209" cy="28" r="6" fill="#ffe6b5" />
+        <rect x="157" y="49" width="104" height="97" rx="18" fill="#dfff9e" />
+        <rect x="150" y="78" width="7" height="24" rx="3" fill="#dfff9e" />
+        <rect x="261" y="78" width="7" height="24" rx="3" fill="#dfff9e" />
+        <rect x="172" y="66" width="74" height="43" rx="13" fill="#f6ffdf" />
+        <path d="M201 97q8 7 16 0" />
+        <path d="M194 147v10m-4-4 4 4 4-4m26 5v-10m-4 4 4-4 4 4" />
+        <rect x="153" y="165" width="113" height="37" rx="11" fill="#bbd9ff" />
+        <path d="m165 177 7 6-7 6m12 0h7" />
+
+        <rect x="302" y="52" width="106" height="114" rx="12" fill="#fff" />
+        <path d="M302 91h106" />
+        <circle cx="325" cy="72" r="12" fill="#dfff9e" />
+        <path d="m319 72 4 4 8-8m16 3h43" />
+        <rect x="317" y="105" width="13" height="13" rx="3" fill="#ffe6b5" />
+        <rect x="340" y="106" width="52" height="11" rx="4" fill="#dfff9e" />
+        <rect x="317" y="126" width="13" height="13" rx="3" fill="#bbd9ff" />
+        <rect x="340" y="127" width="37" height="11" rx="4" fill="#bbd9ff" />
+        <path d="M317 151h13m10 0h26" />
+        <path d="M382 31v10m-5-5h10" stroke="#a77b35" />
+      </g>
+      <g fill="#5a465f">
+        <circle cx="190" cy="84" r="4" />
+        <circle cx="228" cy="84" r="4" />
+      </g>
+      <g fill="#5a465f" text-anchor="middle" font-size="22">
+        <text
+          x="56"
+          y="195"
+          data-en={bilingual ? 'TASKS' : undefined}
+          data-zh={bilingual ? '任务' : undefined}
+        >
+          {bilingual ? 'TASKS' : '任务'}
+        </text>
+        <text x="209" y="135">
+          AGENT
+        </text>
+        <text
+          x="222"
+          y="190"
+          font-size="19"
+          data-en={bilingual ? 'TOOLS' : undefined}
+          data-zh={bilingual ? '工具' : undefined}
+        >
+          {bilingual ? 'TOOLS' : '工具'}
+        </text>
+        <text
+          x="355"
+          y="195"
+          data-en={bilingual ? 'JUDGE' : undefined}
+          data-zh={bilingual ? '判分' : undefined}
+        >
+          {bilingual ? 'JUDGE' : '判分'}
+        </text>
+      </g>
+    </>
+  )}
 </svg>

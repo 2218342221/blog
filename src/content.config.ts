@@ -16,7 +16,15 @@ const notes = defineCollection({
     category: z.enum(['系统设计', 'AI 工程', '后端开发', '学习方法']),
     tags: z.array(z.string()).default([]),
     cover: z
-      .enum(['cache', 'rag', 'api', 'learning', 'database', 'transformer'])
+      .enum([
+        'cache',
+        'rag',
+        'api',
+        'learning',
+        'database',
+        'transformer',
+        'benchmark',
+      ])
       .default('learning'),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),

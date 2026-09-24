@@ -5,7 +5,7 @@ destination: 'lab/llm-benchmark-atlas/'
 published: 2026-09-24
 category: 'AI 工程'
 tags: ['LLM', 'Benchmark', 'Agent', '模型评测']
-cover: 'transformer'
+cover: 'benchmark'
 featured: false
 draft: false
 ---

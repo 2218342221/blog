@@ -19,6 +19,7 @@ const colors: Record<string, string> = {
   learning: 'yellow',
   database: 'blue',
   transformer: 'pink',
+  benchmark: 'pink',
 };
 ---
 
@@ -34,7 +35,9 @@ const colors: Record<string, string> = {
         ? 'SYSTEM DESIGN, VISUALIZED'
         : note.data.cover === 'rag'
           ? 'FROM QUESTION TO ANSWER'
-          : 'ONE CONCEPT AT A TIME'}
+          : note.data.cover === 'benchmark'
+            ? 'LLM BENCHMARK ATLAS'
+            : 'ONE CONCEPT AT A TIME'}
     </span>
     <Diagram kind={note.data.cover} bilingual={bilingual} />
     {note.data.featured && (

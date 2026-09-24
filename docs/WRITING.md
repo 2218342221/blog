@@ -46,7 +46,7 @@ npm run new -- first-note "第一篇学习笔记"
 | `updated`     | 可选，最近更新日期，格式 `YYYY-MM-DD`。                                                                                                                                          |
 | `category`    | 仅支持 `系统设计`、`AI 工程`、`后端开发`、`学习方法`。                                                                                                                           |
 | `tags`        | 字符串列表，例如 `["笔记"]`，也可保留 `[]`。                                                                                                                                     |
-| `cover`       | 内置封面图解名称：`cache`、`rag`、`api`、`learning`、`database`、`transformer`；不是图片路径。                                                                                   |
+| `cover`       | 内置封面图解名称：`cache`、`rag`、`api`、`learning`、`database`、`transformer`、`benchmark`；不是图片路径。                                                                      |
 | `featured`    | 是否精选，通常为 `false`。                                                                                                                                                       |
 | `draft`       | 明确填写 `true` 或 `false`；新文章保持 `true`，准备展示时改成 `false`。                                                                                                          |
 
