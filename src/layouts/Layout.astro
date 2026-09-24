@@ -1,0 +1,475 @@
+---
+import { site } from '../config/site';
+import { href } from '../lib/notes';
+import Icon from '../components/Icon.astro';
+import BrandMark from '../components/BrandMark.astro';
+import Localized from '../components/Localized.astro';
+import '../styles/global.css';
+interface Props {
+  title?: string;
+  description?: string;
+  home?: boolean;
+  article?: boolean;
+}
+const {
+  title,
+  description = site.description,
+  home = false,
+  article = false,
+} = Astro.props;
+const titleZh = title ? `${title} · ${site.name}` : site.title;
+const pageTitle = home ? site.titleEn : titleZh;
+const canonical = new URL(Astro.url.pathname, Astro.site || site.url);
+const links = [
+  { en: 'Home', zh: '首页', path: '' },
+  { en: 'Topics', zh: '学习专题', path: 'topics/' },
+  { en: 'Archive', zh: '归档', path: 'archive/' },
+  { en: 'About', zh: '关于', path: 'about/' },
+];
+const localizedAttribute = (attribute: string, en: string, zh: string) => ({
+  [attribute]: home ? en : zh,
+  ...(home
+    ? { [`data-en-${attribute}`]: en, [`data-zh-${attribute}`]: zh }
+    : {}),
+});
+---
+
+<!doctype html>
+<html lang={home ? 'en' : 'zh-CN'} data-home-language={home ? 'en' : undefined}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      {...localizedAttribute('content', site.descriptionEn, description)}
+    />
+    <meta name="author" content={site.author} />
+    <meta name="theme-color" content="#149f76" />
+    <meta
+      property="og:title"
+      {...localizedAttribute('content', site.titleEn, titleZh)}
+    />
+    <meta
+      property="og:description"
+      {...localizedAttribute('content', site.descriptionEn, description)}
+    />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:locale"
+      {...localizedAttribute('content', 'en_US', 'zh_CN')}
+    />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={href('favicon.svg')} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      {...localizedAttribute('title', site.titleEn, site.title)}
+      href={href('rss.xml')}
+    />
+    <title
+      data-en={home ? site.titleEn : undefined}
+      data-zh={home ? titleZh : undefined}
+    >{pageTitle}</title>
+    {home && <script is:inline>
+      try {
+        const language =
+          localStorage.getItem('pagewise.home.language') === 'zh' ? 'zh' : 'en';
+        document.documentElement.dataset.homeLanguage = language;
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+      } catch {
+        // English remains the default when storage is unavailable.
+      }
+    </script>}
+  </head>
+  <body class:list={[{ 'home-page': home }]}>
+    <a class="skip-link" href="#main">
+      <Localized active={home} en="Skip to content" zh="跳到正文" />
+    </a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href={href()}
+          {...localizedAttribute(
+            'aria-label',
+            `${site.nameEn} home`,
+            `${site.name} 首页`,
+          )}
+        >
+          <span class="brand-mark" aria-hidden="true">
+            <BrandMark />
+          </span>
+          <Localized active={home} en={site.nameEn} zh={site.name} />
+          <span class="brand-divider"></span>
+          <Localized
+            class="brand-caption"
+            active={home}
+            en="Learning Notes"
+            zh="学习笔记"
+          />
+        </a>
+        <nav
+          class="desktop-nav"
+          {...localizedAttribute('aria-label', 'Main navigation', '主导航')}
+        >
+          {links.map((link) => (
+            <a
+              href={href(link.path)}
+              aria-current={
+                Astro.url.pathname === href(link.path) ? 'page' : undefined
+              }
+            >
+              <Localized active={home} en={link.en} zh={link.zh} />
+            </a>
+          ))}
+        </nav>
+        <div class="header-actions">
+          {home && (
+            <button
+              type="button"
+              class="language-toggle"
+              data-home-language-toggle
+              {...localizedAttribute(
+                'aria-label',
+                'Switch to Chinese',
+                '切换为英文',
+              )}
+              {...localizedAttribute(
+                'title',
+                'Switch to Chinese',
+                '切换为英文',
+              )}
+            >
+              <Icon name="globe" size={17} />
+              <Localized class="language-label" en="中文" zh="EN" />
+            </button>
+          )}
+          <button
+            class="search-trigger"
+            data-search-open
+            {...localizedAttribute('aria-label', 'Search notes', '搜索笔记')}
+          >
+            <Icon name="search" size={18} />
+            <Localized active={home} en="Search" zh="搜索" />
+            <kbd>/</kbd>
+          </button>
+          <button
+            class="menu-trigger"
+            {...localizedAttribute('aria-label', 'Open navigation', '展开导航')}
+            aria-controls="mobile-nav"
+            aria-expanded="false"
+          >
+            <Icon name="menu" />
+          </button>
+        </div>
+      </div>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav container"
+        {...localizedAttribute('aria-label', 'Mobile navigation', '移动端导航')}
+        hidden
+      >
+        {links.map((link) => (
+          <a href={href(link.path)}>
+            <Localized active={home} en={link.en} zh={link.zh} />
+          </a>
+        ))}
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="footer-brand" href={href()}>
+            <Localized active={home} en={site.nameEn} zh={site.name} />
+          </a>
+          <p>
+            <Localized
+              active={home}
+              en="Stay curious. Keep learning."
+              zh="保持好奇，持续记录。"
+            />
+          </p>
+        </div>
+        <div class="footer-right">
+          <div class="footer-links">
+            <a href={href('about/')}>
+              <Localized active={home} en="About this blog" zh="关于这个博客" />
+            </a>
+            <a href={href('rss.xml')}>
+              <Icon name="rss" size={15} />{' '}
+              <Localized active={home} en="RSS feed" zh="RSS 订阅" />
+            </a>
+            {site.github && (
+              <a href={site.github} target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+            )}
+          </div>
+          <small>
+            © {new Date().getFullYear()}{' '}
+            <Localized active={home} en={site.nameEn} zh={site.author} /> ·{' '}
+            <Localized
+              active={home}
+              en="Built with curiosity."
+              zh="因好奇而记录。"
+            />
+          </small>
+        </div>
+      </div>
+    </footer>
+    <dialog
+      id="search-dialog"
+      aria-labelledby="search-title"
+      data-index={href('search-index.json')}
+    >
+      <div class="search-heading">
+        <h2 id="search-title">
+          <Localized active={home} en="Find a note" zh="找一篇笔记" />
+        </h2>
+        <button
+          class="icon-button"
+          data-search-close
+          {...localizedAttribute('aria-label', 'Close search', '关闭搜索')}
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <div class="search-input-wrap">
+        <Icon name="search" />
+        <input
+          id="search-input"
+          type="search"
+          autocomplete="off"
+          {...localizedAttribute(
+            'placeholder',
+            'Search titles, tags, or content…',
+            '搜索标题、标签或正文…',
+          )}
+          {...localizedAttribute(
+            'aria-label',
+            'Search titles, tags, or content',
+            '搜索标题、标签或正文',
+          )}
+        />
+      </div>
+      <p id="search-status" class="search-status" role="status">
+        <Localized
+          active={home}
+          en="Type a keyword to find a note."
+          zh="输入关键词，发现相关笔记。"
+        />
+      </p>
+      <ul id="search-results" class="search-results"></ul>
+      <div class="search-foot">
+        <span>
+          <Localized
+            active={home}
+            en="One idea at a time."
+            zh="一点一滴，串起理解。"
+          />
+        </span>
+        <span>
+          <kbd>Esc</kbd> <Localized active={home} en="Close" zh="关闭" />
+        </span>
+      </div>
+    </dialog>
+    <script>
+      import {
+        applyHomeLanguage,
+        currentLanguage,
+        translate,
+      } from '../lib/i18n';
+      import { topics } from '../config/site';
+
+      const menu = document.querySelector<HTMLButtonElement>('.menu-trigger');
+      const nav = document.querySelector<HTMLElement>('#mobile-nav');
+      const updateMenuLabel = () => {
+        const expanded = menu?.getAttribute('aria-expanded') === 'true';
+        menu?.setAttribute(
+          'aria-label',
+          expanded
+            ? translate('Close navigation', '收起导航')
+            : translate('Open navigation', '展开导航'),
+        );
+      };
+      menu?.addEventListener('click', () => {
+        const open = menu.getAttribute('aria-expanded') !== 'true';
+        menu.setAttribute('aria-expanded', String(open));
+        if (nav) nav.hidden = !open;
+        updateMenuLabel();
+      });
+      const dialog =
+        document.querySelector<HTMLDialogElement>('#search-dialog')!;
+      const input = document.querySelector<HTMLInputElement>('#search-input')!;
+      const results =
+        document.querySelector<HTMLUListElement>('#search-results')!;
+      const status = document.querySelector<HTMLElement>('#search-status')!;
+      type SearchNote = {
+        title: string;
+        description: string;
+        category: string;
+        tags: string[];
+        body: string;
+        url: string;
+      };
+      const categories: Record<string, string> = Object.fromEntries(
+        topics.map((topic) => [topic.label, topic.labelEn]),
+      );
+      let index: SearchNote[] | undefined;
+      let loading: Promise<void> | undefined;
+      let searchState: 'idle' | 'loading' | 'error' = 'idle';
+      const renderResults = () => {
+        const query = input.value.trim().toLocaleLowerCase();
+        results.replaceChildren();
+        if (!index) {
+          status.textContent =
+            searchState === 'loading'
+              ? translate('Loading notes…', '正在读取笔记…')
+              : searchState === 'error'
+                ? translate(
+                    'Search is unavailable. Close and try again.',
+                    '搜索暂时无法加载，请关闭后重试。',
+                  )
+                : translate(
+                    'Type a keyword to find a note.',
+                    '输入关键词，发现相关笔记。',
+                  );
+          return;
+        }
+        if (!query) {
+          status.textContent = translate(
+            'Type a keyword to find a note.',
+            '输入关键词，发现相关笔记。',
+          );
+          return;
+        }
+        const words = query.split(/\s+/);
+        const matches = index.filter((note) =>
+          words.every((word) =>
+            `${note.title} ${note.description} ${note.category} ${categories[note.category] ?? ''} ${note.tags.join(' ')} ${note.body}`
+              .toLocaleLowerCase()
+              .includes(word),
+          ),
+        );
+        status.textContent = matches.length
+          ? translate(
+              `${matches.length} note${matches.length === 1 ? '' : 's'} found${matches.length > 20 ? ', showing the first 20' : ''}.`,
+              `找到 ${matches.length} 篇笔记${matches.length > 20 ? '，显示前 20 篇' : ''}`,
+            )
+          : translate(
+              'No notes found. Try another keyword.',
+              '暂时没有相关笔记，换个关键词试试。',
+            );
+        matches.slice(0, 20).forEach((note) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = note.url;
+          const category = document.createElement('small');
+          category.textContent = translate(
+            categories[note.category] ?? note.category,
+            note.category,
+          );
+          const title = document.createElement('strong');
+          title.textContent = note.title;
+          const description = document.createElement('p');
+          description.textContent = note.description;
+          a.append(category, title, description);
+          li.append(a);
+          results.append(li);
+        });
+      };
+      const loadIndex = async () => {
+        if (index) {
+          renderResults();
+          return;
+        }
+        if (loading) return loading;
+        searchState = 'loading';
+        renderResults();
+        loading = (async () => {
+          try {
+            const response = await fetch(dialog.dataset.index!);
+            if (!response.ok) throw new Error('Search unavailable');
+            const data = await response.json();
+            if (!Array.isArray(data)) throw new Error('Invalid search index');
+            index = data;
+            searchState = 'idle';
+            renderResults();
+          } catch {
+            searchState = 'error';
+            renderResults();
+          } finally {
+            loading = undefined;
+          }
+        })();
+        return loading;
+      };
+      const openSearch = () => {
+        dialog.showModal();
+        input.focus();
+        void loadIndex();
+      };
+      document
+        .querySelectorAll('[data-search-open]')
+        .forEach((button) => button.addEventListener('click', openSearch));
+      document
+        .querySelector('[data-search-close]')
+        ?.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) {
+          const bounds = dialog.getBoundingClientRect();
+          if (
+            event.clientX < bounds.left ||
+            event.clientX > bounds.right ||
+            event.clientY < bounds.top ||
+            event.clientY > bounds.bottom
+          )
+            dialog.close();
+        }
+      });
+      input.addEventListener('input', renderResults);
+      dialog.addEventListener(
+        'keydown',
+        (event) => {
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            dialog.close();
+          }
+        },
+        { capture: true },
+      );
+      document.addEventListener('keydown', (event) => {
+        if (
+          event.key === '/' &&
+          !event.ctrlKey &&
+          !event.metaKey &&
+          !event.altKey &&
+          !(
+            event.target instanceof Element &&
+            event.target.closest('input, textarea, [contenteditable="true"]')
+          ) &&
+          !dialog.open
+        ) {
+          event.preventDefault();
+          openSearch();
+        }
+      });
+      document.addEventListener('pagewise:language-change', () => {
+        updateMenuLabel();
+        renderResults();
+      });
+      document
+        .querySelector<HTMLButtonElement>('[data-home-language-toggle]')
+        ?.addEventListener('click', () => {
+          applyHomeLanguage(currentLanguage() === 'en' ? 'zh' : 'en', true);
+        });
+      if (document.documentElement.hasAttribute('data-home-language')) {
+        applyHomeLanguage(
+          document.documentElement.dataset.homeLanguage === 'zh' ? 'zh' : 'en',
+        );
+      }
+    </script>
+  </body>
+</html>

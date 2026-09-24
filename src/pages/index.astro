@@ -1,0 +1,284 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Diagram from '../components/Diagram.astro';
+import NoteCard from '../components/NoteCard.astro';
+import Icon from '../components/Icon.astro';
+import BrandMark from '../components/BrandMark.astro';
+import Localized from '../components/Localized.astro';
+import { topics, site } from '../config/site';
+import { getNotes, href } from '../lib/notes';
+const notes = await getNotes();
+---
+
+<Layout home>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-eyebrow">
+          <span class="status-dot"></span>
+          <Localized en="ONE PAGE, ONE INSIGHT." zh="知一页，进一步。" />
+        </div>
+        <h1>
+          <Localized en="Let knowledge " zh="让知识，" />
+          <span class="hero-accent">
+            <Localized en="grow." zh="生长。" />
+            <svg viewBox="0 0 230 12" aria-hidden="true">
+              <path
+                d="M3 8Q110-2 224 5M11 11Q130 2 218 8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+        </h1>
+        <p class="hero-description">
+          <Localized
+            en="Unpack complex ideas. Connect what you learn."
+            zh="把复杂的知识拆开，把零散的理解连起来。"
+          />
+          <br />
+          <Localized
+            en="A place for my notes, questions, and little discoveries."
+            zh="这里是我的学习笔记，也是思考留下的足迹。"
+          />
+        </p>
+        <div class="hero-buttons">
+          <a class="button button-dark" href="#latest">
+            <Localized en="Explore the notes" zh="开始阅读" />{' '}
+            <Icon name="arrow" size={19} />
+          </a>
+          <a class="hero-secondary" href={href('about/')}>
+            <Localized en={`About ${site.nameEn}`} zh={`关于${site.name}`} />{' '}
+            <Icon name="northeast" size={17} />
+          </a>
+        </div>
+        <div class="hero-topics">
+          {topics.map((topic, index) => (
+            <a
+              class:list={['hero-topic', topic.color]}
+              href={href(`topics/#${topic.id}`)}
+            >
+              <div class="topic-top">
+                <span class="topic-number">0{index + 1}</span>
+                <Icon name="northeast" size={18} />
+              </div>
+              <h2>
+                <Localized en={topic.labelEn} zh={topic.label} />
+              </h2>
+              <p class="topic-en">{topic.en}</p>
+              <Diagram kind={topic.cover} compact bilingual />
+              <div class="topic-bottom">
+                <Localized
+                  class="topic-description"
+                  en={topic.descriptionEn}
+                  zh={topic.description}
+                />
+                {notes.some((n) => n.data.category === topic.label) && (
+                  <Localized
+                    class="topic-count-inline"
+                    en={`${notes.filter((n) => n.data.category === topic.label).length} notes`}
+                    zh={`${notes.filter((n) => n.data.category === topic.label).length} 篇`}
+                  />
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    <div class="intro-strip">
+      <div class="container intro-inner">
+        <p>
+          <span class="tiny-spark">✳</span>
+          <Localized
+            en="Go beyond knowing. Start understanding."
+            zh="学习的意义，是从「知道」走向「理解」。"
+          />
+        </p>
+        {notes.length > 0 ? (
+          <div>
+            <span>
+              <strong>{notes.length.toString().padStart(2, '0')}</strong>{' '}
+              <Localized en="notes" zh="篇笔记" />
+            </span>
+            <span>
+              <strong>{topics.length.toString().padStart(2, '0')}</strong>{' '}
+              <Localized en="learning paths" zh="个学习方向" />
+            </span>
+            <span class="growing">
+              <i></i>
+              <Localized en="Always growing" zh="持续生长中" />
+            </span>
+          </div>
+        ) : (
+          <span class="intro-motto">
+            <Localized
+              en="A little growth, page by page."
+              zh="慢慢积累，页页生长。"
+            />
+          </span>
+        )}
+      </div>
+    </div>
+    <section
+      id="latest"
+      class="latest-section container"
+      aria-labelledby="latest-heading"
+    >
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">
+            <Localized en="THE LEARNING JOURNAL" zh="学习手记" />
+          </p>
+          <h2 id="latest-heading">
+            <Localized en="What I'm learning" zh="最近在学什么" />
+            <span class="heading-accent">
+              <Localized en="." zh="？" />
+            </span>
+          </h2>
+        </div>
+        <a class="text-link" href={href('archive/')}>
+          <Localized en="All notes" zh="全部归档" />{' '}
+          <Icon name="arrow" size={18} />
+        </a>
+      </div>
+      {notes.length > 0 ? (
+        <>
+          <div class="notes-toolbar">
+            <div
+              class="filters"
+              aria-label="Filter by topic"
+              data-en-aria-label="Filter by topic"
+              data-zh-aria-label="按主题筛选"
+            >
+              <button
+                class="filter active"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                <Localized en="All notes" zh="全部笔记" />{' '}
+                <span class="filter-badge">{notes.length}</span>
+              </button>
+              {topics.map((topic) => (
+                <button
+                  class="filter"
+                  data-filter={topic.label}
+                  aria-pressed="false"
+                >
+                  <Localized en={topic.labelEn} zh={topic.label} />
+                </button>
+              ))}
+            </div>
+            <span id="filter-count" role="status">
+              {notes.length} notes
+            </span>
+          </div>
+          <div class="notes-grid">
+            {notes.map((note) => (
+              <NoteCard note={note} bilingual />
+            ))}
+          </div>
+          <p id="filter-empty" class="empty-state" hidden>
+            <Localized
+              en="Notes on this topic are on their way. Explore another path for now."
+              zh="这个方向的笔记，正在路上。先看看其他主题吧。"
+            />
+          </p>
+        </>
+      ) : (
+        <div class="empty-journal">
+          <div class="empty-journal-icon">
+            <BrandMark size={34} />
+          </div>
+          <div>
+            <h3>
+              <Localized
+                en="Every idea starts with a blank page."
+                zh="一页空白，也是一种开始。"
+              />
+            </h3>
+            <p>
+              <Localized
+                en="A space for questions, discoveries, and the notes that connect them."
+                zh="把遇见的问题、读过的知识和新的理解，慢慢写在这里。"
+              />
+            </p>
+          </div>
+          <a class="text-link" href={href('about/')}>
+            <Localized en={`About ${site.nameEn}`} zh={`关于${site.name}`} />{' '}
+            <Icon name="arrow" size={18} />
+          </a>
+        </div>
+      )}
+    </section>
+    <section class="newsletter container">
+      <div class="newsletter-art" aria-hidden="true">
+        <span>✳</span>
+        <span>↗</span>
+      </div>
+      <div class="newsletter-copy">
+        <p class="eyebrow">
+          <Localized
+            en="STAY CURIOUS. KEEP LEARNING."
+            zh="保持好奇，持续学习。"
+          />
+        </p>
+        <h2>
+          <Localized
+            en="The next insight starts here."
+            zh="下一次理解，从这里继续。"
+          />
+        </h2>
+        <p>
+          <Localized
+            en="Follow along via RSS. New notes, in your favorite reader."
+            zh="通过 RSS 订阅，把新的学习笔记带进你的阅读器。"
+          />
+        </p>
+      </div>
+      <a class="button button-dark" href={href('rss.xml')}>
+        <Icon name="rss" size={18} />{' '}
+        <Localized en="Subscribe via RSS" zh="订阅笔记" />
+      </a>
+    </section>
+  </main>
+  <script>
+    import { translate } from '../lib/i18n';
+    const buttons =
+      document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const cards = document.querySelectorAll<HTMLElement>('[data-note-card]');
+    const updateCount = () => {
+      const count = Array.from(cards).filter((card) => !card.hidden).length;
+      const status = document.querySelector('#filter-count');
+      if (status)
+        status.textContent = translate(
+          `${count} ${count === 1 ? 'note' : 'notes'}`,
+          `共 ${count} 篇笔记`,
+        );
+    };
+    buttons.forEach((button) =>
+      button.addEventListener('click', () => {
+        const category = button.dataset.filter;
+        buttons.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        cards.forEach((card) => {
+          card.hidden =
+            category !== 'all' && card.dataset.category !== category;
+        });
+        updateCount();
+        const empty = document.querySelector<HTMLElement>('#filter-empty');
+        if (empty)
+          empty.hidden = Array.from(cards).some((card) => !card.hidden);
+      }),
+    );
+    document.addEventListener('pagewise:language-change', updateCount);
+    updateCount();
+  </script>
+</Layout>

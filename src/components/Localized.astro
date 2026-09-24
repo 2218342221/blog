@@ -1,0 +1,17 @@
+---
+interface Props {
+  en: string;
+  zh: string;
+  active?: boolean;
+  class?: string;
+}
+const { en, zh, active = true, class: className } = Astro.props;
+---
+
+<span
+  class={className}
+  data-en={active ? en : undefined}
+  data-zh={active ? zh : undefined}
+>
+  {active ? en : zh}
+</span>

@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NoteCard from '../../components/NoteCard.astro';
+import { topics } from '../../config/site';
+import { getNotes } from '../../lib/notes';
+
+const notes = await getNotes();
+const collections = topics.map((topic) => ({
+  ...topic,
+  notes: notes.filter((note) => note.data.category === topic.label),
+}));
+---
+
+<Layout
+  title="学习专题"
+  description="按系统设计、AI 工程、后端开发和学习方法，梳理学习笔记。"
+>
+  <main id="main" class="page-shell container">
+    <p class="page-eyebrow">EXPLORE BY TOPIC</p>
+    <h1 class="page-title">学习专题</h1>
+    <p class="page-intro">
+      一个问题，一篇笔记。沿着感兴趣的主题，把零散的理解慢慢连起来。
+    </p>
+
+    <nav class="topic-jumps" aria-label="跳转到学习专题">
+      {collections.map((topic) => (
+        <a class="topic-jump" href={`#${topic.id}`}>
+          {topic.label}
+          {topic.notes.length > 0 && <span>{topic.notes.length}</span>}
+        </a>
+      ))}
+    </nav>
+
+    {collections.map((topic) => (
+      <section
+        class="topic-section"
+        id={topic.id}
+        aria-labelledby={`${topic.id}-title`}
+      >
+        <div class="topic-section-header">
+          <div>
+            <p class="page-eyebrow">{topic.en}</p>
+            <h2 id={`${topic.id}-title`}>{topic.label}</h2>
+            <p>{topic.description}</p>
+          </div>
+          {topic.notes.length > 0 && (
+            <span class="topic-count">{topic.notes.length} 篇笔记</span>
+          )}
+        </div>
+        {topic.notes.length > 0 && (
+          <div class="notes-grid">
+            {topic.notes.map((note) => (
+              <NoteCard note={note} />
+            ))}
+          </div>
+        )}
+      </section>
+    ))}
+  </main>
+</Layout>

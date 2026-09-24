@@ -1,0 +1,77 @@
+---
+import Diagram from './Diagram.astro';
+import Icon from './Icon.astro';
+import Localized from './Localized.astro';
+import { topics } from '../config/site';
+import { formatDate, noteUrl, readingTime, type Note } from '../lib/notes';
+interface Props {
+  note: Note;
+  bilingual?: boolean;
+}
+const { note, bilingual = false } = Astro.props;
+const categoryEn =
+  topics.find((topic) => topic.label === note.data.category)?.labelEn ||
+  note.data.category;
+const colors: Record<string, string> = {
+  cache: 'mint',
+  rag: 'lavender',
+  api: 'peach',
+  learning: 'yellow',
+  database: 'blue',
+  transformer: 'pink',
+};
+---
+
+<article class="note-card" data-note-card data-category={note.data.category}>
+  <a
+    class:list={['note-cover', colors[note.data.cover]]}
+    href={noteUrl(note)}
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <span class="cover-label">
+      {note.data.cover === 'cache'
+        ? 'SYSTEM DESIGN, VISUALIZED'
+        : note.data.cover === 'rag'
+          ? 'FROM QUESTION TO ANSWER'
+          : 'ONE CONCEPT AT A TIME'}
+    </span>
+    <Diagram kind={note.data.cover} bilingual={bilingual} />
+    {note.data.featured && (
+      <Localized
+        class="featured-label"
+        en="✦ Featured"
+        zh="✦ 精选笔记"
+        active={bilingual}
+      />
+    )}
+  </a>
+  <div class="note-info">
+    <div class="note-meta">
+      <Localized
+        class="category"
+        en={categoryEn}
+        zh={note.data.category}
+        active={bilingual}
+      />
+      <Localized
+        en={`${readingTime(note)} min read`}
+        zh={`${readingTime(note)} 分钟阅读`}
+        active={bilingual}
+      />
+    </div>
+    <h3>
+      <a href={noteUrl(note)}>{note.data.title}</a>
+    </h3>
+    <p>{note.data.description}</p>
+    <div class="note-bottom">
+      <time datetime={note.data.published.toISOString()}>
+        {formatDate(note.data.published)}
+      </time>
+      <span>
+        <Localized en="Learning note" zh="学习笔记" active={bilingual} />{' '}
+        <Icon name="northeast" size={17} />
+      </span>
+    </div>
+  </div>
+</article>

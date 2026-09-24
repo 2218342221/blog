@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { site, topics } from '../../config/site';
+import { href } from '../../lib/notes';
+import BrandMark from '../../components/BrandMark.astro';
+---
+
+<Layout
+  title="关于这里"
+  description={`${site.author} 的学习笔记：记录问题、梳理概念，在写作中加深理解。`}
+>
+  <main id="main" class="page-shell container">
+    <p class="page-eyebrow">LEARN. CONNECT. SHARE.</p>
+    <h1 class="page-title">关于这里</h1>
+    <p class="page-intro">把复杂的知识拆开，把零散的理解连起来。</p>
+
+    <div class="about-layout">
+      <div class="about-avatar" aria-hidden="true">
+        <BrandMark size={64} />
+      </div>
+      <article class="prose">
+        <h2>知一页，进一步。</h2>
+        <p>
+          这里是我的学习笔记。遇到值得弄清楚的问题，就把它写下来：从概念和例子开始，记录实践中的发现，也留下暂时没有答案的部分。
+        </p>
+        <p>
+          我希望这些笔记既能帮自己回顾，也能为正在学习同一个问题的人提供一个入口。
+        </p>
+
+        <h2>这里会记录什么</h2>
+        <ul>
+          {topics.map((topic) => (
+            <li>
+              <a href={href(`topics/#${topic.id}`)}>{topic.label}</a>：
+              {topic.description}
+            </li>
+          ))}
+        </ul>
+
+        <h2>用自己的话，慢慢写清楚</h2>
+        <p>
+          每篇笔记尽量从一个具体问题出发，用文字、图解或代码梳理思路。能够验证的，就记录过程和结果；引用的资料，尽量给出出处；理解发生变化时，再回来补充和修正。
+        </p>
+        <p>
+          学习没有最终版本，笔记也一样。这里会持续更新，把每一次新的理解积累下来。
+        </p>
+
+        <h2>从一篇笔记开始</h2>
+        <p>
+          可以按<a href={href('topics/')}>学习专题</a>探索，也可以在
+          <a href={href('archive/')}>笔记归档</a>里沿着时间线阅读。使用 RSS
+          阅读器的话，欢迎订阅<a href={href('rss.xml')}>更新源</a>。
+        </p>
+      </article>
+    </div>
+  </main>
+</Layout>

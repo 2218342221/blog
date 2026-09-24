@@ -1,0 +1,127 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Diagram from '../../components/Diagram.astro';
+import Icon from '../../components/Icon.astro';
+import NoteCard from '../../components/NoteCard.astro';
+import { getNotes, href, formatDate, readingTime } from '../../lib/notes';
+import { topics, site } from '../../config/site';
+export async function getStaticPaths() {
+  return (await getNotes()).map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+const { note } = Astro.props;
+const { Content, headings } = await render(note);
+const all = await getNotes();
+const related = all
+  .filter((other) => other.id !== note.id)
+  .sort(
+    (a, b) =>
+      Number(b.data.category === note.data.category) -
+      Number(a.data.category === note.data.category),
+  )
+  .slice(0, 3);
+const topic = topics.find((t) => t.label === note.data.category);
+---
+
+<Layout title={note.data.title} description={note.data.description} article>
+  <main id="main" class="article-page container">
+    <a class="back-link" href={href()}>
+      ← 返回笔记
+    </a>
+    <header class="article-header">
+      <a class="category" href={href(`topics/#${topic?.id}`)}>
+        {note.data.category}
+      </a>
+      <h1>{note.data.title}</h1>
+      <p>{note.data.description}</p>
+      <div class="article-meta">
+        <span class="author-icon">{site.author.slice(0, 1)}</span>
+        <span>{site.author}</span>
+        <span>·</span>
+        <time datetime={note.data.published.toISOString()}>
+          {formatDate(note.data.published)}
+        </time>
+        <span>·</span>
+        <span>{readingTime(note)} 分钟阅读</span>
+        {note.data.updated && (
+          <span>更新于 {formatDate(note.data.updated)}</span>
+        )}
+      </div>
+    </header>
+    <div class="article-layout">
+      <article class="article-content">
+        <div class:list={['article-cover', topic?.color || 'mint']}>
+          <Diagram kind={note.data.cover} />
+        </div>
+        <div class="prose">
+          <Content />
+        </div>
+        <div class="article-tags">
+          {note.data.tags.map((tag) => (
+            <span>#{tag}</span>
+          ))}
+        </div>
+        <div class="article-end">
+          <p>这篇笔记到这里，思考还在继续。</p>
+          <button class="text-link" id="copy-link">
+            <Icon name="northeast" size={16} />
+            <span>复制文章链接</span>
+          </button>
+        </div>
+        <p id="copy-status" class="copy-status" role="status"></p>
+      </article>
+      <aside class="article-aside">
+        <div class="toc">
+          <p class="eyebrow">ON THIS PAGE</p>
+          <h2>这篇笔记的脉络</h2>
+          <nav aria-label="文章目录">
+            {headings
+              .filter((h) => h.depth === 2 || h.depth === 3)
+              .map((h) => (
+                <a
+                  class:list={[{ 'toc-sub': h.depth === 3 }]}
+                  href={`#${h.slug}`}
+                >
+                  {h.text}
+                </a>
+              ))}
+          </nav>
+          <a class="toc-back" href="#main">
+            ↑ 回到顶部
+          </a>
+        </div>
+      </aside>
+    </div>
+    {related.length > 0 && (
+      <section class="related-notes">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CONNECT THE DOTS</p>
+            <h2>沿着好奇，继续读。</h2>
+          </div>
+        </div>
+        <div class="notes-grid">
+          {related.map((other) => (
+            <NoteCard note={other} />
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+  <script>
+    document
+      .querySelector('#copy-link')
+      ?.addEventListener('click', async () => {
+        const status = document.querySelector('#copy-status')!;
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          status.textContent = '链接已复制，可以分享给朋友了。';
+        } catch {
+          status.textContent = '自动复制不可用，请从浏览器地址栏复制链接。';
+        }
+      });
+  </script>
+</Layout>

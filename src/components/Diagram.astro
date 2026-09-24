@@ -1,0 +1,465 @@
+---
+interface Props {
+  kind?: string;
+  compact?: boolean;
+  bilingual?: boolean;
+}
+const { kind = 'cache', compact = false, bilingual = false } = Astro.props;
+---
+
+<svg
+  class:list={['diagram', { compact }]}
+  viewBox="0 0 420 215"
+  fill="none"
+  aria-hidden="true"
+>
+  {kind === 'cache' && (
+    <>
+      <path
+        d="M110 115h62m84 0h54M215 89V43h99"
+        stroke="#253f36"
+        stroke-width="2"
+        stroke-dasharray="5 5"
+      />
+      <path
+        d="m165 110 7 5-7 5m139-10 7 5-7 5m-4-77 7-5-7-5"
+        stroke="#253f36"
+        stroke-width="2"
+      />
+      <rect
+        x="25"
+        y="84"
+        width="87"
+        height="63"
+        rx="8"
+        fill="#fff"
+        stroke="#253f36"
+        stroke-width="2"
+      />
+      <rect
+        x="172"
+        y="82"
+        width="87"
+        height="67"
+        rx="8"
+        fill="#d6ff89"
+        stroke="#253f36"
+        stroke-width="2"
+      />
+      <path
+        d="M311 92v47c0 17 86 17 86 0V92"
+        fill="#bce4ff"
+        stroke="#253f36"
+        stroke-width="2"
+      />
+      <ellipse
+        cx="354"
+        cy="92"
+        rx="43"
+        ry="12"
+        fill="#e1f2ff"
+        stroke="#253f36"
+        stroke-width="2"
+      />
+      <path d="M311 116c0 16 86 16 86 0" stroke="#253f36" stroke-width="1.5" />
+      <rect
+        x="306"
+        y="26"
+        width="92"
+        height="32"
+        rx="6"
+        fill="#ffe4ad"
+        stroke="#253f36"
+        stroke-width="1.5"
+      />
+      <g fill="#253f36" text-anchor="middle">
+        <text x="68" y="121">
+          Client
+        </text>
+        <text x="215" y="121">
+          Cache
+        </text>
+        <text x="354" y="136">
+          Database
+        </text>
+        <text x="352" y="47" font-size="12">
+          cache miss
+        </text>
+        <text x="213" y="182" font-size="11" letter-spacing="2">
+          READ → CACHE → STORE
+        </text>
+      </g>
+      <circle cx="141" cy="115" r="5" fill="#149f76" />
+    </>
+  )}
+  {kind === 'rag' && (
+    <>
+      <path
+        d="M85 76h67m98 0h61M357 109v49H87v-48"
+        stroke="#303057"
+        stroke-width="2"
+        stroke-dasharray="5 5"
+      />
+      <path
+        d="m145 71 7 5-7 5m159-10 7 5-7 5m-221 39-5-7-5 7"
+        stroke="#303057"
+        stroke-width="2"
+      />
+      <rect
+        x="21"
+        y="46"
+        width="85"
+        height="63"
+        rx="7"
+        fill="#fff"
+        stroke="#303057"
+        stroke-width="2"
+      />
+      <rect
+        x="159"
+        y="40"
+        width="104"
+        height="76"
+        rx="7"
+        fill="#dfff92"
+        stroke="#303057"
+        stroke-width="2"
+      />
+      <rect
+        x="315"
+        y="46"
+        width="84"
+        height="63"
+        rx="7"
+        fill="#ffe5ad"
+        stroke="#303057"
+        stroke-width="2"
+      />
+      <rect
+        x="153"
+        y="140"
+        width="117"
+        height="36"
+        rx="6"
+        fill="#fff"
+        stroke="#303057"
+        stroke-width="1.5"
+      />
+      <g fill="#303057" text-anchor="middle">
+        <text x="64" y="72">
+          Query
+        </text>
+        <text x="64" y="92" font-size="10">
+          a good question
+        </text>
+        <text x="211" y="72">
+          Retriever
+        </text>
+        <text x="211" y="94" font-size="10">
+          find the context
+        </text>
+        <text x="357" y="84">
+          LLM ✧
+        </text>
+        <text x="211" y="163" font-size="12">
+          Grounded answer
+        </text>
+      </g>
+      <path
+        d="m278 31 4-9m4 13 9-3m-14-7-5-5"
+        stroke="#7272af"
+        stroke-width="2"
+      />
+    </>
+  )}
+  {kind === 'api' && (
+    <>
+      <rect
+        x="31"
+        y="39"
+        width="122"
+        height="139"
+        rx="9"
+        fill="#fff"
+        stroke="#53372c"
+        stroke-width="2"
+      />
+      <path d="M31 64h122" stroke="#53372c" stroke-width="2" />
+      <circle cx="45" cy="51" r="3" fill="#f2a885" />
+      <circle cx="57" cy="51" r="3" fill="#e3c56c" />
+      <circle cx="69" cy="51" r="3" fill="#80cfa5" />
+      <path
+        d="m75 92-14 16 14 16m32-32 14 16-14 16m-10-37-11 42"
+        stroke="#53372c"
+        stroke-width="2.5"
+      />
+      <path
+        d="M155 88h102m-102 48h102m-8-53 8 5-8 5m-86 38-8 5 8 5"
+        stroke="#53372c"
+        stroke-width="2"
+      />
+      <rect
+        x="263"
+        y="39"
+        width="124"
+        height="43"
+        rx="7"
+        fill="#dfff9e"
+        stroke="#53372c"
+        stroke-width="2"
+      />
+      <rect
+        x="263"
+        y="92"
+        width="124"
+        height="43"
+        rx="7"
+        fill="#c6d8ff"
+        stroke="#53372c"
+        stroke-width="2"
+      />
+      <rect
+        x="263"
+        y="145"
+        width="124"
+        height="34"
+        rx="7"
+        fill="#fff"
+        stroke="#53372c"
+        stroke-width="2"
+      />
+      <g fill="#53372c" text-anchor="middle">
+        <text x="92" y="156" font-size="12">
+          Client
+        </text>
+        <text x="207" y="77" font-size="11">
+          request
+        </text>
+        <text x="208" y="159" font-size="11">
+          response
+        </text>
+        <text x="325" y="66">
+          GET /notes
+        </text>
+        <text x="325" y="118">
+          200 OK
+        </text>
+        <text x="325" y="166" font-size="12">
+          &#123; learn: true &#125;
+        </text>
+      </g>
+    </>
+  )}
+  {kind === 'learning' && (
+    <>
+      <path
+        d="M135 65h131m36 41v38H112v-38"
+        stroke="#4c4628"
+        stroke-width="2"
+        stroke-dasharray="5 5"
+      />
+      <path
+        d="m259 60 7 5-7 5m-149 50-5-7-5 7"
+        stroke="#4c4628"
+        stroke-width="2"
+      />
+      <rect
+        x="49"
+        y="35"
+        width="114"
+        height="67"
+        rx="9"
+        fill="#fff"
+        stroke="#4c4628"
+        stroke-width="2"
+      />
+      <rect
+        x="266"
+        y="35"
+        width="114"
+        height="67"
+        rx="9"
+        fill="#bddbff"
+        stroke="#4c4628"
+        stroke-width="2"
+      />
+      <rect
+        x="148"
+        y="119"
+        width="135"
+        height="51"
+        rx="9"
+        fill="#c8edb0"
+        stroke="#4c4628"
+        stroke-width="2"
+      />
+      <g fill="#4c4628" text-anchor="middle">
+        <text x="106" y="64">
+          Learn
+        </text>
+        <text
+          x="106"
+          y="85"
+          font-size="11"
+          data-en={bilingual ? 'Read & ask' : undefined}
+          data-zh={bilingual ? '输入 · 提问' : undefined}
+        >
+          {bilingual ? 'Read & ask' : '输入 · 提问'}
+        </text>
+        <text x="323" y="64">
+          Connect
+        </text>
+        <text
+          x="323"
+          y="85"
+          font-size="11"
+          data-en={bilingual ? 'Make sense' : undefined}
+          data-zh={bilingual ? '关联 · 理解' : undefined}
+        >
+          {bilingual ? 'Make sense' : '关联 · 理解'}
+        </text>
+        <text x="215" y="149">
+          Build & share
+        </text>
+        <text x="215" y="199" font-size="10" letter-spacing="2">
+          A LITTLE BETTER, EVERY DAY.
+        </text>
+      </g>
+    </>
+  )}
+  {kind === 'database' && (
+    <>
+      <path
+        d="M210 63v27M91 118V91h238v27M91 145v29m238-29v29"
+        stroke="#334d67"
+        stroke-width="2"
+      />
+      <rect
+        x="167"
+        y="28"
+        width="86"
+        height="36"
+        rx="7"
+        fill="#fff"
+        stroke="#334d67"
+        stroke-width="2"
+      />
+      <rect
+        x="42"
+        y="112"
+        width="100"
+        height="38"
+        rx="7"
+        fill="#dfff9e"
+        stroke="#334d67"
+        stroke-width="2"
+      />
+      <rect
+        x="279"
+        y="112"
+        width="100"
+        height="38"
+        rx="7"
+        fill="#ffe0af"
+        stroke="#334d67"
+        stroke-width="2"
+      />
+      <path
+        d="M25 178h369"
+        stroke="#334d67"
+        stroke-width="2"
+        stroke-dasharray="5 5"
+      />
+      <g fill="#334d67" text-anchor="middle">
+        <text x="210" y="52">
+          [ 42 ]
+        </text>
+        <text x="92" y="137">
+          12 · 28
+        </text>
+        <text x="329" y="137">
+          56 · 84
+        </text>
+        <text x="210" y="204" font-size="11" letter-spacing="2">
+          LESS SCANNING. MORE FINDING.
+        </text>
+      </g>
+    </>
+  )}
+  {kind === 'transformer' && (
+    <>
+      <path
+        d="M67 145 172 59m-105 86 105-26m-105 26 105 32m74-118 104 85m-104-25 104 25m-104 33 104-33"
+        stroke="#5a465f"
+        stroke-width="1.5"
+      />
+      <rect
+        x="18"
+        y="114"
+        width="82"
+        height="55"
+        rx="8"
+        fill="#fff"
+        stroke="#5a465f"
+        stroke-width="2"
+      />
+      <rect
+        x="168"
+        y="37"
+        width="83"
+        height="43"
+        rx="7"
+        fill="#dfff9e"
+        stroke="#5a465f"
+        stroke-width="2"
+      />
+      <rect
+        x="168"
+        y="97"
+        width="83"
+        height="43"
+        rx="7"
+        fill="#bbd9ff"
+        stroke="#5a465f"
+        stroke-width="2"
+      />
+      <rect
+        x="168"
+        y="157"
+        width="83"
+        height="43"
+        rx="7"
+        fill="#ffe6b5"
+        stroke="#5a465f"
+        stroke-width="2"
+      />
+      <rect
+        x="321"
+        y="114"
+        width="83"
+        height="55"
+        rx="8"
+        fill="#fff"
+        stroke="#5a465f"
+        stroke-width="2"
+      />
+      <g fill="#5a465f" text-anchor="middle">
+        <text x="59" y="146">
+          Tokens
+        </text>
+        <text x="209" y="65">
+          Q · Query
+        </text>
+        <text x="209" y="125">
+          K · Key
+        </text>
+        <text x="209" y="185">
+          V · Value
+        </text>
+        <text x="362" y="146">
+          Attention
+        </text>
+      </g>
+    </>
+  )}
+</svg>

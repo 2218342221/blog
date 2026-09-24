@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getNotes, formatDate, noteUrl, type Note } from '../../lib/notes';
+
+const notes = await getNotes();
+const yearFormat = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  timeZone: 'Asia/Shanghai',
+});
+const byYear = new Map<string, Note[]>();
+for (const note of notes) {
+  const year = yearFormat.format(note.data.published);
+  byYear.set(year, [...(byYear.get(year) ?? []), note]);
+}
+---
+
+<Layout title="笔记归档" description="沿着时间线，回看每一篇学习笔记。">
+  <main id="main" class="page-shell container">
+    <p class="page-eyebrow">A LITTLE PROGRESS, EVERY TIME</p>
+    <h1 class="page-title">笔记归档</h1>
+    <p class="page-intro">
+      把学过的东西留下来，也给未来的自己留一条回来的路。这里收录了{' '}
+      {notes.length} 篇笔记。
+    </p>
+
+    {notes.length > 0 ? (
+      Array.from(byYear, ([year, entries]) => (
+        <section class="archive-section" aria-labelledby={`year-${year}`}>
+          <div class="archive-year">
+            <h2 id={`year-${year}`}>{year}</h2>
+            <span>{entries.length} 篇笔记</span>
+          </div>
+          <ul class="archive-list">
+            {entries.map((note) => (
+              <li class="archive-row">
+                <time
+                  class="archive-date"
+                  datetime={note.data.published.toISOString()}
+                >
+                  {formatDate(note.data.published)}
+                </time>
+                <div class="archive-title">
+                  <a href={noteUrl(note)}>{note.data.title}</a>
+                </div>
+                <span class="archive-category">{note.data.category}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    ) : (
+      <p class="empty-state">第一篇笔记正在路上。</p>
+    )}
+  </main>
+</Layout>

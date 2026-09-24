@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { href } from '../lib/notes';
+---
+
+<Layout title="这一页还没长出来">
+  <main id="main" class="container not-found">
+    <p class="eyebrow">404 · A LITTLE DETOUR</p>
+    <h1>这一页，还没长出来。</h1>
+    <p>也许链接变了，也许笔记正在酝酿。回到首页，继续探索吧。</p>
+    <a class="button button-dark" href={href()}>
+      返回首页 →
+    </a>
+  </main>
+</Layout>
