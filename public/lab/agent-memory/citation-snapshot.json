@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+    "openalex_id": "https://openalex.org/W4387835442",
+    "cited_by_count": 1861,
+    "retrieved": "2026-09-24"
+  },
+  {
+    "title": "Reflexion: language agents with verbal reinforcement learning",
+    "openalex_id": "https://openalex.org/W7133222210",
+    "cited_by_count": 536,
+    "retrieved": "2026-09-24"
+  },
+  {
+    "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory",
+    "openalex_id": "https://openalex.org/W4393147158",
+    "cited_by_count": 196,
+    "retrieved": "2026-09-24"
+  },
+  {
+    "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+    "openalex_id": "https://openalex.org/W4378505261",
+    "cited_by_count": 205,
+    "retrieved": "2026-09-24"
+  }
+]

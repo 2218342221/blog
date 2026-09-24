@@ -1,0 +1,242 @@
+{
+  "review_date": "2026-09-24",
+  "organization": "三类记忆需求；表示与管理学习作为实现维度",
+  "references": 71,
+  "research_works": 64,
+  "official_sources": 7,
+  "fulltext_or_official_detail_links": 62,
+  "source_status_counts": {
+    "正式发表 / 已接受": 35,
+    "预印本 / 发表状态待核验": 29,
+    "官方工程资料": 7
+  },
+  "chapters": [
+    {
+      "slug": "index",
+      "title": "阅读导引",
+      "purpose": "沿任务状态、事实证据和经验迁移三类需求，理解记忆方法的机制、关系与前沿。",
+      "reference_ids": [
+        "amem",
+        "awm",
+        "coala",
+        "expel",
+        "hipporag2",
+        "memevolve",
+        "memgen",
+        "memgpt",
+        "memory-r1",
+        "memoryllm",
+        "memskill",
+        "mplus",
+        "readagent",
+        "reasoningbank",
+        "reflexion",
+        "rmm",
+        "survey-age",
+        "survey-second",
+        "voyager"
+      ]
+    },
+    {
+      "slug": "foundations",
+      "title": "问题框架",
+      "purpose": "建立统一的概念与决策框架，分清用途、载体、读写操作和学习方式。",
+      "reference_ids": [
+        "ace",
+        "amem",
+        "awm",
+        "coala",
+        "expel",
+        "generative-agents",
+        "gmemory",
+        "hiagent",
+        "hipporag",
+        "hipporag2",
+        "langgraph-memory",
+        "lightmem",
+        "longmemeval",
+        "mem1",
+        "memagent",
+        "memevolve",
+        "memgen",
+        "memgpt",
+        "memory-r1",
+        "memorybank",
+        "memskill",
+        "memtree",
+        "mplus",
+        "openai-state",
+        "rag",
+        "readagent",
+        "reasoningbank",
+        "reflexion",
+        "rmm",
+        "survey-age",
+        "survey-second",
+        "survey-tois",
+        "voyager",
+        "wikiskill",
+        "zep"
+      ]
+    },
+    {
+      "slug": "working",
+      "title": "维持任务状态",
+      "purpose": "从层级上下文、可回读摘要与子目标状态，到受训的上下文管理。",
+      "reference_ids": [
+        "hiagent",
+        "mem1",
+        "memagent",
+        "memgpt",
+        "readagent"
+      ]
+    },
+    {
+      "slug": "knowledge",
+      "title": "事实与证据",
+      "purpose": "比较记忆单元、动态关联、时序与层次结构，理解写入和读取如何共同决定效果。",
+      "reference_ids": [
+        "amem",
+        "arigraph",
+        "hindsight",
+        "hipporag",
+        "hipporag2",
+        "lightmem",
+        "lightmem-reproduction",
+        "memsifter",
+        "memtree",
+        "rag",
+        "readagent",
+        "rmm",
+        "simplemem",
+        "zep"
+      ]
+    },
+    {
+      "slug": "evolution",
+      "title": "经验与技能",
+      "purpose": "案例、规则、工作流与程序的复用接口，以及反馈、维护和迁移的不同要求。",
+      "reference_ids": [
+        "ace",
+        "awm",
+        "consolidation",
+        "evoskill",
+        "expel",
+        "mem2evolve",
+        "memento-skills",
+        "reasoningbank",
+        "reflexion",
+        "skillopt",
+        "synapse",
+        "trace2skill",
+        "voyager",
+        "wikiskill"
+      ]
+    },
+    {
+      "slug": "learning",
+      "title": "记忆管理学习",
+      "purpose": "区分记忆内容变化、选择策略训练、操作库演化与架构搜索。",
+      "reference_ids": [
+        "coala",
+        "memento",
+        "memevolve",
+        "memory-r1",
+        "memsifter",
+        "memskill",
+        "rmm"
+      ]
+    },
+    {
+      "slug": "substrates",
+      "title": "模型内部记忆",
+      "purpose": "从缓存和持久隐状态，到测试时快权重更新与生成式辅助记忆。",
+      "reference_ids": [
+        "longmem",
+        "mem1",
+        "memgen",
+        "memoryllm",
+        "memos",
+        "mplus",
+        "titans"
+      ]
+    },
+    {
+      "slug": "evaluation",
+      "title": "评测与效用",
+      "purpose": "按需求匹配协议，用分层干预连接信息、使用、行动与长期成本。",
+      "reference_ids": [
+        "dolphinbench",
+        "locomo",
+        "longmemeval",
+        "mem0",
+        "memcalib",
+        "memoryagentbench",
+        "memoryarena",
+        "provenance",
+        "reasoningbank",
+        "reflexion",
+        "tau2",
+        "titans",
+        "vibemembench"
+      ]
+    },
+    {
+      "slug": "production",
+      "title": "生产系统",
+      "purpose": "明确状态、来源、更新可见性和生命周期，再逐步组合与验证记忆组件。",
+      "reference_ids": [
+        "agentpoison",
+        "anthropic-context",
+        "aws-memory",
+        "google-memory-current",
+        "hindsight",
+        "hipporag2",
+        "langgraph-memory",
+        "letta-current",
+        "lightmem",
+        "mem0",
+        "mem2evolve",
+        "memory-security-survey",
+        "minja",
+        "openai-state",
+        "readagent",
+        "rmm",
+        "simplemem",
+        "skillopt",
+        "supermemory-doc",
+        "wikiskill",
+        "zep"
+      ]
+    },
+    {
+      "slug": "frontiers",
+      "title": "前沿与开放问题",
+      "purpose": "从信息保留与经验迁移的矛盾，走向协作、多模态和长期自适应。",
+      "reference_ids": [
+        "dolphinbench",
+        "gmemory",
+        "lightmem",
+        "lightmem-reproduction",
+        "longmemeval",
+        "m3agent",
+        "memory-r1",
+        "memory-security-survey",
+        "memoryarena",
+        "mirix",
+        "readagent",
+        "reasoningbank",
+        "rmm",
+        "survey-age",
+        "survey-second",
+        "vibemembench"
+      ]
+    }
+  ],
+  "reading_method": "按研究问题重读代表原文的机制、实验和限制；逐条深度见 bibliography.json 的 depth 与 fulltext_version。",
+  "limits": [
+    "定向综述，未宣称穷尽文献",
+    "没有独立运行论文复现或厂商生产负载",
+    "真实机器人长期运行、触觉与本体感觉、去中心化集体记忆、非英语长期个性化覆盖有限"
+  ]
+}
