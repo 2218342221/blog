@@ -7,6 +7,10 @@ const notes = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    destination: z
+      .string()
+      .regex(/^[a-z0-9-]+(?:\/[a-z0-9-]+)*\/$/)
+      .optional(),
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),
     category: z.enum(['系统设计', 'AI 工程', '后端开发', '学习方法']),

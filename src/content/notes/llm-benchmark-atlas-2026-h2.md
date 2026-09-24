@@ -1,6 +1,7 @@
 ---
 title: '2026 下半年 LLM 评测图谱'
 description: '用动画理解 41 个评测集与 48 个案例：输入输出格式、工作环境、Agent 工具接入和判分流程，附模型榜单快照。'
+destination: 'lab/llm-benchmark-atlas/'
 published: 2026-09-24
 category: 'AI 工程'
 tags: ['LLM', 'Benchmark', 'Agent', '模型评测']

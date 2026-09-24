@@ -15,6 +15,8 @@ type PublishedNote = {
   url: string;
   body: string;
 };
+const isArticle = (note: PublishedNote) =>
+  note.url.startsWith(pathTo('notes/'));
 
 async function selectChineseHome(page: Page) {
   if (
@@ -38,7 +40,8 @@ async function getPublishedNotes(
   for (const note of notes) {
     expect(note.title.trim()).not.toBe('');
     expect(note.category.trim()).not.toBe('');
-    expect(note.url.startsWith(pathTo('notes/'))).toBe(true);
+    expect(note.url.startsWith(basePath)).toBe(true);
+    expect(note.url).toMatch(/^\/(?!\/)/);
   }
   expect(new Set(notes.map((note) => note.url)).size).toBe(notes.length);
   return notes;
@@ -87,6 +90,14 @@ test('read published notes and filter by learning topic', async ({
   await expect(visibleCards.locator('h3')).toHaveText(
     notes.map((note) => note.title),
   );
+  for (const [index, note] of notes.entries()) {
+    const card = visibleCards.nth(index);
+    await expect(card.locator('a.note-cover')).toHaveAttribute(
+      'href',
+      note.url,
+    );
+    await expect(card.locator('h3 a')).toHaveAttribute('href', note.url);
+  }
 
   const filters = page.locator('.filters');
   if (notes.length === 0) {
@@ -150,9 +161,17 @@ test('search with the keyboard, open matching notes, and dismiss with Escape', a
       .first()
       .click();
     await expect(page).toHaveURL((url) => url.pathname === note.url);
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-      note.title,
-    );
+    if (isArticle(note)) {
+      await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+        note.title,
+      );
+    } else {
+      await expect(
+        page.getByRole('heading', { level: 1 }).first(),
+      ).toBeVisible();
+      await page.goto(pathTo());
+      await selectChineseHome(page);
+    }
   }
 
   await page.keyboard.press('/');
@@ -171,8 +190,8 @@ test('read an article and follow its table of contents', async ({
   page,
   request,
 }, testInfo) => {
-  const notes = await getPublishedNotes(request);
-  test.skip(notes.length === 0, '没有已发布笔记时，无需验证文章与目录。');
+  const notes = (await getPublishedNotes(request)).filter(isArticle);
+  test.skip(notes.length === 0, '没有 Markdown 文章时，无需验证文章与目录。');
   const note = notes[0];
   await page.goto(note.url);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(note.title);
@@ -226,13 +245,26 @@ test('published pages, static assets and internal links are reachable', async ({
   origin = new URL(testInfo.project.use.baseURL as string).origin;
   const notes = await getPublishedNotes(request);
   const routes = [
-    { url: new URL(pathTo(), origin).href, title: '' },
-    { url: new URL(pathTo('archive/'), origin).href, title: '笔记归档' },
-    { url: new URL(pathTo('topics/'), origin).href, title: '学习专题' },
-    { url: new URL(pathTo('about/'), origin).href, title: '关于这里' },
+    { url: new URL(pathTo(), origin).href, title: '', standalone: false },
+    {
+      url: new URL(pathTo('archive/'), origin).href,
+      title: '笔记归档',
+      standalone: false,
+    },
+    {
+      url: new URL(pathTo('topics/'), origin).href,
+      title: '学习专题',
+      standalone: false,
+    },
+    {
+      url: new URL(pathTo('about/'), origin).href,
+      title: '关于这里',
+      standalone: false,
+    },
     ...notes.map((note) => ({
       url: new URL(note.url, origin).href,
       title: note.title,
+      standalone: !isArticle(note),
     })),
   ];
   const idsByPath = new Map<string, Set<string>>();
@@ -241,22 +273,31 @@ test('published pages, static assets and internal links are reachable', async ({
   for (const route of routes) {
     const response = await page.goto(route.url);
     expect(response?.ok(), route.url).toBe(true);
-    if (route.title)
-      await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-        route.title,
-      );
+    await expect(page).toHaveURL(
+      (url) => url.pathname === new URL(route.url).pathname,
+    );
     const isHome = new URL(route.url).pathname === basePath;
-    if (isHome) await expect(page).toHaveTitle(site.titleEn);
-    await expect(page.locator('main')).toBeVisible();
-    // Check the author actually present in each served HTML document.
-    await expect(page.locator('meta[name="author"]')).toHaveCount(1);
-    await expect(page.locator('meta[name="author"]')).toHaveAttribute(
-      'content',
-      site.author,
-    );
-    await expect(page.locator('.site-footer')).toContainText(
-      isHome ? 'Pagewise' : site.name,
-    );
+    if (route.standalone) {
+      await expect(
+        page.getByRole('heading', { level: 1 }).first(),
+      ).toBeVisible();
+    } else {
+      if (route.title)
+        await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+          route.title,
+        );
+      if (isHome) await expect(page).toHaveTitle(site.titleEn);
+      await expect(page.locator('main')).toBeVisible();
+      // The ordinary blog layout owns the author metadata and footer.
+      await expect(page.locator('meta[name="author"]')).toHaveCount(1);
+      await expect(page.locator('meta[name="author"]')).toHaveAttribute(
+        'content',
+        site.author,
+      );
+      await expect(page.locator('.site-footer')).toContainText(
+        isHome ? 'Pagewise' : site.name,
+      );
+    }
     if (testInfo.project.name === 'mobile')
       await expectNoHorizontalOverflow(page);
 
@@ -349,7 +390,7 @@ test('RSS, search index and sitemap preserve the deployment base path', async ({
       pathTo('archive/'),
       pathTo('topics/'),
       pathTo('about/'),
-      ...notePaths,
+      ...notes.filter(isArticle).map((note) => note.url),
     ]),
   );
 });

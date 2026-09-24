@@ -3,7 +3,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Note = CollectionEntry<'notes'>;
 export const href = (path = '') =>
   `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
-export const noteUrl = (note: Note) => href(`notes/${note.id}/`);
+export const noteUrl = (note: Note) =>
+  href(note.data.destination || `notes/${note.id}/`);
 export const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('zh-CN', {
     year: 'numeric',
