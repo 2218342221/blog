@@ -5,7 +5,7 @@ destination: 'lab/agent-memory/'
 published: 2026-09-25
 category: 'AI 工程'
 tags: ['Agent', 'Memory', 'LLM', '综述', '持续学习']
-cover: 'learning'
+cover: 'memory'
 featured: false
 draft: false
 ---

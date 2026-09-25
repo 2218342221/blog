@@ -1,4 +1,4 @@
-# Pagewise · 知页
+# 渐明 · Clearer Notes
 
 个人学习笔记博客，基于 Astro，部署于 GitHub Pages。
 

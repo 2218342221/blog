@@ -295,7 +295,7 @@ test('published pages, static assets and internal links are reachable', async ({
         site.author,
       );
       await expect(page.locator('.site-footer')).toContainText(
-        isHome ? 'Pagewise' : site.name,
+        isHome ? site.nameEn : site.name,
       );
     }
     if (testInfo.project.name === 'mobile')

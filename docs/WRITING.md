@@ -46,7 +46,7 @@ npm run new -- first-note "第一篇学习笔记"
 | `updated`     | 可选，最近更新日期，格式 `YYYY-MM-DD`。                                                                                                                                          |
 | `category`    | 仅支持 `系统设计`、`AI 工程`、`后端开发`、`学习方法`。                                                                                                                           |
 | `tags`        | 字符串列表，例如 `["笔记"]`，也可保留 `[]`。                                                                                                                                     |
-| `cover`       | 内置封面图解名称：`cache`、`rag`、`api`、`learning`、`database`、`transformer`、`benchmark`；不是图片路径。                                                                      |
+| `cover`       | 内置封面图解名称：`cache`、`rag`、`api`、`learning`、`database`、`transformer`、`benchmark`、`memory`、`inference`、`architecture`、`engineering`；不是图片路径。                |
 | `featured`    | 是否精选，通常为 `false`。                                                                                                                                                       |
 | `draft`       | 明确填写 `true` 或 `false`；新文章保持 `true`，准备展示时改成 `false`。                                                                                                          |
 
@@ -91,10 +91,10 @@ BASE_PATH=/blog/ npm run preview
 
 ## 5. 发布到线上
 
-当本次明确要求包含发布时，把文章的 `draft` 设为 `false`，完成上面的构建和预览后，再提交本次相关文件。提交身份使用 `Pagewise` 和 GitHub noreply 邮箱；本仓库可以单独配置，避免使用真实姓名：
+当本次明确要求包含发布时，把文章的 `draft` 设为 `false`，完成上面的构建和预览后，再提交本次相关文件。提交身份使用 `Clearer Notes` 和 GitHub noreply 邮箱；本仓库可以单独配置，避免使用真实姓名：
 
 ```bash
-git config user.name Pagewise
+git config user.name "Clearer Notes"
 git config user.email 43314410+2218342221@users.noreply.github.com
 git add src/content/notes/first-note.md
 git diff --cached

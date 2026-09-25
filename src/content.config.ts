@@ -24,6 +24,10 @@ const notes = defineCollection({
         'database',
         'transformer',
         'benchmark',
+        'memory',
+        'inference',
+        'architecture',
+        'engineering',
       ])
       .default('learning'),
     featured: z.boolean().default(false),

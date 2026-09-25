@@ -20,6 +20,19 @@ const colors: Record<string, string> = {
   database: 'blue',
   transformer: 'pink',
   benchmark: 'pink',
+  memory: 'yellow',
+  inference: 'blue',
+  architecture: 'lavender',
+  engineering: 'peach',
+};
+const coverLabels: Record<string, string> = {
+  cache: 'SYSTEM DESIGN, VISUALIZED',
+  rag: 'FROM QUESTION TO ANSWER',
+  benchmark: 'LLM BENCHMARK ATLAS',
+  memory: 'AGENT MEMORY',
+  inference: 'INFERENCE ENGINE',
+  architecture: 'LLM ARCHITECTURE',
+  engineering: 'SOFTWARE ENGINEERING',
 };
 ---
 
@@ -31,13 +44,7 @@ const colors: Record<string, string> = {
     aria-hidden="true"
   >
     <span class="cover-label">
-      {note.data.cover === 'cache'
-        ? 'SYSTEM DESIGN, VISUALIZED'
-        : note.data.cover === 'rag'
-          ? 'FROM QUESTION TO ANSWER'
-          : note.data.cover === 'benchmark'
-            ? 'LLM BENCHMARK ATLAS'
-            : 'ONE CONCEPT AT A TIME'}
+      {coverLabels[note.data.cover] || 'ONE CONCEPT AT A TIME'}
     </span>
     <Diagram kind={note.data.cover} bilingual={bilingual} />
     {note.data.featured && (

@@ -5,7 +5,7 @@ destination: 'lab/software-engineering-classics/'
 published: 2026-09-25
 category: '后端开发'
 tags: ['软件工程', '系统设计', 'DDD', '重构', '读书笔记']
-cover: 'api'
+cover: 'engineering'
 featured: false
 draft: false
 ---

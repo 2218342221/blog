@@ -9,7 +9,7 @@ type Language = 'en' | 'zh';
 
 const copy = {
   en: {
-    brand: 'Pagewise',
+    brand: site.nameEn,
     heading: 'Let knowledge grow.',
     empty: 'Every idea starts with a blank page.',
     navigation: ['Home', 'Topics', 'Archive', 'About'],

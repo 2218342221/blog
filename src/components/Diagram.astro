@@ -462,6 +462,266 @@ const { kind = 'cache', compact = false, bilingual = false } = Astro.props;
       </g>
     </>
   )}
+  {kind === 'memory' && (
+    <>
+      <g
+        stroke="#5a465f"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M120 108h25m-7-5 7 5-7 5M271 103h25m-7-5 7 5-7 5" />
+
+        <rect x="38" y="37" width="64" height="78" rx="6" fill="#bbd9ff" />
+        <rect x="25" y="49" width="66" height="76" rx="6" fill="#fff" />
+        <path d="M39 67h30m-30 12h39m-39 12h20" />
+        <path
+          d="M13 89V73a7 7 0 0 1 7-7h20l10 12h57a7 7 0 0 1 7 7v65H13Z"
+          fill="#ffe6b5"
+        />
+        <rect x="13" y="96" width="101" height="66" rx="8" fill="#fff" />
+        <path d="M13 129h101" />
+        <rect x="48" y="106" width="31" height="12" rx="3" fill="#dfff9e" />
+        <rect x="48" y="139" width="31" height="12" rx="3" fill="#bbd9ff" />
+
+        <path d="M209 62V44" />
+        <circle cx="209" cy="38" r="6" fill="#ffe6b5" />
+        <rect x="154" y="64" width="110" height="99" rx="24" fill="#dfff9e" />
+        <rect x="147" y="94" width="7" height="25" rx="3" fill="#dfff9e" />
+        <rect x="264" y="94" width="7" height="25" rx="3" fill="#dfff9e" />
+        <rect x="170" y="82" width="78" height="45" rx="14" fill="#f6ffdf" />
+        <path d="M201 114q8 7 16 0" />
+        <path d="M189 144h40" />
+        <circle cx="209" cy="144" r="5" fill="#bbd9ff" />
+
+        <path
+          d="M309 43h86a10 10 0 0 1 10 10v61a10 10 0 0 1-10 10h-54l-20 17v-17h-12a10 10 0 0 1-10-10V53a10 10 0 0 1 10-10Z"
+          fill="#bbd9ff"
+        />
+        <rect x="313" y="57" width="40" height="49" rx="5" fill="#fff" />
+        <path d="M323 70h20m-20 10h20m-20 10h12" />
+        <path d="M364 71h23m-6-5 6 5-6 5m-16 17h15" />
+        <circle cx="380" cy="131" r="20" fill="#dfff9e" />
+        <path d="m371 131 6 6 12-13" />
+        <path d="M284 37v10m-5-5h10" stroke="#a77b35" />
+      </g>
+      <g fill="#5a465f">
+        <circle cx="189" cy="101" r="4" />
+        <circle cx="229" cy="101" r="4" />
+      </g>
+      <g fill="#5a465f" text-anchor="middle" font-size="22">
+        <text
+          x="64"
+          y="195"
+          data-en={bilingual ? 'MEMORY' : undefined}
+          data-zh={bilingual ? '记忆' : undefined}
+        >
+          {bilingual ? 'MEMORY' : '记忆'}
+        </text>
+        <text x="209" y="195">
+          AGENT
+        </text>
+        <text
+          x="353"
+          y="195"
+          data-en={bilingual ? 'RECALL' : undefined}
+          data-zh={bilingual ? '回忆' : undefined}
+        >
+          {bilingual ? 'RECALL' : '回忆'}
+        </text>
+      </g>
+    </>
+  )}
+  {kind === 'inference' && (
+    <>
+      <g
+        stroke="#5a465f"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="21" y="50" width="81" height="29" rx="7" fill="#fff" />
+        <rect x="15" y="88" width="87" height="29" rx="7" fill="#ffe6b5" />
+        <rect x="9" y="126" width="93" height="29" rx="7" fill="#fff" />
+        <path d="M35 60v9m6-9v9m-11 28v9m6-9v9m-12 28v9m6-9v9M52 64h34m-40 38h40m-46 38h46" />
+        <path d="M108 102h34m-7-5 7 5-7 5M278 102h24m-7-5 7 5-7 5" />
+
+        <path d="M170 43V31m20 12V31m20 12V31m20 12V31m20 12V31M170 153v12m20-12v12m20-12v12m20-12v12m20-12v12M154 58h-12m12 20h-12m12 20h-12m12 20h-12m12 20h-12M266 58h12m-12 20h12m-12 20h12m-12 20h12m-12 20h12" />
+        <rect x="154" y="43" width="112" height="110" rx="15" fill="#dfff9e" />
+        <rect x="169" y="58" width="82" height="56" rx="7" fill="#f6ffdf" />
+        <rect x="179" y="68" width="15" height="14" rx="3" fill="#bbd9ff" />
+        <rect x="202" y="68" width="15" height="14" rx="3" fill="#ffe6b5" />
+        <rect x="225" y="68" width="15" height="14" rx="3" fill="#bbd9ff" />
+        <rect x="179" y="90" width="15" height="14" rx="3" fill="#ffe6b5" />
+        <rect x="202" y="90" width="15" height="14" rx="3" fill="#bbd9ff" />
+        <rect x="225" y="90" width="15" height="14" rx="3" fill="#ffe6b5" />
+        <rect x="151" y="176" width="118" height="27" rx="7" fill="#fff" />
+
+        <rect x="308" y="62" width="101" height="96" rx="10" fill="#fff" />
+        <path d="M308 84h101" />
+        <circle cx="320" cy="73" r="2" fill="#ffe6b5" />
+        <circle cx="331" cy="73" r="2" fill="#bbd9ff" />
+        <circle cx="342" cy="73" r="2" fill="#dfff9e" />
+        <rect x="320" y="101" width="21" height="24" rx="4" fill="#bbd9ff" />
+        <rect x="348" y="101" width="21" height="24" rx="4" fill="#dfff9e" />
+        <rect x="376" y="101" width="21" height="24" rx="4" fill="#ffe6b5" />
+        <path d="M326 113h9m19 0h9m19 0h9m-63 25h39m9 0h11" />
+        <path d="m361 29-7 12h8l-6 12" stroke="#a77b35" />
+      </g>
+      <g fill="#5a465f" text-anchor="middle" font-size="22">
+        <text
+          x="58"
+          y="195"
+          data-en={bilingual ? 'QUEUE' : undefined}
+          data-zh={bilingual ? '队列' : undefined}
+        >
+          {bilingual ? 'QUEUE' : '队列'}
+        </text>
+        <text x="210" y="140">
+          GPU
+        </text>
+        <text x="210" y="195" font-size="18">
+          KV CACHE
+        </text>
+        <text
+          x="359"
+          y="195"
+          data-en={bilingual ? 'TOKENS' : undefined}
+          data-zh={bilingual ? '输出' : undefined}
+        >
+          {bilingual ? 'TOKENS' : '输出'}
+        </text>
+      </g>
+    </>
+  )}
+  {kind === 'architecture' && (
+    <>
+      <g
+        stroke="#5a465f"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="18" y="64" width="42" height="38" rx="7" fill="#fff" />
+        <rect x="40" y="94" width="42" height="38" rx="7" fill="#ffe6b5" />
+        <rect x="18" y="124" width="42" height="38" rx="7" fill="#bbd9ff" />
+        <path d="m33 76-5 7 5 7m13-14 5 7-5 7M52 113h17m-39 30h18" />
+        <path d="M90 113h43m-7-5 7 5-7 5M299 113h23m-7-5 7 5-7 5" />
+
+        <path d="m145 119 71-36 71 36v13l-71 36-71-36Z" fill="#ffe6b5" />
+        <path d="m145 119 71 36 71-36m-71 36v13" />
+        <path d="m145 86 71-36 71 36v13l-71 36-71-36Z" fill="#bbd9ff" />
+        <path d="m145 86 71 36 71-36m-71 36v13" />
+        <path d="m145 53 71-36 71 36v13l-71 36-71-36Z" fill="#dfff9e" />
+        <path d="m145 53 71 36 71-36m-71 36v13" />
+        <path d="m182 52 34-16 35 16-35 18-34-18m34-16v34m-34-18h69" />
+        <circle cx="182" cy="52" r="5" fill="#fff" />
+        <circle cx="216" cy="36" r="5" fill="#ffe6b5" />
+        <circle cx="251" cy="52" r="5" fill="#fff" />
+        <circle cx="216" cy="70" r="5" fill="#bbd9ff" />
+        <path d="m160 94 8 4m-8 29 8 4m73-25 18-9m-18 42 18-9" />
+
+        <path
+          d="M336 53h44l22 22v83a7 7 0 0 1-7 7h-59a7 7 0 0 1-7-7V60a7 7 0 0 1 7-7Z"
+          fill="#fff"
+        />
+        <path d="M380 53v22h22" fill="#ffe6b5" />
+        <rect x="343" y="92" width="17" height="17" rx="3" fill="#bbd9ff" />
+        <rect x="369" y="92" width="17" height="17" rx="3" fill="#dfff9e" />
+        <path d="M343 125h43m-43 13h31m-31 13h20" />
+        <path d="M310 33v10m-5-5h10" stroke="#a77b35" />
+      </g>
+      <g fill="#5a465f" text-anchor="middle" font-size="22">
+        <text
+          x="50"
+          y="195"
+          data-en={bilingual ? 'INPUT' : undefined}
+          data-zh={bilingual ? '输入' : undefined}
+        >
+          {bilingual ? 'INPUT' : '输入'}
+        </text>
+        <text
+          x="216"
+          y="195"
+          data-en={bilingual ? 'LAYERS' : undefined}
+          data-zh={bilingual ? '网络层' : undefined}
+        >
+          {bilingual ? 'LAYERS' : '网络层'}
+        </text>
+        <text
+          x="365"
+          y="195"
+          data-en={bilingual ? 'OUTPUT' : undefined}
+          data-zh={bilingual ? '输出' : undefined}
+        >
+          {bilingual ? 'OUTPUT' : '输出'}
+        </text>
+      </g>
+    </>
+  )}
+  {kind === 'engineering' && (
+    <>
+      <g
+        stroke="#5a465f"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="13" y="69" width="18" height="86" rx="3" fill="#bbd9ff" />
+        <rect x="34" y="49" width="18" height="106" rx="3" fill="#fff" />
+        <rect x="55" y="60" width="18" height="95" rx="3" fill="#dfff9e" />
+        <rect x="76" y="76" width="18" height="79" rx="3" fill="#ffe6b5" />
+        <path d="m97 64 17-3 16 90-17 3Z" fill="#fff" />
+        <path d="M18 82h8m-8 5h8m13-25h8m-8 5h8m13 6h8m-8 5h8m13 11h8m-8 5h8m17-17 7-1M18 141h8m13 0h8m13 0h8m13 0h8m22-3 7-1M8 161h126" />
+        <path d="M131 107h15m-7-5 7 5-7 5M292 107h25m-7-5 7 5-7 5" />
+
+        <rect x="152" y="45" width="135" height="113" rx="10" fill="#fff" />
+        <path d="M152 69h135" />
+        <circle cx="165" cy="57" r="2" fill="#ffe6b5" />
+        <circle cx="177" cy="57" r="2" fill="#bbd9ff" />
+        <circle cx="189" cy="57" r="2" fill="#dfff9e" />
+        <path d="m174 87-8 9 8 9m18-18 8 9-8 9m-9-22-7 26M214 90h49m-49 11h33m-80 22h49m-38 11h32" />
+        <rect x="221" y="113" width="31" height="31" rx="6" fill="#bbd9ff" />
+        <rect x="256" y="113" width="31" height="31" rx="6" fill="#ffe6b5" />
+        <rect x="239" y="135" width="31" height="31" rx="6" fill="#dfff9e" />
+        <path d="m231 128 4 4 7-8m24 4h11m-22 16v11m-5-5h10" />
+
+        <rect x="326" y="66" width="77" height="98" rx="9" fill="#fff" />
+        <circle cx="364" cy="61" r="23" fill="#dfff9e" />
+        <path d="m354 61 7 7 14-15" />
+        <rect x="338" y="97" width="12" height="12" rx="3" fill="#bbd9ff" />
+        <rect x="338" y="122" width="12" height="12" rx="3" fill="#ffe6b5" />
+        <path d="M360 103h29m-29 25h22m-43 21h43" />
+        <path d="M308 37v10m-5-5h10" stroke="#a77b35" />
+      </g>
+      <g fill="#5a465f" text-anchor="middle" font-size="22">
+        <text
+          x="65"
+          y="195"
+          data-en={bilingual ? 'BOOKS' : undefined}
+          data-zh={bilingual ? '经典书' : undefined}
+        >
+          {bilingual ? 'BOOKS' : '经典书'}
+        </text>
+        <text
+          x="219"
+          y="195"
+          data-en={bilingual ? 'CODE' : undefined}
+          data-zh={bilingual ? '代码' : undefined}
+        >
+          {bilingual ? 'CODE' : '代码'}
+        </text>
+        <text
+          x="365"
+          y="195"
+          data-en={bilingual ? 'TESTS' : undefined}
+          data-zh={bilingual ? '测试' : undefined}
+        >
+          {bilingual ? 'TESTS' : '测试'}
+        </text>
+      </g>
+    </>
+  )}
   {kind === 'benchmark' && (
     <>
       <g

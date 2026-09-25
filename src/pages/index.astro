@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Diagram from '../components/Diagram.astro';
 import NoteCard from '../components/NoteCard.astro';
 import Icon from '../components/Icon.astro';
 import BrandMark from '../components/BrandMark.astro';
@@ -18,7 +17,7 @@ const notes = await getNotes();
       <div class="container hero-content">
         <div class="hero-eyebrow">
           <span class="status-dot"></span>
-          <Localized en="ONE PAGE, ONE INSIGHT." zh="知一页，进一步。" />
+          <Localized en="A LITTLE CLEARER, EVERY DAY." zh="学一点，明一点。" />
         </div>
         <h1>
           <Localized en="Let knowledge " zh="让知识，" />
@@ -55,38 +54,6 @@ const notes = await getNotes();
             <Localized en={`About ${site.nameEn}`} zh={`关于${site.name}`} />{' '}
             <Icon name="northeast" size={17} />
           </a>
-        </div>
-        <div class="hero-topics">
-          {topics.map((topic, index) => (
-            <a
-              class:list={['hero-topic', topic.color]}
-              href={href(`topics/#${topic.id}`)}
-            >
-              <div class="topic-top">
-                <span class="topic-number">0{index + 1}</span>
-                <Icon name="northeast" size={18} />
-              </div>
-              <h2>
-                <Localized en={topic.labelEn} zh={topic.label} />
-              </h2>
-              <p class="topic-en">{topic.en}</p>
-              <Diagram kind={topic.cover} compact bilingual />
-              <div class="topic-bottom">
-                <Localized
-                  class="topic-description"
-                  en={topic.descriptionEn}
-                  zh={topic.description}
-                />
-                {notes.some((n) => n.data.category === topic.label) && (
-                  <Localized
-                    class="topic-count-inline"
-                    en={`${notes.filter((n) => n.data.category === topic.label).length} notes`}
-                    zh={`${notes.filter((n) => n.data.category === topic.label).length} 篇`}
-                  />
-                )}
-              </div>
-            </a>
-          ))}
         </div>
       </div>
     </section>

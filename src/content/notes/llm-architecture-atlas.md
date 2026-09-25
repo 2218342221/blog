@@ -5,7 +5,7 @@ destination: 'lab/llm-architecture-atlas/'
 published: 2026-09-25
 category: 'AI 工程'
 tags: ['LLM', '模型架构', 'PyTorch', 'Transformer', '线性注意力']
-cover: 'transformer'
+cover: 'architecture'
 featured: false
 draft: false
 ---

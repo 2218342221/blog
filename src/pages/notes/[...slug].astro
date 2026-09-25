@@ -24,6 +24,12 @@ const related = all
   )
   .slice(0, 3);
 const topic = topics.find((t) => t.label === note.data.category);
+const coverColors: Record<string, string> = {
+  memory: 'yellow',
+  inference: 'blue',
+  architecture: 'lavender',
+  engineering: 'peach',
+};
 ---
 
 <Layout title={note.data.title} description={note.data.description} article>
@@ -53,7 +59,12 @@ const topic = topics.find((t) => t.label === note.data.category);
     </header>
     <div class="article-layout">
       <article class="article-content">
-        <div class:list={['article-cover', topic?.color || 'mint']}>
+        <div
+          class:list={[
+            'article-cover',
+            coverColors[note.data.cover] || topic?.color || 'mint',
+          ]}
+        >
           <Diagram kind={note.data.cover} />
         </div>
         <div class="prose">

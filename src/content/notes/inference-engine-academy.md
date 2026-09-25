@@ -5,7 +5,7 @@ destination: 'lab/inference-engine-academy/'
 published: 2026-09-25
 category: 'AI 工程'
 tags: ['LLM', '推理引擎', 'vLLM', 'CUDA', '分布式系统']
-cover: 'transformer'
+cover: 'inference'
 featured: false
 draft: false
 ---
