@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="680" viewBox="0 0 1600 680" role="img" aria-labelledby="title desc">
+  <title id="title">Clearer Notes — Ideas, made clearer.</title>
+  <desc id="desc">An original editorial illustration of an open book. Layered pages unfold into a bright lime beam on a deep green background.</desc>
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#149f76"/>
+      <stop offset="1" stop-color="#128c6a"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#e0ff8c" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#e0ff8c" stop-opacity=".38"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fefff7"/>
+      <stop offset="1" stop-color="#e8efcf"/>
+    </linearGradient>
+    <linearGradient id="lit-page" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#c9ee76"/>
+      <stop offset="1" stop-color="#e8ffad"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="680" rx="0" fill="url(#field)"/>
+  <path d="M942 680C856 476 976 237 1204 152C1396 80 1515 100 1600 125V680Z" fill="#ffffff" opacity=".035"/>
+  <path d="M1073 543L1268 42L1552 107Z" fill="url(#beam)"/>
+  <path d="M1134 536L1375 70" fill="none" stroke="#e0ff8c" stroke-opacity=".2" stroke-width="1.5"/>
+  <path d="M1202 560C1359 551 1475 439 1514 289" fill="none" stroke="#c3edbc" stroke-opacity=".32" stroke-width="1.5"/>
+  <circle cx="1514" cy="289" r="5" fill="#e0ff8c"/>
+  <circle cx="865" cy="144" r="3" fill="#e0ff8c" opacity=".9"/>
+  <path d="M1388 129v22m-11-11h22" stroke="#e0ff8c" stroke-width="2.5" stroke-linecap="round"/>
+  <g font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#fbfff3">
+    <text x="94" y="273" font-size="116" font-weight="650" letter-spacing="-6">Clearer</text>
+    <text x="94" y="391" font-size="116" font-weight="650" letter-spacing="-6">Notes</text>
+    <text x="101" y="461" font-size="31" font-weight="400" letter-spacing="-.45" fill="#eef8df">Ideas, made clearer.</text>
+  </g>
+  <path d="M102 514H170" stroke="#e0ff8c" stroke-width="4" stroke-linecap="round"/>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M822 439C927 447 1027 493 1127 559C1222 487 1328 456 1444 471L1447 491C1320 476 1214 510 1125 579C1019 510 921 466 825 461Z" fill="#182720" opacity=".22"/>
+    <path d="M817 251C921 255 1030 315 1106 395L1127 547C1020 484 922 440 827 435Z" fill="#c3d9b3" stroke="#244c3a" stroke-width="2"/>
+    <path d="M1106 395C1220 309 1322 269 1444 280L1444 459C1319 447 1217 480 1127 547Z" fill="#b5d1ab" stroke="#244c3a" stroke-width="2"/>
+    <path d="M811 233C929 244 1034 302 1107 382L1120 533C1017 469 920 425 822 419Z" fill="#e5eccf" stroke="#385847" stroke-width="2"/>
+    <path d="M1107 382C1214 292 1329 249 1450 259L1444 443C1321 433 1209 469 1120 533Z" fill="#d6e3b4" stroke="#385847" stroke-width="2"/>
+    <path d="M834 196C947 213 1031 274 1106 369L1115 516C1015 448 928 403 827 397Z" fill="url(#paper)" stroke="#365543" stroke-width="2.5"/>
+    <path d="M1106 369C1207 277 1309 225 1431 219L1443 422C1309 415 1207 452 1115 516Z" fill="#f9f9e9" stroke="#365543" stroke-width="2.5"/>
+    <path d="M1106 369C1165 250 1241 183 1364 154L1422 350C1296 368 1197 422 1115 516Z" fill="url(#lit-page)" stroke="#365543" stroke-width="2.5"/>
+    <path d="M1115 516C1135 384 1156 267 1237 174C1253 220 1263 264 1263 300C1191 359 1150 430 1115 516Z" fill="#ebf4ce" fill-opacity=".92" stroke="#365543" stroke-width="2"/>
+    <path d="M1106 369L1115 516" fill="none" stroke="#496747" stroke-width="2"/>
+    <path d="M883 260C947 280 1002 315 1050 359M879 286C944 307 998 340 1048 383M877 313C940 332 993 365 1046 407" fill="none" stroke="#8da289" stroke-width="2.5"/>
+    <path d="M1280 222C1303 209 1327 199 1350 192M1289 247C1311 236 1334 227 1358 220M1297 274C1319 263 1341 255 1366 249" fill="none" stroke="#718b4f" stroke-width="2.5"/>
+    <path d="M1159 536C1236 487 1325 462 1399 464" fill="none" stroke="#edf6d5" stroke-width="2"/>
+    <path d="M846 435C935 447 1019 485 1093 530" fill="none" stroke="#edf6d5" stroke-width="2"/>
+    <path d="M1139 546L1154 588L1173 576L1187 584L1173 529" fill="#e0ff8c" stroke="#365543" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,13 +1,12 @@
 export const site = {
-  name: '渐明',
+  name: 'Clearer Notes',
   nameEn: 'Clearer Notes',
-  author: '渐明',
-  title: '渐明 · 学习笔记',
+  author: 'Clearer Notes',
+  title: 'Clearer Notes · 学习笔记',
   titleEn: 'Clearer Notes · Learning Journal',
   descriptionEn:
-    'Unpack complex ideas and connect what you learn. A growing collection of notes, questions, and discoveries.',
-  description:
-    '把复杂的知识拆开，把零散的理解连起来。在渐明，记录学习，也记录思考。',
+    'Notes, diagrams, and experiments for making sense of complex ideas.',
+  description: '用笔记、图解和小实验，把复杂的想法慢慢弄清楚。',
   // GitHub Actions 会自动使用仓库的 Pages 地址；手动部署时在此填写域名。
   url: 'https://2218342221.github.io',
   github: 'https://github.com/2218342221/blog',

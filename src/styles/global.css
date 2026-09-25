@@ -1479,8 +1479,8 @@ kbd {
     gap: 16px;
   }
   .brand {
-    font-size: 26px;
-    gap: 9px;
+    font-size: 20px;
+    gap: 6px;
   }
   .brand-mark {
     width: 32px;
@@ -2096,13 +2096,6 @@ kbd {
   .home-page .header-inner {
     gap: 8px;
   }
-  .home-page .brand {
-    font-size: 23px;
-  }
-  [data-home-language='en'] .home-page .brand {
-    font-size: 20px;
-    gap: 6px;
-  }
   .home-page .search-trigger,
   .home-page .menu-trigger {
     padding: 6px;
@@ -2140,7 +2133,7 @@ kbd {
   }
 }
 @media (max-width: 360px) {
-  [data-home-language='en'] .home-page .brand {
+  .brand {
     font-size: 18px;
   }
 }
