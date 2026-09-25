@@ -1,8 +1,8 @@
 # 渐明 · Clearer Notes
 
-**用交互图解，读懂 LLM、Agent 与软件工程。**
+**用交互图解，读懂 LLM、Agent 与推理系统。**
 
-Interactive guides to LLMs, AI agents, and software engineering.
+Interactive guides to LLMs, AI agents, and inference systems.
 
 从模型结构、推理引擎到 Agent 记忆与评测，把复杂概念拆成可探索的图解、源码导读和学习笔记。先打开一个专题，带着问题看动画，再回到论文或代码验证理解。
 
@@ -44,7 +44,6 @@ Interactive guides to LLMs, AI agents, and software engineering.
 
 - **理解语言模型**：架构图鉴 → 推理引擎学院 → 评测图谱，把模型结构、执行过程与评价方法连起来。
 - **开发 Agent**：Agent Memory 综述 → [评测运行环境与工具](https://2218342221.github.io/blog/lab/llm-benchmark-atlas/#runtime)，先厘清记忆和工具各自解决的问题。
-- **补齐工程基础**：软件工程经典 → 推理引擎学院，用数据、边界、依赖和可测试性分析一个真实系统。
 
 ## 在本地运行
 

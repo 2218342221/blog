@@ -1,10 +1,10 @@
 # Clearer Notes · 渐明
 
-**Interactive guides to LLMs, AI agents, and software engineering.**
+**Interactive guides to LLMs, AI agents, and inference systems.**
 
 Follow ideas from a diagram to the underlying mechanism, source material, and
 code. These learning notes connect model internals, inference systems, agent
-memory, evaluation protocols, and everyday software design.
+memory, and evaluation protocols.
 
 **Guides are primarily in Simplified Chinese; the homepage UI supports English
 and Chinese.** Switching the homepage language does not translate the guides.
@@ -43,10 +43,6 @@ computation; they do not reproduce pretrained model capabilities.
    needs in [Agent Memory](https://2218342221.github.io/blog/lab/agent-memory/),
    then use the [benchmark runtime guide](https://2218342221.github.io/blog/lab/llm-benchmark-atlas/#runtime)
    to distinguish tool access, execution environments, and scoring.
-3. **Connect system design to maintainable code.** Use the recommended routes in
-   [Software Engineering Classics](https://2218342221.github.io/blog/lab/software-engineering-classics/)
-   to connect data constraints, domain models, architecture boundaries, testing,
-   and incremental refactoring.
 
 ## What to expect
 
