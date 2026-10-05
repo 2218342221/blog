@@ -1,0 +1,337 @@
+<script>
+  interface Question {
+    prompt: string;
+    options: string[];
+    correct: number;
+    explanation: string;
+  }
+  interface Progress {
+    reportRead: boolean;
+    translationRead: boolean;
+    questionRevision: string;
+    answers: number[];
+    reviewedAt?: string;
+  }
+  const keyFor = (id: string) => `clearer.papers.v1.${id}`;
+  const emptyProgress = (revision: string): Progress => ({
+    reportRead: false,
+    translationRead: false,
+    questionRevision: revision,
+    answers: [],
+  });
+  let storageAvailable = true;
+  function readProgress(id: string, revision: string): Progress {
+    let raw: string | null;
+    try {
+      raw = localStorage.getItem(keyFor(id));
+    } catch {
+      storageAvailable = false;
+      return emptyProgress(revision);
+    }
+    try {
+      const value = JSON.parse(raw || 'null');
+      if (!value || typeof value !== 'object') return emptyProgress(revision);
+      const sameQuestions = value.questionRevision === revision;
+      const validAnswers =
+        Array.isArray(value.answers) &&
+        value.answers.every(
+          (answer: unknown) =>
+            typeof answer === 'number' &&
+            Number.isInteger(answer) &&
+            answer >= 0,
+        );
+      return {
+        reportRead: value.reportRead === true,
+        translationRead: value.translationRead === true,
+        questionRevision: revision,
+        answers: sameQuestions && validAnswers ? value.answers : [],
+        reviewedAt:
+          sameQuestions && validAnswers && typeof value.reviewedAt === 'string'
+            ? value.reviewedAt
+            : undefined,
+      };
+    } catch {
+      // A damaged entry can be replaced on the next save; storage still works.
+      return emptyProgress(revision);
+    }
+  }
+  function updateCards() {
+    document
+      .querySelectorAll<HTMLElement>('[data-paper-card]')
+      .forEach((card) => {
+        const progress = readProgress(
+          card.dataset.paperId || '',
+          card.dataset.questionRevision || '',
+        );
+        const count = Number(card.dataset.questionCount);
+        const completed = Math.min(progress.answers.length, count);
+        const started =
+          progress.reportRead || progress.translationRead || completed > 0;
+        const allDone =
+          progress.reportRead &&
+          progress.translationRead &&
+          completed === count;
+        const label = card.querySelector<HTMLElement>('[data-card-progress]');
+        if (label)
+          label.textContent = allDone
+            ? '已完成一轮学习 ✓'
+            : started
+              ? `已掌握 ${completed} / ${count} 题`
+              : '尚未开始';
+        card.dataset.started = String(started);
+        const resume =
+          card.querySelector<HTMLAnchorElement>('[data-card-resume]');
+        if (resume) {
+          resume.textContent = allDone
+            ? '再复习一次 ↻'
+            : started
+              ? '继续学习 →'
+              : '开始学习 →';
+          const url = new URL(resume.href);
+          url.hash =
+            allDone ||
+            (progress.reportRead && progress.translationRead) ||
+            completed > 0
+              ? 'review'
+              : progress.reportRead
+                ? 'translation'
+                : '';
+          resume.href = url.href;
+        }
+      });
+  }
+  updateCards();
+  window.addEventListener('pageshow', updateCards);
+
+  const detail = document.querySelector<HTMLElement>('[data-paper-detail]');
+  if (detail) {
+    const questions: Question[] = JSON.parse(
+      detail.querySelector('[data-paper-questions]')?.textContent || '[]',
+    );
+    const id = detail.dataset.paperId || '';
+    let progress = readProgress(id, detail.dataset.questionRevision || '');
+    // Reject invalid answer values even when the saved question revision matches.
+    const validAnswers: number[] = [];
+    for (
+      let index = 0;
+      index < progress.answers.length && index < questions.length;
+      index++
+    ) {
+      if (progress.answers[index] !== questions[index].correct) break;
+      validAnswers.push(progress.answers[index]);
+    }
+    progress.answers = validAnswers;
+    const query = <T extends HTMLElement>(selector: string) =>
+      detail.querySelector<T>(selector)!;
+    const announce = (message: string) => {
+      query('[data-learning-status]').textContent = message;
+    };
+    const tabs = [
+      ...detail.querySelectorAll<HTMLButtonElement>('[data-paper-tab]'),
+    ];
+    function activateTab(name: string, updateHash = true) {
+      const selected = tabs.find((tab) => tab.dataset.paperTab === name);
+      if (!selected) return;
+      tabs.forEach((tab) => {
+        const active = tab === selected;
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+        query(`[data-paper-panel="${tab.dataset.paperTab}"]`).hidden = !active;
+      });
+      if (updateHash)
+        history.replaceState(
+          null,
+          '',
+          `${location.pathname}${location.search}#${name}`,
+        );
+    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab.dataset.paperTab!));
+      tab.addEventListener('keydown', (event) => {
+        let next = index;
+        if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft')
+          next = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activateTab(tabs[next].dataset.paperTab!);
+        tabs[next].focus();
+      });
+    });
+    const hashTab = () => activateTab(location.hash.slice(1), false);
+    hashTab();
+    window.addEventListener('hashchange', hashTab);
+
+    function refreshProgress() {
+      (['report', 'translation'] as const).forEach((kind) => {
+        const done =
+          kind === 'report' ? progress.reportRead : progress.translationRead;
+        const button = query<HTMLButtonElement>(`[data-mark-read="${kind}"]`);
+        button.setAttribute('aria-pressed', String(done));
+        button.textContent = done
+          ? `${kind === 'report' ? '报告' : '译稿'}已读 · 撤销`
+          : `标记${kind === 'report' ? '报告' : '译稿'}已读 ✓`;
+        query(`[data-step="${kind}"]`).classList.toggle('is-complete', done);
+        query(`[data-step-label="${kind}"]`).textContent = done
+          ? '已标记完成 ✓'
+          : kind === 'report'
+            ? '抓住问题与关键机制'
+            : '深入原文，核对细节';
+      });
+      query('[data-step-label="review"]').textContent =
+        `${progress.answers.length} / ${questions.length} 题已掌握`;
+      query('[data-step="review"]').classList.toggle(
+        'is-complete',
+        progress.answers.length === questions.length,
+      );
+      const bar = query('[data-quiz-progress]');
+      bar.setAttribute('aria-valuenow', String(progress.answers.length));
+      bar.querySelector<HTMLElement>('span')!.style.width =
+        `${(progress.answers.length / questions.length) * 100}%`;
+      if (!storageAvailable)
+        query('[data-storage-notice]').textContent =
+          '当前浏览器无法保存进度，本次学习仍可继续；关闭页面后进度不会保留。';
+    }
+    function saveProgress() {
+      try {
+        localStorage.setItem(keyFor(id), JSON.stringify(progress));
+      } catch {
+        storageAvailable = false;
+      }
+      refreshProgress();
+    }
+    detail
+      .querySelectorAll<HTMLButtonElement>('[data-mark-read]')
+      .forEach((button) => {
+        button.addEventListener('click', () => {
+          const kind = button.dataset.markRead;
+          if (kind === 'report') progress.reportRead = !progress.reportRead;
+          else progress.translationRead = !progress.translationRead;
+          saveProgress();
+          announce(
+            button.getAttribute('aria-pressed') === 'true'
+              ? '已标记阅读完成。'
+              : '已撤销阅读标记。',
+          );
+        });
+      });
+    query('[data-paper-print]').addEventListener('click', () => window.print());
+    query('[data-show-report]').addEventListener('click', () => {
+      activateTab('report');
+      tabs[0].focus();
+    });
+
+    let current = progress.answers.length;
+    let selected: number | null = null;
+    let answered = false;
+    const check = query<HTMLButtonElement>('[data-quiz-check]');
+    const next = query<HTMLButtonElement>('[data-quiz-next]');
+    const feedback = query('[data-quiz-feedback]');
+    const options = query<HTMLFieldSetElement>('[data-quiz-options]');
+    function renderQuestion(focus = false) {
+      const complete = current >= questions.length;
+      query('[data-quiz-question-area]').hidden = complete;
+      query('[data-quiz-complete]').hidden = !complete;
+      query('[data-quiz-counter]').textContent = complete
+        ? `${questions.length} / ${questions.length} 题已完成`
+        : `第 ${current + 1} / ${questions.length} 题`;
+      feedback.hidden = true;
+      feedback.textContent = '';
+      selected = null;
+      answered = false;
+      if (complete) {
+        if (focus) query<HTMLButtonElement>('[data-quiz-restart]').focus();
+        return;
+      }
+      const question = questions[current];
+      const prompt = query('[data-quiz-prompt]');
+      prompt.textContent = question.prompt;
+      prompt.tabIndex = -1;
+      options.replaceChildren();
+      const legend = document.createElement('legend');
+      legend.className = 'papers-sr-only';
+      legend.textContent = '选择一个答案';
+      options.append(legend);
+      question.options.forEach((option, index) => {
+        const label = document.createElement('label');
+        label.className = 'paper-quiz-option';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'paper-answer';
+        radio.value = String(index);
+        const letter = document.createElement('span');
+        letter.className = 'paper-answer-letter';
+        letter.setAttribute('aria-hidden', 'true');
+        letter.textContent = String.fromCharCode(65 + index);
+        const text = document.createElement('span');
+        text.textContent = option;
+        label.append(radio, letter, text);
+        radio.addEventListener('change', () => {
+          selected = index;
+          check.disabled = false;
+          options
+            .querySelectorAll('.is-wrong')
+            .forEach((item) => item.classList.remove('is-wrong'));
+          feedback.hidden = true;
+        });
+        options.append(label);
+      });
+      check.hidden = false;
+      check.disabled = true;
+      check.textContent = '检查答案';
+      next.hidden = true;
+      if (focus) prompt.focus();
+    }
+    check.addEventListener('click', () => {
+      if (selected === null || answered || current >= questions.length) return;
+      const question = questions[current];
+      const correct = selected === question.correct;
+      feedback.hidden = false;
+      feedback.dataset.result = correct ? 'correct' : 'incorrect';
+      const title = document.createElement('strong');
+      title.textContent = correct ? '答对了！' : '再想一想。';
+      const explanation = document.createElement('p');
+      explanation.textContent = question.explanation;
+      feedback.replaceChildren(title, explanation);
+      const chosen = options.querySelector<HTMLInputElement>(
+        `input[value="${selected}"]`,
+      )!;
+      chosen
+        .closest('label')!
+        .classList.add(correct ? 'is-correct' : 'is-wrong');
+      if (correct) {
+        answered = true;
+        progress.answers[current] = selected;
+        if (progress.answers.length === questions.length)
+          progress.reviewedAt = new Date().toISOString();
+        saveProgress();
+        options.querySelectorAll('input').forEach((input) => {
+          input.disabled = true;
+        });
+        check.hidden = true;
+        next.hidden = false;
+        next.textContent =
+          current === questions.length - 1 ? '完成复习 ✓' : '下一题 →';
+        next.focus();
+      } else {
+        check.textContent = '再试一次';
+      }
+    });
+    next.addEventListener('click', () => {
+      if (!answered) return;
+      current = progress.answers.length;
+      renderQuestion(true);
+    });
+    query('[data-quiz-restart]').addEventListener('click', () => {
+      progress.answers = [];
+      delete progress.reviewedAt;
+      current = 0;
+      saveProgress();
+      renderQuestion(true);
+    });
+    refreshProgress();
+    renderQuestion();
+  }
+</script>

@@ -4,7 +4,11 @@ export type Note = CollectionEntry<'notes'>;
 export const href = (path = '') =>
   `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
 export const noteUrl = (note: Note) =>
-  href(note.data.destination || `notes/${note.id}/`);
+  href(
+    note.data.paper
+      ? `papers/${note.id}/`
+      : note.data.destination || `notes/${note.id}/`,
+  );
 export const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('zh-CN', {
     year: 'numeric',

@@ -1,0 +1,455 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import BookScene from '../../components/papers/BookScene.astro';
+import LearningScript from '../../components/papers/LearningScript.astro';
+import {
+  getPapers,
+  questionRevision,
+  href,
+  type Paper,
+} from '../../lib/papers';
+import '../../styles/papers.css';
+export async function getStaticPaths() {
+  return (await getPapers()).map((paper) => ({
+    params: { slug: paper.id },
+    props: { paper },
+  }));
+}
+interface Props {
+  paper: Paper;
+}
+const { paper } = Astro.props;
+const metadata = paper.data.paper;
+const { Content } = await render(paper);
+---
+
+<Layout
+  title={`${metadata.shortTitle} · 论文学习`}
+  description={paper.data.description}
+  article
+>
+  <main
+    id="main"
+    class="papers-page paper-detail"
+    data-paper-detail
+    data-paper-id={paper.id}
+    data-question-count={metadata.questions.length}
+    data-question-revision={questionRevision(metadata.questions)}
+  >
+    <div class="papers-container">
+      <a class="papers-back" href={href('papers/')}>
+        <span aria-hidden="true">←</span> 返回论文库
+      </a>
+      <header class="paper-detail-hero">
+        <div>
+          <p class="papers-eyebrow">
+            论文学习 <span aria-hidden="true">/</span> {metadata.year} ·{' '}
+            {metadata.version}
+          </p>
+          <h1>{metadata.shortTitle}</h1>
+          <p class="paper-detail-original">{metadata.originalTitle}</p>
+          <p class="paper-detail-takeaway">{metadata.takeaway}</p>
+          <div class="paper-detail-chips">
+            <span>{metadata.reportPages} 页阅读报告</span>
+            <span>约 {metadata.readingMinutes} 分钟</span>
+            <span>{metadata.questions.length} 道复习题</span>
+          </div>
+        </div>
+        <BookScene compact />
+      </header>
+
+      <div class="paper-study-layout">
+        <div class="paper-study-main">
+          <div class="paper-tablist" role="tablist" aria-label="论文学习内容">
+            <button
+              id="tab-report"
+              type="button"
+              role="tab"
+              aria-controls="paper-report"
+              aria-selected="true"
+              data-paper-tab="report"
+            >
+              <span aria-hidden="true">1</span> 阅读报告
+            </button>
+            <button
+              id="tab-translation"
+              type="button"
+              role="tab"
+              aria-controls="paper-translation"
+              aria-selected="false"
+              tabindex="-1"
+              data-paper-tab="translation"
+            >
+              <span aria-hidden="true">2</span> 中文译稿
+            </button>
+            <button
+              id="tab-review"
+              type="button"
+              role="tab"
+              aria-controls="paper-review"
+              aria-selected="false"
+              tabindex="-1"
+              data-paper-tab="review"
+            >
+              <span aria-hidden="true">3</span> 快速复习
+            </button>
+          </div>
+          <noscript>
+            <p class="paper-noscript">
+              阅读报告和右侧下载无需 JavaScript；启用 JavaScript
+              后可切换译稿预览、进行小测和保存学习进度。
+            </p>
+          </noscript>
+
+          <section
+            id="paper-report"
+            class="paper-panel"
+            role="tabpanel"
+            aria-labelledby="tab-report"
+            tabindex="0"
+            data-paper-panel="report"
+          >
+            <div class="paper-panel-toolbar">
+              <p>一份可以带走的阅读报告</p>
+              <div>
+                <a
+                  href={href(metadata.assets.reportPdf)}
+                  class="paper-text-action"
+                  download
+                  data-report-download
+                >
+                  下载 PDF <span aria-hidden="true">↓</span>
+                </a>
+                <button
+                  type="button"
+                  class="paper-text-action"
+                  data-paper-print
+                >
+                  打印报告 <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </div>
+            <article
+              class="paper-report-body"
+              data-report-body
+              style={{
+                '--paper-name': JSON.stringify(metadata.shortTitle),
+                '--paper-pages': JSON.stringify(String(metadata.reportPages)),
+              }}
+            >
+              <Content />
+            </article>
+            <div class="paper-reading-finish">
+              <div>
+                <strong>读完了？让这个想法留下来。</strong>
+                <p>标记阅读后，可以继续看译稿，或用小测检验理解。</p>
+              </div>
+              <button
+                type="button"
+                class="paper-button paper-button-primary"
+                data-mark-read="report"
+                aria-pressed="false"
+              >
+                标记报告已读 <span aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </section>
+
+          <section
+            id="paper-translation"
+            class="paper-panel paper-translation-panel"
+            role="tabpanel"
+            aria-labelledby="tab-translation"
+            tabindex="0"
+            data-paper-panel="translation"
+            hidden
+          >
+            <div class="paper-resource-heading">
+              <span class="paper-resource-icon" aria-hidden="true">
+                文
+              </span>
+              <div>
+                <h2>中文译稿</h2>
+                <p>保留论文结构，适合深入阅读与对照原文。</p>
+              </div>
+            </div>
+            <p class="paper-translation-note">
+              学习用中文翻译，未经论文作者审定；术语、实验和结论请结合原文核对。
+            </p>
+            <div class="paper-download-row">
+              <a
+                href={href(metadata.assets.translationPdf)}
+                class="paper-button paper-button-primary"
+                target="_blank"
+                rel="noreferrer"
+                data-translation-open
+              >
+                打开中文 PDF <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href={href(metadata.assets.translationPdf)}
+                class="paper-button paper-button-secondary"
+                download
+              >
+                下载 PDF <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <object
+              class="paper-pdf-viewer"
+              data={href(metadata.assets.translationPdf)}
+              type="application/pdf"
+              aria-label={`${metadata.shortTitle} 中文译稿 PDF`}
+            >
+              <p>
+                当前浏览器不能在页内预览 PDF。
+                <a
+                  href={href(metadata.assets.translationPdf)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  打开中文 PDF 阅读
+                </a>
+                。
+              </p>
+            </object>
+            <p class="paper-pdf-fallback">
+              手机阅读或预览未加载时，请使用上方「打开中文 PDF」。
+            </p>
+            <div class="paper-source-downloads">
+              <h3>译稿与源文件</h3>
+              <div>
+                <a href={href(metadata.assets.translationTex)} download>
+                  中文 LaTeX 源码 <span>↓</span>
+                </a>
+                <a href={href(metadata.assets.sourceBundle)} download>
+                  译稿与原文源码包 <span>↓</span>
+                </a>
+                <a href={href(metadata.assets.originalSource)} download>
+                  论文原始 LaTeX 源码 <span>↓</span>
+                </a>
+                <a
+                  href={href(metadata.assets.originalPdf)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  英文原论文 PDF <span>↗</span>
+                </a>
+              </div>
+            </div>
+            <div class="paper-reading-finish">
+              <div>
+                <strong>读完译稿，再回忆一次。</strong>
+                <p>不必记住所有细节，先确认自己能解释核心机制。</p>
+              </div>
+              <button
+                type="button"
+                class="paper-button paper-button-primary"
+                data-mark-read="translation"
+                aria-pressed="false"
+              >
+                标记译稿已读 <span aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </section>
+
+          <section
+            id="paper-review"
+            class="paper-panel"
+            role="tabpanel"
+            aria-labelledby="tab-review"
+            tabindex="0"
+            data-paper-panel="review"
+            hidden
+          >
+            <div class="paper-review-card" data-quiz>
+              <div class="paper-review-header">
+                <span class="paper-topic-tag">主动回忆</span>
+                <span data-quiz-counter>
+                  第 1 / {metadata.questions.length} 题
+                </span>
+              </div>
+              <div
+                class="paper-progress-track"
+                role="progressbar"
+                aria-label="复习进度"
+                aria-valuemin="0"
+                aria-valuemax={metadata.questions.length}
+                aria-valuenow="0"
+                data-quiz-progress
+              >
+                <span></span>
+              </div>
+              <div data-quiz-question-area>
+                <p class="paper-review-kicker">先想一想，再选出你的答案。</p>
+                <h2 class="paper-quiz-prompt" data-quiz-prompt>
+                  {metadata.questions[0].prompt}
+                </h2>
+                <fieldset class="paper-quiz-options" data-quiz-options>
+                  <legend class="papers-sr-only">选择一个答案</legend>
+                  {metadata.questions[0].options.map((option, index) => (
+                    <label class="paper-quiz-option">
+                      <input type="radio" name="paper-answer" value={index} />
+                      <span class="paper-answer-letter" aria-hidden="true">
+                        {String.fromCharCode(65 + index)}
+                      </span>
+                      <span>{option}</span>
+                    </label>
+                  ))}
+                </fieldset>
+                <div
+                  class="paper-quiz-feedback"
+                  data-quiz-feedback
+                  role="status"
+                  aria-live="polite"
+                  hidden
+                ></div>
+                <div class="paper-quiz-footer">
+                  <p>答错也没关系，理解后可以重试。</p>
+                  <button
+                    type="button"
+                    class="paper-button paper-button-primary"
+                    data-quiz-check
+                    disabled
+                  >
+                    检查答案
+                  </button>
+                  <button
+                    type="button"
+                    class="paper-button paper-button-primary"
+                    data-quiz-next
+                    hidden
+                  >
+                    下一题 <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </div>
+              <div class="paper-quiz-complete" data-quiz-complete hidden>
+                <span class="paper-complete-icon" aria-hidden="true">
+                  ✓
+                </span>
+                <h2>又把知识巩固了一遍！</h2>
+                <p>
+                  你已完成全部 {metadata.questions.length}{' '}
+                  道题。下次回来，试着不看报告再回答一次。
+                </p>
+                <button
+                  type="button"
+                  class="paper-button paper-button-primary"
+                  data-quiz-restart
+                >
+                  重新复习 <span aria-hidden="true">↻</span>
+                </button>
+                <button
+                  type="button"
+                  class="paper-text-action"
+                  data-show-report
+                >
+                  回到阅读报告
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="paper-study-aside">
+          <div class="paper-journey-card">
+            <p class="papers-eyebrow">这篇论文的学习路径</p>
+            <h2>一步一步，读懂它。</h2>
+            <ol>
+              <li data-step="report">
+                <span class="paper-journey-dot" aria-hidden="true">
+                  1
+                </span>
+                <div>
+                  <strong>阅读报告</strong>
+                  <span data-step-label="report">抓住问题与关键机制</span>
+                </div>
+              </li>
+              <li data-step="translation">
+                <span class="paper-journey-dot" aria-hidden="true">
+                  2
+                </span>
+                <div>
+                  <strong>中文译稿</strong>
+                  <span data-step-label="translation">深入原文，核对细节</span>
+                </div>
+              </li>
+              <li data-step="review">
+                <span class="paper-journey-dot" aria-hidden="true">
+                  3
+                </span>
+                <div>
+                  <strong>快速复习</strong>
+                  <span data-step-label="review">
+                    0 / {metadata.questions.length} 题已掌握
+                  </span>
+                </div>
+              </li>
+            </ol>
+            <p class="paper-local-notice" data-storage-notice>
+              进度仅保存在当前浏览器；阅读完成由你手动标记。
+            </p>
+            <p
+              class="papers-sr-only"
+              data-learning-status
+              role="status"
+              aria-live="polite"
+            ></p>
+          </div>
+          <div class="paper-reference-card">
+            <h2>论文档案</h2>
+            <dl>
+              <dt>作者</dt>
+              <dd>{metadata.authors.join(' · ')}</dd>
+              <dt>阅读版本</dt>
+              <dd>
+                {metadata.year} · {metadata.version}
+              </dd>
+              <dt>代码核对</dt>
+              <dd>
+                <a href={metadata.codeUrl} target="_blank" rel="noreferrer">
+                  {metadata.codeVersion} ↗
+                </a>
+              </dd>
+              <dt>授权</dt>
+              <dd>{metadata.license}</dd>
+            </dl>
+            <div class="paper-reference-links">
+              <a href={metadata.sourceUrl} target="_blank" rel="noreferrer">
+                原论文页面 ↗
+              </a>
+              <a
+                href={href(metadata.assets.originalPdf)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                英文原论文 PDF ↗
+              </a>
+              <a
+                href={href(metadata.assets.translationPdf)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                中文译稿 PDF ↗
+              </a>
+              <a href={href(metadata.assets.reportPdf)} download>
+                阅读报告 PDF ↓
+              </a>
+              <a href={href(metadata.assets.sourceBundle)} download>
+                译稿与原文源码包 ↓
+              </a>
+            </div>
+            <p>译稿与报告用于个人学习，未经原作者审定。</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script
+      type="application/json"
+      data-paper-questions
+      set:html={JSON.stringify(metadata.questions).replace(/</g, '\\u003c')}
+    ></script>
+  </main>
+  <LearningScript />
+</Layout>

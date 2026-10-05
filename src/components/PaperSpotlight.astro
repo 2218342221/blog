@@ -1,0 +1,153 @@
+---
+import Icon from './Icon.astro';
+import Localized from './Localized.astro';
+import { href, type Paper } from '../lib/papers';
+interface Props {
+  papers: Paper[];
+}
+const { papers } = Astro.props;
+---
+
+<section
+  class="paper-spotlight container"
+  aria-labelledby="paper-spotlight-title"
+>
+  <div class="spotlight-book" aria-hidden="true">
+    <Icon name="book" size={36} />
+  </div>
+  <div class="spotlight-copy">
+    <p class="spotlight-eyebrow">
+      <Localized en="THE PAPER CLUB" zh="论文学习 · 一篇一份报告" />
+    </p>
+    <h2 id="paper-spotlight-title">
+      <Localized
+        en="Read deeply. Remember clearly."
+        zh="读懂一篇，记住关键。"
+      />
+    </h2>
+    <p>
+      <Localized
+        en="Translations, short reading reports, and a little practice to make it stick."
+        zh="中文译稿、三页阅读报告，再用几道小题巩固理解。"
+      />
+    </p>
+    <span class="spotlight-count">
+      {papers.length}{' '}
+      <Localized en="paper ready to explore" zh="篇论文已收录" />
+      <span aria-hidden="true"> · </span>
+      {papers[0].data.paper.shortTitle}
+    </span>
+  </div>
+  <a class="spotlight-link" href={href('papers/')}>
+    <Localized en="Explore papers" zh="进入论文书架" />{' '}
+    <Icon name="arrow" size={19} />
+  </a>
+</section>
+
+<style>
+  .paper-spotlight {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 44px;
+    padding: 26px 30px;
+    border: 2px solid #d8ebc5;
+    border-bottom-width: 5px;
+    border-radius: 22px;
+    background: #f6fbea;
+  }
+  .spotlight-book {
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 72px;
+    flex: 0 0 auto;
+    background: #d5f0aa;
+    color: #36671a;
+    border-radius: 17px;
+    transform: rotate(-7deg);
+  }
+  .spotlight-copy {
+    flex: 1;
+    min-width: 0;
+  }
+  .spotlight-eyebrow {
+    margin: 0 0 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #50772d;
+  }
+  .spotlight-copy h2 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+  .spotlight-copy > p:not(.spotlight-eyebrow) {
+    margin: 9px 0;
+    color: #54634a;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .spotlight-count {
+    color: #55733c;
+    font-size: 12px;
+  }
+  .spotlight-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 0 0 auto;
+    padding: 13px 18px;
+    border: 2px solid #489a13;
+    border-bottom-width: 5px;
+    border-radius: 14px;
+    background: #58cc02;
+    color: #183b09;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .spotlight-link:hover {
+    background: #6ddd1a;
+  }
+  .spotlight-link:active {
+    transform: translateY(2px);
+    border-bottom-width: 3px;
+    margin-bottom: 2px;
+  }
+  @media (max-width: 800px) {
+    .paper-spotlight {
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 24px;
+    }
+    .spotlight-copy {
+      flex-basis: calc(100% - 90px);
+    }
+    .spotlight-link {
+      margin-left: 86px;
+    }
+  }
+  @media (max-width: 540px) {
+    .paper-spotlight {
+      margin-top: 28px;
+      padding: 22px 18px;
+      gap: 15px;
+    }
+    .spotlight-book {
+      width: 48px;
+      height: 56px;
+    }
+    .spotlight-copy {
+      flex-basis: calc(100% - 65px);
+    }
+    .spotlight-copy h2 {
+      font-size: 21px;
+    }
+    .spotlight-link {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+</style>

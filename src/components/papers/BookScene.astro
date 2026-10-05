@@ -1,0 +1,93 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<svg
+  class:list={['paper-book-scene', { compact }]}
+  viewBox="0 0 360 260"
+  fill="none"
+  aria-hidden="true"
+>
+  <ellipse cx="179" cy="226" rx="119" ry="15" fill="#D3EBA8" />
+  <path
+    d="M49 173C19 122 45 61 90 40C145 12 207 20 253 55C299 90 337 142 307 182C264 238 96 239 49 173Z"
+    fill="#ECF9D8"
+  />
+  <path d="M77 76L179 53L283 76V206L181 223L77 202V76Z" fill="#3D8B00" />
+  <path
+    d="M82 70L177 49L177 212L82 191V70Z"
+    fill="#89D832"
+    stroke="#4C970F"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M177 49L278 68V193L177 212V49Z"
+    fill="#FFFDF4"
+    stroke="#4C970F"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M177 58L265 75V182L177 199"
+    stroke="#E3EAD4"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  <path
+    d="M193 82L248 92M193 95L237 103M193 154L248 163M193 168L231 175"
+    stroke="#BEC9AB"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  <path
+    d="M212 54V114L227 107L242 120V60"
+    fill="#FFC744"
+    stroke="#E5A624"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M100 93L151 82M100 106L141 97"
+    stroke="#DAFFAB"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+  <circle cx="116" cy="142" r="5" fill="#275D13" />
+  <circle cx="149" cy="135" r="5" fill="#275D13" />
+  <path
+    d="M123 157C130 163 140 161 145 151"
+    stroke="#275D13"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  <path
+    d="M59 47L64 32L69 47L84 52L69 57L64 72L59 57L44 52L59 47Z"
+    fill="#FFCB45"
+  />
+  <path
+    d="M299 119L302 109L306 119L316 123L306 126L302 137L299 126L288 123L299 119Z"
+    fill="#79CC2E"
+  />
+  <rect
+    x="244"
+    y="177"
+    width="63"
+    height="49"
+    rx="13"
+    fill="#E5F6FF"
+    stroke="#82C7EC"
+    stroke-width="3"
+    transform="rotate(-8 244 177)"
+  />
+  <path
+    d="M261 197L270 205L286 186"
+    stroke="#35A3D8"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

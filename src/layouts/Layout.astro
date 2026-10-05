@@ -22,6 +22,7 @@ const pageTitle = home ? site.titleEn : titleZh;
 const canonical = new URL(Astro.url.pathname, Astro.site || site.url);
 const links = [
   { en: 'Home', zh: '首页', path: '' },
+  { en: 'Papers', zh: '论文学习', path: 'papers/' },
   { en: 'Topics', zh: '学习专题', path: 'topics/' },
   { en: 'Archive', zh: '归档', path: 'archive/' },
   { en: 'About', zh: '关于', path: 'about/' },
@@ -117,7 +118,11 @@ const localizedAttribute = (attribute: string, en: string, zh: string) => ({
             <a
               href={href(link.path)}
               aria-current={
-                Astro.url.pathname === href(link.path) ? 'page' : undefined
+                Astro.url.pathname === href(link.path) ||
+                (link.path === 'papers/' &&
+                  Astro.url.pathname.startsWith(href('papers/')))
+                  ? 'page'
+                  : undefined
               }
             >
               <Localized active={home} en={link.en} zh={link.zh} />
