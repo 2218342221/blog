@@ -114,12 +114,19 @@ test('read published notes and filter by learning topic', async ({
   page,
   request,
 }) => {
-  const notes = await getPublishedNotes(request);
+  const published = await getPublishedNotes(request);
+  const notes = published.filter(
+    (note) => !note.url.startsWith(pathTo('papers/')),
+  );
   await page.goto(pathTo());
   await selectChineseHome(page);
   await expect(page).toHaveTitle(site.title);
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   const visibleCards = page.locator('#latest [data-note-card]:visible');
+  await expect(page.locator('.paper-spotlight')).toHaveCount(0);
+  await expect(
+    page.locator(`#latest a[href^="${pathTo('papers/')}"]`),
+  ).toHaveCount(0);
   await expect(visibleCards).toHaveCount(notes.length);
   await expect(visibleCards.locator('h3')).toHaveText(
     notes.map((note) => note.title),

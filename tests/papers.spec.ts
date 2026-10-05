@@ -118,6 +118,39 @@ test('open MemGPT from the paper library and navigate the three learning tabs', 
   await expect(translationPanel).toBeVisible();
 });
 
+test('jump to each report page without covering its heading and print only the report', async ({
+  page,
+}) => {
+  await page.goto(memgptPath);
+  const navigation = page.locator('[data-report-nav]');
+  const links = navigation.getByRole('link');
+  await expect(links).toHaveCount(3);
+  for (const link of await links.all()) {
+    const fragment = (await link.getAttribute('href'))!;
+    const id = decodeURIComponent(fragment.slice(1));
+    const target = page.locator(`[id="${id}"]`);
+    await link.click();
+    await expect(page).toHaveURL(
+      (url) => decodeURIComponent(url.hash.slice(1)) === id,
+    );
+    await expect(target).toBeInViewport();
+    await expect
+      .poll(async () => {
+        const heading = await target.boundingBox();
+        const tabs = await page.locator('.paper-tablist').boundingBox();
+        return Boolean(heading && tabs && heading.y >= tabs.y + tabs.height);
+      })
+      .toBe(true);
+  }
+
+  await page.getByRole('tab', { name: '中文译稿', exact: true }).click();
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('[data-paper-panel="report"]')).toBeVisible();
+  await expect(page.locator('[data-paper-panel="translation"]')).toBeHidden();
+  await expect(navigation).toBeHidden();
+  await expect(page.locator('[data-report-body] .report-sheet')).toHaveCount(3);
+});
+
 test('retry a wrong answer, retain reading and quiz progress, and complete a review', async ({
   page,
 }) => {

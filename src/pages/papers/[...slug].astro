@@ -21,7 +21,20 @@ interface Props {
 }
 const { paper } = Astro.props;
 const metadata = paper.data.paper;
-const { Content } = await render(paper);
+const { Content, headings } = await render(paper);
+const reportSections = headings
+  .filter((heading) => heading.depth === 2)
+  .slice(0, metadata.reportPages)
+  .map((heading, index) => {
+    const shortTitle = heading.text.split(/[：:]/)[0].trim();
+    const letters = Array.from(shortTitle);
+    return {
+      ...heading,
+      number: String(index + 1).padStart(2, '0'),
+      label:
+        letters.length > 8 ? `${letters.slice(0, 8).join('')}…` : shortTitle,
+    };
+  });
 ---
 
 <Layout
@@ -130,6 +143,32 @@ const { Content } = await render(paper);
                 </button>
               </div>
             </div>
+            {reportSections.length > 1 && (
+              <nav
+                class="paper-report-nav"
+                aria-label="阅读报告页内导航"
+                data-report-nav
+                style={{ '--report-section-count': reportSections.length }}
+              >
+                <span>按页回顾</span>
+                <ol>
+                  {reportSections.map((section) => (
+                    <li>
+                      <a
+                        href={`#${section.slug}`}
+                        title={section.text}
+                        aria-label={`第 ${Number(section.number)} 页：${section.text}`}
+                        data-report-jump
+                      >
+                        <span aria-hidden="true">{section.number}</span>
+                        <strong>{section.label}</strong>
+                        <span aria-hidden="true">↓</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
             <article
               class="paper-report-body"
               data-report-body

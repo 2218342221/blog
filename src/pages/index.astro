@@ -4,12 +4,9 @@ import NoteCard from '../components/NoteCard.astro';
 import Icon from '../components/Icon.astro';
 import BrandMark from '../components/BrandMark.astro';
 import Localized from '../components/Localized.astro';
-import PaperSpotlight from '../components/PaperSpotlight.astro';
 import { topics, site } from '../config/site';
 import { getNotes, href } from '../lib/notes';
-import { getPapers } from '../lib/papers';
-const notes = await getNotes();
-const papers = await getPapers();
+const notes = (await getNotes()).filter((note) => !note.data.paper);
 ---
 
 <Layout home>
@@ -94,7 +91,6 @@ const papers = await getPapers();
         )}
       </div>
     </div>
-    {papers.length > 0 && <PaperSpotlight papers={papers} />}
     <section
       id="latest"
       class="latest-section container"
