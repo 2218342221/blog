@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="pp-cpu-title pp-cpu-desc"><title id="pp-cpu-title">Go CPU 采样的两种执行环境</title><desc id="pp-cpu-desc">Go 1.25 Linux 路径的简化图：线程 CPU 时钟触发信号，受限信号处理器写有界日志，普通 goroutine 异步构建 profile。</desc><defs><marker id="pp-cpu-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="40.0" y="75" width="270" height="112" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="175.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">CPU 时钟 → SIGPROF</text>
+<text x="175.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">名义 100 Hz</text>
+<line x1="313.0" y1="130" x2="341.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-cpu-arrow)"/>
+<rect x="345.0" y="75" width="270" height="112" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="480.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">受限现场展开栈</text>
+<text x="480.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">有界日志 / 溢出计数</text>
+<line x1="618.0" y1="130" x2="646.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-cpu-arrow)"/>
+<rect x="650.0" y="75" width="270" height="112" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="785.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">普通 goroutine</text>
+<text x="785.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">count × period</text>
+<text x="480" y="235" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">睡眠时间不会自动成为 CPU 样本</text>
+<text x="480" y="264" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">已知 lost 数量可保留部分总量，却无法恢复原业务栈</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="pf-sequence-title pf-sequence-desc"><title id="pf-sequence-title">增量状态为压缩提供上下文</title><desc id="pf-sequence-desc">InternedData 的标识在 packet sequence 等上下文内解释。丢失依赖的状态包会使后续引用无法可靠解析，需等待有效重置。</desc><defs><marker id="pf-sequence-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="40.0" y="75" width="270" height="112" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="175.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">序列字典</text>
+<text x="175.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">iid 7 → 名字 Encode</text>
+<line x1="313.0" y1="130" x2="341.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-sequence-arrow)"/>
+<rect x="345.0" y="75" width="270" height="112" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="480.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">后续 TrackEvent</text>
+<text x="480.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">引用 iid 7</text>
+<line x1="618.0" y1="130" x2="646.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-sequence-arrow)"/>
+<rect x="650.0" y="75" width="270" height="112" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="785.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">解码器状态</text>
+<text x="785.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">序列有效才可解释</text>
+<text x="480" y="235" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">同一个 iid 在不同序列中不保证相同含义</text>
+<text x="480" y="264" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">文件仍可解析，不意味着每个事件都可完整恢复</text>
+</svg>

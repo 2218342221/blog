@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="layers-title layers-desc"><title id="layers-title">三种能力，三个层次</title><desc id="layers-desc">eBPF 是可编程采集机制；pprof 组织栈权重；Perfetto 组织时间事件。箭头表示一种可能的数据通路，不是内置的自动转换。</desc><defs><marker id="layers-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="40.0" y="75" width="270" height="112" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="175.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">eBPF</text>
+<text x="175.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">事件触发与受限执行</text>
+<line x1="313.0" y1="130" x2="341.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#layers-arrow)"/>
+<rect x="345.0" y="75" width="270" height="112" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="480.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">pprof</text>
+<text x="480.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">栈 + 类型 + 权重</text>
+<line x1="618.0" y1="130" x2="646.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#layers-arrow)"/>
+<rect x="650.0" y="75" width="270" height="112" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="785.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Perfetto</text>
+<text x="785.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">事件 + 身份 + 时间</text>
+<text x="480" y="235" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">可分别使用，也可通过明确的数据转换组合</text>
+<text x="480" y="264" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">采集能力、聚合语义与时间语义必须逐层说明</text>
+</svg>

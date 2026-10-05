@@ -1,0 +1,3859 @@
+[
+  {
+    "id": "go-diagnostics",
+    "title": "Diagnostics",
+    "url": "https://go.dev/doc/diagnostics",
+    "year": "2026（读取年份）",
+    "kind": "official-doc",
+    "accessed": "2026-10-02",
+    "notes": "诊断工具的分类与组合；持续更新文档，读取年份不代表首次发表年份。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/website/master/_content/doc/diagnostics.html",
+      "status": 200,
+      "bytes": 17955
+    }
+  },
+  {
+    "id": "go-pgo",
+    "title": "Profile-guided optimization",
+    "url": "https://go.dev/doc/pgo",
+    "year": "2026（读取年份）",
+    "kind": "official-doc",
+    "accessed": "2026-10-02",
+    "notes": "PGO 默认文件、剖析数据合并和工作负载代表性；持续更新文档。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/website/master/_content/doc/pgo.md",
+      "status": 200,
+      "bytes": 17353
+    }
+  },
+  {
+    "id": "go-pgo-blog",
+    "title": "Profile-guided optimization in Go 1.21",
+    "url": "https://go.dev/blog/pgo",
+    "year": "2023",
+    "kind": "official-blog",
+    "accessed": "2026-10-02",
+    "notes": "Go 1.21 正式支持 PGO；文中的性能数字仅适用于原文评估条件。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/website/master/_content/blog/pgo.md",
+      "status": 200,
+      "bytes": 29948
+    }
+  },
+  {
+    "id": "go-memory",
+    "title": "A Guide to the Go Garbage Collector",
+    "url": "https://go.dev/doc/gc-guide",
+    "kind": "official-doc",
+    "year": "2026（读取年份）",
+    "accessed": "2026-10-02",
+    "notes": "GC 成本模型、GOGC 和软内存限制；持续更新文档。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/website/master/_content/doc/gc-guide.html",
+      "status": 200,
+      "bytes": 76696,
+      "method": "HTTPS"
+    }
+  },
+  {
+    "id": "go-testing",
+    "title": "testing package (Go 1.25)",
+    "url": "https://pkg.go.dev/testing@go1.25.0",
+    "year": "2025（Go 1.25.0）",
+    "kind": "source",
+    "accessed": "2026-10-02",
+    "notes": "testing.B.Loop、基准计时和分配统计。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/go/go1.25.0/src/testing/benchmark.go",
+      "status": 200,
+      "bytes": 30295
+    }
+  },
+  {
+    "id": "go-proto",
+    "title": "profile.proto",
+    "url": "https://github.com/google/pprof/blob/main/proto/profile.proto",
+    "kind": "source",
+    "year": "2026（读取年份）",
+    "accessed": "2026-10-02",
+    "notes": "profile 值向量、sample_type、location 和 string_table；版本固定的实现分析见第十五章。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/google/pprof/main/proto/profile.proto",
+      "status": 200,
+      "bytes": 10017,
+      "method": "HTTPS"
+    }
+  },
+  {
+    "id": "go-scheduler",
+    "title": "Go runtime scheduler",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/proc.go",
+    "year": "2025（Go 1.25.0）",
+    "kind": "source",
+    "accessed": "2026-10-02",
+    "notes": "G/M/P 模型与工作窃取；属于所读版本的实现细节。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/go/go1.25.0/src/runtime/proc.go",
+      "status": 200,
+      "bytes": 225246
+    }
+  },
+  {
+    "id": "go-race",
+    "title": "Data Race Detector",
+    "url": "https://go.dev/doc/articles/race_detector",
+    "year": "2026（读取年份）",
+    "kind": "official-doc",
+    "accessed": "2026-10-02",
+    "notes": "动态数据竞争检测只覆盖实际执行路径；带检测插桩的运行结果不作为普通性能基准。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/website/master/_content/doc/articles/race_detector.html",
+      "status": 200,
+      "bytes": 11399
+    }
+  },
+  {
+    "id": "go-model",
+    "title": "The Go Memory Model",
+    "url": "https://go.dev/ref/mem",
+    "year": "2025（Go 1.25.0 源码快照）",
+    "kind": "official-doc",
+    "accessed": "2026-10-02",
+    "notes": "happens-before 关系与无数据竞争程序的保证；快照年份不代表内存模型首次发布年份。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/go/go1.25.0/doc/go_mem.html",
+      "status": 200,
+      "bytes": 27236
+    }
+  },
+  {
+    "id": "go-benchstat",
+    "title": "benchstat",
+    "url": "https://pkg.go.dev/golang.org/x/perf/cmd/benchstat",
+    "year": "2026（读取年份）",
+    "kind": "source",
+    "accessed": "2026-10-02",
+    "notes": "多次基准运行的比较与统计摘要；独立于标准库的 golang.org/x/perf 工具。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/perf/master/cmd/benchstat/main.go",
+      "status": 200,
+      "bytes": 23342
+    }
+  },
+  {
+    "id": "go-http",
+    "title": "net/http/pprof",
+    "url": "https://pkg.go.dev/net/http/pprof@go1.25.0",
+    "year": "2025（Go 1.25.0）",
+    "kind": "source",
+    "accessed": "2026-10-02",
+    "notes": "HTTP GET 端点、seconds、gc=1 和处理器定义。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/go/go1.25.0/src/net/http/pprof/pprof.go",
+      "status": 200,
+      "bytes": 14598
+    }
+  },
+  {
+    "id": "go-pprof",
+    "title": "runtime/pprof",
+    "url": "https://pkg.go.dev/runtime/pprof@go1.25.0",
+    "kind": "source",
+    "year": "2025（Go 1.25.0）",
+    "accessed": "2026-10-02",
+    "notes": "CPU、heap、block、mutex 剖析的语义与采样机制。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/golang/go/go1.25.0/src/runtime/pprof/pprof.go",
+      "status": 200,
+      "bytes": 31881,
+      "method": "local verified Go toolchain source"
+    }
+  },
+  {
+    "id": "go-sync-pool",
+    "title": "Go 1.25 sync.Pool：对象可随时移除的接口契约",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/sync/pool.go#L14-L43",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "Pool用于临时对象复用；对象可随时被自动移除，不保证持久性；首次使用后不可复制。",
+    "verification": {
+      "local_file": "lab/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.0.linux-amd64/src/sync/pool.go",
+      "sha256": "d613639cb20b77b0db9104bc0de2590f781f4ea3a01494619e521aa727114f99",
+      "lines": "14–43"
+    }
+  },
+  {
+    "id": "proj-pprof",
+    "title": "google/pprof：固定提交的驱动与报告实现",
+    "url": "https://github.com/google/pprof/tree/60bf690a9302b860b2110fbb4dccdfbbeb26ab89",
+    "year": 2026,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "固定提交60bf690a9302b860b2110fbb4dccdfbbeb26ab89；提交时间经API核实为2026-10-01T06:43:31Z。v2审读profile/merge.go:135–574、internal/driver/fetch.go:37–89；合并错误、差分与输入缺失边界。不是最新版承诺。"
+  },
+  {
+    "id": "proj-pprof-model",
+    "title": "pprof Profile 数据模型与归并实现",
+    "url": "https://github.com/google/pprof/blob/60bf690a9302b860b2110fbb4dccdfbbeb26ab89/profile/profile.go",
+    "year": 2026,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "审读Profile/Sample/Location/Mapping/Function模型、ParseData和CheckValid；对象图和本地ID是合并算法的前提。配合固定提交profile/merge.go交叉验证。"
+  },
+  {
+    "id": "proj-delve",
+    "title": "Delve v1.24.2：调试器核心与Linux native后端",
+    "url": "https://github.com/go-delve/delve/tree/v1.24.2",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "固定v1.24.2；pkg/proc/target.go:65–68缓存失效；pkg/proc/native/proc.go:395–417固定OS线程ptrace；历史实现不作为Go1.25兼容性保证。"
+  },
+  {
+    "id": "proj-delve-stack",
+    "title": "Delve v1.24.2：goroutine栈展开",
+    "url": "https://github.com/go-delve/delve/blob/v1.24.2/pkg/proc/stack.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "v1.24.2；实读130–179、380–553：线程/保存G寄存器、部分栈错误、内联栈和callpc修正、FDE/CFA寄存器恢复。"
+  },
+  {
+    "id": "proj-pyroscope",
+    "title": "Grafana Pyroscope v1.14.0：Distributor写入路径",
+    "url": "https://github.com/grafana/pyroscope/blob/v1.14.0/pkg/distributor/distributor.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "v1.14.0；distributor.go约390–530：先限流、规范化、可选aggregate、ingester/segmentwriter路由。best-effort/at-most-once只限定所读可选聚合路径。"
+  },
+  {
+    "id": "proj-pyroscope-store",
+    "title": "Grafana Pyroscope v1.14.0：phlaredb、SymDB与查询",
+    "url": "https://github.com/grafana/pyroscope/blob/v1.14.0/pkg/phlaredb/head.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "v1.14.0；head.go:191–251；另深读symdb/partition_memory.go:1–207、dedup_slice.go:32–220、rewriter.go:36–217、stacktrace_tree.go:16–164与querier/querier.go:578–710。区分符号DAG重写、结构去重、累计差分和展示裁剪。"
+  },
+  {
+    "id": "proj-parca",
+    "title": "Parca v0.23.1：查询与符号化",
+    "url": "https://github.com/parca-dev/parca/tree/v0.23.1",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "v0.23.1；pkg/profile/schema.go:38–158物理布局；pkg/symbolizer/symbolizer.go:490–525符号后端选择；同时审读pkg/parcacol/querier.go。未部署或测定系统性能。"
+  },
+  {
+    "id": "proj-parca-store",
+    "title": "Parca v0.23.1：ProfileColumnStore与列式schema",
+    "url": "https://github.com/parca-dev/parca/blob/v0.23.1/pkg/profilestore/profilecolumnstore.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "v0.23.1；WriteRaw→normalizer.WriteRawRequestToArrowRecord→ingester.Ingest；深读pkg/normalizer/normalizer.go:51–230及pkg/ingester/ingester.go:24–69，确认类型单位、动态标签与Arrow字典初始化。"
+  },
+  {
+    "id": "proj-parca-agent",
+    "title": "Parca Agent v0.38.1：采集器装配与Arrow报告",
+    "url": "https://github.com/parca-dev/parca-agent/tree/v0.38.1",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "v0.38.1；reporter/parca_reporter.go:205–264、532–548、969–1175、1280–1286；TraceHash/LRU、CPU count与offCPU时间、Arrow样本/按需补栈协议、is_complete标记。"
+  },
+  {
+    "id": "proj-otel-ebpf",
+    "title": "Parca使用的OpenTelemetry eBPF profiler固定fork",
+    "url": "https://github.com/parca-dev/opentelemetry-ebpf-profiler/tree/edfa6253a8b2",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "Agent go.mod替换到Parca fork edfa6253a8b2；审读interpreter/golang/golang.go:60–85及runtime_data.go:1–35，标签latestVersion=go1.24且未知版本回退告警。Go标签与native展开需独立验证。"
+  },
+  {
+    "id": "front-go121",
+    "title": "Go 1.21 Release Notes：PGO正式可用",
+    "url": "https://go.dev/doc/go1.21",
+    "year": 2023,
+    "kind": "official-release-notes",
+    "accessed": "2026-10-02",
+    "notes": "Go1.21发布说明：PGO正式支持、-pgo=auto/default.pgo、带保护去虚化等。工程发布材料，不与同行评审论文混为一类；本书Go迁移实验为设计。"
+  },
+  {
+    "id": "front-trace2024",
+    "title": "More powerful Go execution traces",
+    "url": "https://go.dev/blog/execution-traces-2024",
+    "year": 2024,
+    "kind": "official-engineering-article",
+    "accessed": "2026-10-02",
+    "notes": "官方文章2024-03-14：Go1.22追踪重写和generation/分段方向；文章当时go tool trace仍整体加载，不能把格式潜力当作当时全部工具能力。"
+  },
+  {
+    "id": "front-flight2025",
+    "title": "Flight Recorder in Go 1.25",
+    "url": "https://go.dev/blog/flight-recorder",
+    "year": 2025,
+    "kind": "official-engineering-article",
+    "accessed": "2026-10-02",
+    "notes": "官方文章2025-09-26：异常触发前保留trace窗口；与Go1.25.0源码交叉核实。选中工程资料最晚明确发布日期，不声称2026无其他研究。"
+  },
+  {
+    "id": "front-flight-source",
+    "title": "Go 1.25.0 runtime/trace FlightRecorder实现与API契约",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/trace/flightrecorder.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "固定Go1.25.0；flightrecorder.go完整接口及157–175配置语义：MaxBytes优先MinAge但为hint，非WriteTo文件或RSS硬上限；单记录器、可与trace.Start并存、并发WriteTo受限。"
+  },
+  {
+    "id": "front-otel2024",
+    "title": "OpenTelemetry announces support for profiling",
+    "url": "https://opentelemetry.io/blog/2024/profiling/",
+    "year": 2024,
+    "kind": "official-project-announcement",
+    "accessed": "2026-10-02",
+    "notes": "官方2024-03-19介绍Profiles方向。区分计划/动机与后续规范完成程度，不据公告声称所有后端兼容。"
+  },
+  {
+    "id": "front-otel-spec",
+    "title": "OpenTelemetry Profiles Specification",
+    "url": "https://opentelemetry.io/docs/specs/otel/profiles/",
+    "year": 2026,
+    "kind": "living-specification-snapshot",
+    "accessed": "2026-10-02",
+    "notes": "2026-10-02实读规范快照（页面版本1.61.0）仍Alpha；Resource/Scope、字典、trace/span links、original_payload。访问时间不等于论文发表时间。"
+  },
+  {
+    "id": "paper-scalene",
+    "title": "Emery D. Berger, Sam Stern, Juan Altmayer Pizzorno. Triangulating Python Performance Issues with Scalene. OSDI 2023.",
+    "url": "https://www.usenix.org/conference/osdi23/presentation/berger",
+    "year": 2023,
+    "kind": "peer-reviewed-conference-paper",
+    "accessed": "2026-10-02",
+    "notes": "OSDI2023原始PDF全文方法/实验/讨论已读，布局文本1–1030；重点§2–3/图3–4、§6/表1–3/图5–8、§7–8。表2样本中位18倍、pprint7976/23、sympy6757/10；表3完整模式1.32x中位、pprint4.03x。印刷页56泄漏公式与变量定义存在可演算一致性疑问，未宣称源码bug。所有性能数是作者原实验，不是本次复现。"
+  },
+  {
+    "id": "paper-hardware",
+    "title": "Aarati Kakaraparthy, Jignesh M. Patel. Fine-Grained Hardware Profiling – Are You Using the Right Tools? SIGMOD Record 53(2), 2024.",
+    "url": "https://doi.org/10.1145/3685980.3685986",
+    "year": 2024,
+    "kind": "research-journal-article",
+    "accessed": "2026-10-02",
+    "notes": "SIGMOD Record53(2)，2024年6月，pp38–43；DOI在线元数据2024-07-30。原PDF布局文本1–390实读，Listings2–4、图1–5。图1精度23.9/99.3/99.7%；图2对无工具+40/+3/+2%；图4对自身粗粒度+268/+8%；图5对最佳策略+20/+25/+10%，分母必须分别注明。"
+  },
+  {
+    "id": "paper-epping",
+    "title": "Simon Sundberg, Anna Brunstrom, Simone Ferlin-Reiter, Toke Høiland-Jørgensen, Jesper Dangaard Brouer. Efficient Continuous Latency Monitoring with eBPF. PAM 2023.",
+    "url": "https://doi.org/10.1007/978-3-031-28486-1_9",
+    "year": 2023,
+    "kind": "peer-reviewed-conference-paper",
+    "accessed": "2026-10-02",
+    "notes": "PAM2023 LNCS13882 pp191–208，在线2023-03-10。原PDF布局文本1–640实读含附录A、图8–9、Algorithm1。图4共同ACK子集；图5CPU47/57/77%且PPing仅观测约6%；图6单核1.53→1.13Mpps；图7限流/直方图。Zenodo7555410在原文可见，但归档访问失败，未核验代码内容。"
+  },
+  {
+    "id": "proj-pprof-merge",
+    "title": "google/pprof：语义合并与对象重编号源码",
+    "url": "https://github.com/google/pprof/blob/60bf690a9302b860b2110fbb4dccdfbbeb26ab89/profile/merge.go",
+    "year": 2026,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "实读135–574；mapSample155–193、sampleKey196–245、mapLocation284–337、mapMapping346–409、函数身份426–458、头部468–544、ID缓存549–574。教材代码片段逐字对照。"
+  },
+  {
+    "id": "proj-pyro-tree",
+    "title": "Pyroscope v1.14.0：stacktrace tree",
+    "url": "https://github.com/grafana/pyroscope/blob/v1.14.0/pkg/phlaredb/symdb/stacktrace_tree.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "实读16–164：parent/reference/firstchild/nextsibling，反向插入，89–101父指针恢复，持久化只存p/r。对照partition_memory.go:63–149锁、缓存与切片头。复杂度是本书根据控制流推导。"
+  },
+  {
+    "id": "proj-pyro-delta",
+    "title": "Pyroscope v1.14.0：累计profile差分",
+    "url": "https://github.com/grafana/pyroscope/blob/v1.14.0/pkg/phlaredb/delta.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "实读21–99；首次基线为空、计数下降重置；仅memory alloc_objects和alloc_space的该路径。100→160→20→45为教学输入。 多栈输入的原地相减后重置可污染重建基线：原始delta.go逐字复制的隔离Go测试已复现该序列；Samples方法保持原文，外围标签/类型为桩，未执行完整上游测试或生产部署。"
+  },
+  {
+    "id": "proj-parca-query",
+    "title": "Parca v0.23.1：列式查询与count乘period",
+    "url": "https://github.com/parca-dev/parca/blob/v0.23.1/pkg/parcacol/querier.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "实读QueryRange341–381、queryRangeDelta405–511及selectMerge/QueryMerge1367–1498。count逐行乘period再SUM；过滤时间边界因具体接口不同。"
+  },
+  {
+    "id": "proj-ebpf-unwind",
+    "title": "OTel eBPF Parca fork：有界native栈展开",
+    "url": "https://github.com/parca-dev/opentelemetry-ebpf-profiler/blob/edfa6253a8b2/support/ebpf/native_stack_trace.ebpf.c",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "实读137–217、575–646；64KiB页、有界二分前驱查找、先压当前帧后展开、错误和tail call。非空栈不等于完整。"
+  },
+  {
+    "id": "proj-go-unwind",
+    "title": "OTel eBPF Parca fork：Go pclntab转换为展开规则",
+    "url": "https://github.com/parca-dev/opentelemetry-ebpf-profiler/blob/edfa6253a8b2/nativeunwind/elfunwindinfo/elfgopclntab.go",
+    "year": 2025,
+    "kind": "primary-source-code",
+    "accessed": "2026-10-02",
+    "notes": "实读480–645；Go函数表、PCSP、x86 FP/SP策略与ARM64历史实现注释。教材CFA例子为架构限定简化推导，不是Go ABI固定布局。"
+  },
+  {
+    "id": "tools-pprof",
+    "title": "Go 1.25 runtime/pprof：CPU、heap、block、mutex 语义",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/pprof/pprof.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "Go 1.25.0；CPU 名义采样频率为 100 Hz；heap 的四种样本类型；block 记录等待栈，mutex 记录释放栈；单个进程内同时只能运行一个 runtime/pprof CPU 采集器。"
+  },
+  {
+    "id": "tools-mprof",
+    "title": "Go 1.25 runtime 内存与同步剖析实现",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/mprof.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "MemProfileRate 默认 512 KiB；采样率应尽早只改一次；MemProfile 最多滞后两个 GC 周期；block 按时长采样、mutex 按事件采样及权重校正。"
+  },
+  {
+    "id": "tools-http-pprof",
+    "title": "Go 1.25 net/http/pprof 参数与处理器",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/net/http/pprof/pprof.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "debug/gc/seconds 参数、CPU 与 trace 窗口、其他 profile 的差分；手动注册自定义 mux；默认 CPU 30 秒。"
+  },
+  {
+    "id": "tools-labels",
+    "title": "Go 1.25 pprof Labels 与 WithLabels",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/pprof/label.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "明确只有 CPU 与 goroutine profiles 使用 labels；WithLabels 只返回带标签的 context。"
+  },
+  {
+    "id": "tools-label-runtime",
+    "title": "Go 1.25 pprof.Do 与 goroutine labels 继承",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/pprof/runtime.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "Do 安装增强标签并在回调后恢复；新建 goroutine 继承创建时标签。"
+  },
+  {
+    "id": "tools-gc-guide",
+    "title": "A Guide to the Go Garbage Collector",
+    "url": "https://go.dev/doc/gc-guide",
+    "year": 2026,
+    "kind": "官方持续更新指南",
+    "accessed": "2026-10-02",
+    "notes": "通过 golang/website 的 _content/doc/gc-guide.html 核查；年份为读取版本年份，不代表首次发表。GC 目标公式包含根；GOMEMLIMIT 为软限制。"
+  },
+  {
+    "id": "tools-metrics",
+    "title": "Go 1.25 runtime/metrics 指标定义",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/metrics/description.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "名称、类型、Cumulative；调度延迟、锁等待与内存口径；CPU classes total 为 GOMAXPROCS 积分的估计可用容量。"
+  },
+  {
+    "id": "tools-metrics-read",
+    "title": "Go 1.25 runtime/metrics.Read 与存储复用",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/metrics/sample.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "未知指标返回 KindBad；重复 Read 可复用直方图存储；跨 goroutine 使用必须深拷贝相关数据。"
+  },
+  {
+    "id": "tools-go122",
+    "title": "Go 1.22 Release Notes：mutex 与 execution tracer",
+    "url": "https://go.dev/doc/go1.22",
+    "year": 2024,
+    "kind": "官方发行说明",
+    "accessed": "2026-10-02",
+    "notes": "通过 golang/website 对应官方文档源码核查。mutex 按等待者数量缩放；新增内部锁竞争；trace 重写和代际分段。"
+  },
+  {
+    "id": "tools-go125",
+    "title": "Go 1.25 Release Notes：FlightRecorder 与容器感知",
+    "url": "https://go.dev/doc/go1.25",
+    "year": 2025,
+    "kind": "官方发行说明",
+    "accessed": "2026-10-02",
+    "notes": "通过 golang/website 对应官方文档源码核查。标准库 FlightRecorder 与容器相关 GOMAXPROCS 改进；不将 1.25 声称为 2026 年最新版本。"
+  },
+  {
+    "id": "tools-trace2024",
+    "title": "More powerful Go execution traces",
+    "url": "https://go.dev/blog/execution-traces-2024",
+    "year": 2024,
+    "kind": "官方技术文章",
+    "accessed": "2026-10-02",
+    "notes": "2024 年 trace 重写、开销改进、分段、实验 flight recorder 和 reader API。文中的性能数据仅代表其测试背景。"
+  },
+  {
+    "id": "tools-flight-blog",
+    "title": "Flight Recorder in Go 1.25",
+    "url": "https://go.dev/blog/flight-recorder",
+    "year": 2025,
+    "kind": "官方技术文章",
+    "accessed": "2026-10-02",
+    "notes": "2025-09-26；Go 1.25 标准库飞行记录和异常触发案例。容量与并发细节以固定源码文档为准。"
+  },
+  {
+    "id": "tools-flight-source",
+    "title": "Go 1.25 FlightRecorder 实现与并发契约",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/trace/flightrecorder.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "一个 recorder 可与 trace.Start 并存；WriteTo 单写入者；MaxBytes 是提示，不保证内存或输出硬上限；容量优先于 MinAge。"
+  },
+  {
+    "id": "tools-trace-doc",
+    "title": "Go 1.25 runtime/trace 文档与入口",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/trace/trace.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "调度、syscall、GC 与用户注解事件；Start/Stop 及写出完成语义。"
+  },
+  {
+    "id": "tools-trace-annotation",
+    "title": "Go 1.25 task、region、log 注解实现",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/trace/annotation.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "Task 跨 goroutine；region 绑定调用 goroutine；类别应有限；Logf 内部格式化受 IsEnabled 保护。"
+  },
+  {
+    "id": "tools-trace-cmd",
+    "title": "Go 1.25 go tool trace 命令实现",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/cmd/trace/main.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "-pprof 支持 net、sync、syscall、sched；现代 trace 不必额外提供二进制；查看器浏览器支持说明。"
+  },
+  {
+    "id": "tools-delve-debug",
+    "title": "Delve v1.25.2：dlv debug",
+    "url": "https://github.com/go-delve/delve/blob/v1.25.2/Documentation/usage/dlv_debug.md",
+    "year": 2025,
+    "kind": "项目官方版本文档",
+    "accessed": "2026-10-02",
+    "notes": "debug 构建关闭优化的程序；Go 版本检查；headless 与监听参数。"
+  },
+  {
+    "id": "tools-delve-exec",
+    "title": "Delve v1.25.2：dlv exec",
+    "url": "https://github.com/go-delve/delve/blob/v1.25.2/Documentation/usage/dlv_exec.md",
+    "year": 2025,
+    "kind": "项目官方版本文档",
+    "accessed": "2026-10-02",
+    "notes": "已有二进制调试；建议本地调试构建 -gcflags=all=-N -l；默认 loopback 与 only-same-user。"
+  },
+  {
+    "id": "tools-delve-core",
+    "title": "Delve v1.25.2：dlv core 支持矩阵",
+    "url": "https://github.com/go-delve/delve/blob/v1.25.2/Documentation/usage/dlv_core.md",
+    "year": 2025,
+    "kind": "项目官方版本文档",
+    "accessed": "2026-10-02",
+    "notes": "Linux amd64/arm64 core、Windows amd64 minidump 及 Delve dump；必须匹配可执行文件。"
+  },
+  {
+    "id": "tools-delve-cli",
+    "title": "Delve v1.25.2 命令手册",
+    "url": "https://github.com/go-delve/delve/blob/v1.25.2/Documentation/cli/README.md",
+    "year": 2025,
+    "kind": "项目官方版本文档",
+    "accessed": "2026-10-02",
+    "notes": "condition、goroutine、frame、tracepoint、dump 等精确语法；goroutine 条件表达式示例；dump 的平台格式。"
+  },
+  {
+    "id": "tools-runtime-debug",
+    "title": "Go 1.25 runtime 环境诊断参数",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/extern.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "GODEBUG gctrace/schedtrace/scavtrace 与 GOTRACEBACK；crash 在 Unix 使用 SIGABRT；输出格式可能变化。"
+  },
+  {
+    "id": "tools-perf",
+    "title": "Linux v6.14 perf record 官方手册",
+    "url": "https://github.com/torvalds/linux/blob/v6.14/tools/perf/Documentation/perf-record.txt",
+    "year": 2025,
+    "kind": "内核项目官方版本文档",
+    "accessed": "2026-10-02",
+    "notes": "进程/线程目标、采样频率、FP/DWARF/LBR 调用图模式及相应限制。"
+  },
+  {
+    "id": "tools-strace",
+    "title": "strace v6.14 官方手册",
+    "url": "https://github.com/strace/strace/blob/v6.14/doc/strace.1.in",
+    "year": 2025,
+    "kind": "项目官方版本文档",
+    "accessed": "2026-10-02",
+    "notes": "-T syscall 持续时间；-c 系统时间估计与 -w 墙钟汇总差异；事件过滤。"
+  },
+  {
+    "id": "tools-ebpf",
+    "title": "Linux v6.14 BPF Design Q&A",
+    "url": "https://github.com/torvalds/linux/blob/v6.14/Documentation/bpf/bpf_design_QA.rst",
+    "year": 2025,
+    "kind": "内核项目官方版本文档",
+    "accessed": "2026-10-02",
+    "notes": "BPF 应用领域、内核执行与验证器边界；本章只使用通用设计事实，不引用文档中的历史限制为最新能力。"
+  },
+  {
+    "id": "tools-pprof-cli",
+    "title": "google/pprof 官方使用文档",
+    "url": "https://github.com/google/pprof/blob/main/doc/README.md",
+    "year": 2026,
+    "kind": "项目官方持续更新文档",
+    "accessed": "2026-10-02",
+    "notes": "2026-10-02 读取；年份为读取版本年份。核查 flat/cum、递归去重、sample_index、tagfocus、base/diff_base 的分母与负值。"
+  },
+  {
+    "id": "tools-runtime-debug-api",
+    "title": "Go 1.25 runtime/debug GC、内存限制与堆转储 API",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/runtime/debug/garbage.go",
+    "year": 2025,
+    "kind": "官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "SetGCPercent、SetMemoryLimit、FreeOSMemory、ReadGCStats、SetTraceback 与 WriteHeapDump；负参数语义不同；完整堆转储暂停全部 goroutine。"
+  },
+  {
+    "id": "tools-fgprof",
+    "title": "fgprof v0.9.5 官方 README",
+    "url": "https://github.com/felixge/fgprof/blob/v0.9.5/README.md",
+    "year": 2024,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "2024-08-30 发布；混合 CPU/I/O 的 wall-clock profiling；goroutine 数与开销、旧 Go 暂停和调度偏差限制。"
+  },
+  {
+    "id": "tools-fgprof-source",
+    "title": "fgprof v0.9.5 采样实现",
+    "url": "https://github.com/felixge/fgprof/blob/v0.9.5/fgprof.go",
+    "year": 2024,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "固定版本；99 Hz ticker、runtime.GoroutineProfile、实际采样率修正及 Go 1.23.0 兼容处理。"
+  },
+  {
+    "id": "tools-gops",
+    "title": "google/gops v0.3.28 官方 README",
+    "url": "https://github.com/google/gops/blob/v0.3.28/README.md",
+    "year": 2023,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "2023-08-10 发布；进程发现与 agent 诊断区分，本地同用户模式、远程地址模式、gc/setgc/profile/trace 能力。"
+  },
+  {
+    "id": "tools-gops-agent",
+    "title": "google/gops v0.3.28 agent 源码",
+    "url": "https://github.com/google/gops/blob/v0.3.28/agent/agent.go",
+    "year": 2023,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "默认 127.0.0.1:0；端口发现配置；TCP 端点可能被任何同机程序访问；不能将发现约定视为认证。"
+  },
+  {
+    "id": "tools-expvar",
+    "title": "Go 1.25 expvar 官方实现",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/expvar/expvar.go",
+    "year": 2025,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "JSON /debug/vars；Go 1.22+ GET；cmdline/memstats 默认导出；原子变量和回调的边界。"
+  },
+  {
+    "id": "tools-nm",
+    "title": "Go 1.25 go tool nm 官方手册",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/cmd/nm/doc.go",
+    "year": 2025,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "符号地址、类型、名称；-size 与 -sort size 从大到小排序。"
+  },
+  {
+    "id": "tools-objdump",
+    "title": "Go 1.25 go tool objdump 官方实现与用法",
+    "url": "https://github.com/golang/go/blob/go1.25.0/src/cmd/objdump/main.go",
+    "year": 2025,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "反汇编可执行文件；-s 正则过滤符号、-S 显示 Go 源码。"
+  },
+  {
+    "id": "tools-crash-output",
+    "title": "Go 1.23 SetCrashOutput 首发版本源码",
+    "url": "https://github.com/golang/go/blob/go1.23.0/src/runtime/debug/stack.go",
+    "year": 2024,
+    "kind": "官方固定版本文档与源码",
+    "accessed": "2026-10-02",
+    "notes": "单一额外 fatal 文本输出；保留 stderr；复制 FD；替换并发崩溃可能仍写旧目标；不是 core 或 recover。"
+  },
+  {
+    "id": "tools-delve-compat",
+    "title": "Delve v1.25.2：Go 版本与 DWARF 兼容检查",
+    "url": "https://github.com/go-delve/delve/blob/v1.25.2/pkg/goversion/compat.go",
+    "year": "2025",
+    "kind": "项目官方版本源码",
+    "accessed": "2026-10-02",
+    "notes": "所读固定版本的常规 Go 版本检查范围为 1.22—1.25；riscv64 下限为 Go 1.24；读取 DWARF v5 要求构建 Delve 的 Go 工具链达到 1.25。版本检查范围不代表所有平台组合均已验证。",
+    "verification": {
+      "url": "https://raw.githubusercontent.com/go-delve/delve/v1.25.2/pkg/goversion/compat.go",
+      "status": 200,
+      "bytes": 2575,
+      "sha256": "3709df439a8cdb891bb1da3e0721ba4643b8127fe186195fe2aa49e6beb24fd2",
+      "local": "verification/proofread-v3/source-delve-v1.25.2-compat.go"
+    }
+  },
+  {
+    "id": "eb-libbpf-overview",
+    "title": "Linux: libbpf overview and CO-RE lifecycle",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/libbpf/libbpf_overview.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 236,
+        "path": "Documentation/bpf/libbpf/libbpf_overview.rst"
+      }
+    ],
+    "key_claims": [
+      "open/load/attach/teardown 是不同阶段",
+      "CO-RE 需要编译器、BTF、加载器合作",
+      "skeleton 是对象访问和生命周期辅助代码"
+    ],
+    "limitations": [
+      "不把布局适配表述为程序语义兼容证明",
+      "不承诺所有目标内核具备相同能力"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/libbpf/libbpf_overview.rst",
+    "sha256": "f5a01ecb21f66f84e44e6b48144180570e066c13bbf2e498076237b0ee164277",
+    "line_count": 236,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/libbpf/libbpf_overview.rst:1–236；不把布局适配表述为程序语义兼容证明；不承诺所有目标内核具备相同能力"
+  },
+  {
+    "id": "eb-libbpf-load",
+    "title": "libbpf: ELF collection, load ordering, section mapping and attach",
+    "url": "https://github.com/libbpf/libbpf/blob/09b9e83102eb8ab9e540d36b4559c55f3bcdb95d/src/libbpf.c",
+    "pinned_version": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "commit": "09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "read_ranges": [
+      {
+        "start": 8035,
+        "end": 8072,
+        "path": "src/libbpf.c"
+      },
+      {
+        "start": 8550,
+        "end": 8608,
+        "path": "src/libbpf.c"
+      },
+      {
+        "start": 9456,
+        "end": 9476,
+        "path": "src/libbpf.c"
+      },
+      {
+        "start": 10820,
+        "end": 10906,
+        "path": "src/libbpf.c"
+      },
+      {
+        "start": 12127,
+        "end": 12222,
+        "path": "src/libbpf.c"
+      },
+      {
+        "start": 12460,
+        "end": 12510,
+        "path": "src/libbpf.c"
+      },
+      {
+        "start": 12665,
+        "end": 12710,
+        "path": "src/libbpf.c"
+      }
+    ],
+    "key_claims": [
+      "对象解析与加载具有明确顺序",
+      "perf attach 支持 BPF link 和 ioctl 兼容路径",
+      "uprobe 符号可解析为文件偏移",
+      "fentry/fexit section 映射为 tracing 类型"
+    ],
+    "limitations": [
+      "仅阅读列出的实际范围，不宣称逐行审完完整 libbpf.c",
+      "实际选择路径取决于目标内核支持"
+    ],
+    "cache_path": "research/ebpf/libbpf-v1.5.0/src/libbpf.c",
+    "sha256": "4ddcc047e90f6c0df22a647bcfbc9ca7bf38b5b690dab420dcbed3621089887f",
+    "line_count": 14072,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d；src/libbpf.c:8035–8072；src/libbpf.c:8550–8608；src/libbpf.c:9456–9476；src/libbpf.c:10820–10906；src/libbpf.c:12127–12222；src/libbpf.c:12460–12510；src/libbpf.c:12665–12710；仅阅读列出的实际范围，不宣称逐行审完完整 libbpf.c；实际选择路径取决于目标内核支持"
+  },
+  {
+    "id": "eb-btf",
+    "title": "Linux: BPF Type Format and BTF.ext",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/btf.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 70,
+        "path": "Documentation/bpf/btf.rst"
+      },
+      {
+        "start": 766,
+        "end": 850,
+        "path": "Documentation/bpf/btf.rst"
+      },
+      {
+        "start": 994,
+        "end": 1085,
+        "path": "Documentation/bpf/btf.rst"
+      }
+    ],
+    "key_claims": [
+      "BTF 表达类型、字符串、函数与行信息",
+      "BTF.ext 包含 CO-RE 偏移和长度字段",
+      "ELF 与内核 API 的 insn_off 单位需要区分"
+    ],
+    "limitations": [
+      "文档的历史 pahole 能力描述不能泛化为现有所有版本",
+      "BTF 不表达全部业务语义"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/btf.rst",
+    "sha256": "2b4ef6728bf61312755b427530fa405b4966a9ad28446e8f1b30516a3ab87b7c",
+    "line_count": 1118,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/btf.rst:1–70；Documentation/bpf/btf.rst:766–850；Documentation/bpf/btf.rst:994–1085；文档的历史 pahole 能力描述不能泛化为现有所有版本；BTF 不表达全部业务语义"
+  },
+  {
+    "id": "eb-llvm-reloc",
+    "title": "Linux: LLVM ELF relocations and CO-RE relocation records",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/llvm_reloc.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 215,
+        "path": "Documentation/bpf/llvm_reloc.rst"
+      },
+      {
+        "start": 288,
+        "end": 390,
+        "path": "Documentation/bpf/llvm_reloc.rst"
+      }
+    ],
+    "key_claims": [
+      "普通 ELF relocation 与 CO-RE relocation 解决不同关联",
+      "bpf_core_relo 包含 insn_off/type_id/access_str_off/kind",
+      "CO-RE 涵盖字段、类型和枚举查询"
+    ],
+    "limitations": [
+      "只展示固定版本定义，不推断未来重定位种类",
+      "示例结构偏移不是真实内核布局"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/llvm_reloc.rst",
+    "sha256": "79afa0c722f45170bccc7c21c72d01b6ac70eab0a5a63a998d60ec18b27da889",
+    "line_count": 546,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/llvm_reloc.rst:1–215；Documentation/bpf/llvm_reloc.rst:288–390；只展示固定版本定义，不推断未来重定位种类；示例结构偏移不是真实内核布局"
+  },
+  {
+    "id": "eb-core-relo",
+    "title": "libbpf: calculating and patching CO-RE relocations",
+    "url": "https://github.com/libbpf/libbpf/blob/09b9e83102eb8ab9e540d36b4559c55f3bcdb95d/src/relo_core.c",
+    "pinned_version": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "commit": "09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "read_ranges": [
+      {
+        "start": 879,
+        "end": 960,
+        "path": "src/relo_core.c"
+      },
+      {
+        "start": 1024,
+        "end": 1108,
+        "path": "src/relo_core.c"
+      },
+      {
+        "start": 1394,
+        "end": 1422,
+        "path": "src/relo_core.c"
+      }
+    ],
+    "key_claims": [
+      "计算本地与目标字段/类型/枚举值",
+      "修补指令立即数或访存偏移",
+      "不支持的访问可毒化并在可达时被验证器拒绝"
+    ],
+    "limitations": [
+      "结构重定位不保证单位、锁、生命周期或事件语义兼容",
+      "缺失字段的替代分支必须由程序设计提供"
+    ],
+    "cache_path": "research/ebpf/libbpf-v1.5.0/src/relo_core.c",
+    "sha256": "79a70315a51d5962653a788be952b5a4f4007229637313e00e3c961810144498",
+    "line_count": 1687,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d；src/relo_core.c:879–960；src/relo_core.c:1024–1108；src/relo_core.c:1394–1422；结构重定位不保证单位、锁、生命周期或事件语义兼容；缺失字段的替代分支必须由程序设计提供"
+  },
+  {
+    "id": "eb-helpers",
+    "title": "libbpf: BPF C section and map-definition helper macros",
+    "url": "https://github.com/libbpf/libbpf/blob/09b9e83102eb8ab9e540d36b4559c55f3bcdb95d/src/bpf_helpers.h",
+    "pinned_version": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "commit": "09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 95,
+        "path": "src/bpf_helpers.h"
+      }
+    ],
+    "key_claims": [
+      "SEC 将对象放入特定 ELF section",
+      "__uint/__type 编码 map 定义",
+      "包含 helper 声明前需要 Linux 类型或 vmlinux.h"
+    ],
+    "limitations": [
+      "宏本身不授予内核能力",
+      "当前环境没有安装可构建的 Clang/libbpf 依赖"
+    ],
+    "cache_path": "research/ebpf/libbpf-v1.5.0/src/bpf_helpers.h",
+    "sha256": "6b48b0914198cb3ed70af805afa1358a23f717cc2f302794b08db4c6fd8f112d",
+    "line_count": 424,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d；src/bpf_helpers.h:1–95；宏本身不授予内核能力；当前环境没有安装可构建的 Clang/libbpf 依赖"
+  },
+  {
+    "id": "eb-verifier-doc",
+    "title": "Linux: verifier register state, range tracking and pruning",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/verifier.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 180,
+        "path": "Documentation/bpf/verifier.rst"
+      },
+      {
+        "start": 288,
+        "end": 430,
+        "path": "Documentation/bpf/verifier.rst"
+      }
+    ],
+    "key_claims": [
+      "寄存器类型、范围、tnum、栈初始化与 helper 参数检查",
+      "已验证状态与活跃性用于路径剪枝",
+      "helper 调用约定会改变寄存器状态"
+    ],
+    "limitations": [
+      "开头禁止循环的旧描述与同版本实际源码不一致，本文以源码为准",
+      "验证不是业务正确性或统计有效性证明"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/verifier.rst",
+    "sha256": "1cb80def036a9b1aa4498c919d5b108d2723baea4b2903d14fe2a011201658df",
+    "line_count": 824,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/verifier.rst:1–180；Documentation/bpf/verifier.rst:288–430；开头禁止循环的旧描述与同版本实际源码不一致，本文以源码为准；验证不是业务正确性或统计有效性证明"
+  },
+  {
+    "id": "eb-verifier-code",
+    "title": "Linux: verifier state containment, liveness and loop exploration",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/bpf/verifier.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 6000,
+        "end": 6120,
+        "path": "kernel/bpf/verifier.c"
+      },
+      {
+        "start": 16300,
+        "end": 16555,
+        "path": "kernel/bpf/verifier.c"
+      },
+      {
+        "start": 17217,
+        "end": 17335,
+        "path": "kernel/bpf/verifier.c"
+      },
+      {
+        "start": 17577,
+        "end": 17648,
+        "path": "kernel/bpf/verifier.c"
+      },
+      {
+        "start": 17870,
+        "end": 18015,
+        "path": "kernel/bpf/verifier.c"
+      },
+      {
+        "start": 18312,
+        "end": 18346,
+        "path": "kernel/bpf/verifier.c"
+      }
+    ],
+    "key_claims": [
+      "regsafe 检查类型、范围、tnum 与身份关系",
+      "states_equal 涉及调用帧、锁和 RCU 状态",
+      "循环检测与复杂度预算不同于源代码长度",
+      "状态剪枝需满足证明条件"
+    ],
+    "limitations": [
+      "只对已阅读路径作机制解释，不宣称完整验证器形式化证明",
+      "具体接受集合受内核版本和程序类型影响"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/bpf/verifier.c",
+    "sha256": "dc7faf153f033e5ffcd3653a6f2ca74b086302c5f168d1ca713ff61978cea90c",
+    "line_count": 22553,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/bpf/verifier.c:6000–6120；kernel/bpf/verifier.c:16300–16555；kernel/bpf/verifier.c:17217–17335；kernel/bpf/verifier.c:17577–17648；kernel/bpf/verifier.c:17870–18015；kernel/bpf/verifier.c:18312–18346；只对已阅读路径作机制解释，不宣称完整验证器形式化证明；具体接受集合受内核版本和程序类型影响"
+  },
+  {
+    "id": "eb-load-syscall",
+    "title": "Linux: BPF program load permissions, verifier and runtime selection",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/bpf/syscall.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 2640,
+        "end": 2710,
+        "path": "kernel/bpf/syscall.c"
+      },
+      {
+        "start": 2835,
+        "end": 2880,
+        "path": "kernel/bpf/syscall.c"
+      }
+    ],
+    "key_claims": [
+      "加载检查能力和安全策略",
+      "验证后选择执行引擎并返回对象引用",
+      "加载与挂载是不同动作"
+    ],
+    "limitations": [
+      "不把 root 或固定 capability 集合当作所有环境的充分条件",
+      "未执行特权加载"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/bpf/syscall.c",
+    "sha256": "cb98915b60c7cc9f94345da5104a130dd23905aaf578acc2f35b46403b6e4ed9",
+    "line_count": 6014,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/bpf/syscall.c:2640–2710；kernel/bpf/syscall.c:2835–2880；不把 root 或固定 capability 集合当作所有环境的充分条件；未执行特权加载"
+  },
+  {
+    "id": "eb-runtime-select",
+    "title": "Linux: interpreter dispatch and JIT runtime selection",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/bpf/core.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1708,
+        "end": 1745,
+        "path": "kernel/bpf/core.c"
+      },
+      {
+        "start": 2385,
+        "end": 2449,
+        "path": "kernel/bpf/core.c"
+      }
+    ],
+    "key_claims": [
+      "通用解释器与架构 JIT 路径并存",
+      "ALWAYS_ON 或部分 kfunc 情况要求 JIT",
+      "常量混淆可以改写程序"
+    ],
+    "limitations": [
+      "不能承诺任意 JIT 失败都会回退解释器",
+      "未量化某平台执行开销"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/bpf/core.c",
+    "sha256": "20c9eceae44121e354b1623d7bf37eda4a55b557333907839f9450d8acb51a8c",
+    "line_count": 3082,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/bpf/core.c:1708–1745；kernel/bpf/core.c:2385–2449；不能承诺任意 JIT 失败都会回退解释器；未量化某平台执行开销"
+  },
+  {
+    "id": "eb-x86-jit",
+    "title": "Linux x86: iterative BPF JIT instruction layout",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/arch/x86/net/bpf_jit_comp.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 3380,
+        "end": 3455,
+        "path": "arch/x86/net/bpf_jit_comp.c"
+      }
+    ],
+    "key_claims": [
+      "多轮生成稳定代码长度与地址布局",
+      "长度收敛后分配并生成机器码镜像"
+    ],
+    "limitations": [
+      "架构特定实现，不能推广为所有 JIT 的相同算法",
+      "没有测量 JIT 与解释器性能差值"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/arch/x86/net/bpf_jit_comp.c",
+    "sha256": "49813017f9da0af5c22b15cb6e9f3fa85d2ab28cb295bf1731aa863fe83ed6f2",
+    "line_count": 3654,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；arch/x86/net/bpf_jit_comp.c:3380–3455；架构特定实现，不能推广为所有 JIT 的相同算法；没有测量 JIT 与解释器性能差值"
+  },
+  {
+    "id": "eb-trampoline",
+    "title": "Linux: BPF fentry/fexit trampoline construction and registration",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/bpf/trampoline.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 135,
+        "path": "kernel/bpf/trampoline.c"
+      },
+      {
+        "start": 200,
+        "end": 231,
+        "path": "kernel/bpf/trampoline.c"
+      },
+      {
+        "start": 393,
+        "end": 477,
+        "path": "kernel/bpf/trampoline.c"
+      }
+    ],
+    "key_claims": [
+      "trampoline 根据附加程序与函数模型生成",
+      "可经 ftrace direct 或架构 text poke 注册",
+      "fexit 改变原函数调用组织"
+    ],
+    "limitations": [
+      "具体支持依赖架构、内核和函数可挂载性",
+      "未给出跨机制统一开销排名"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/bpf/trampoline.c",
+    "sha256": "df1e85ce8db9b40b7851da722641232ed4528d05c3de09df19746c09c159f3ec",
+    "line_count": 1098,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/bpf/trampoline.c:1–135；kernel/bpf/trampoline.c:200–231；kernel/bpf/trampoline.c:393–477；具体支持依赖架构、内核和函数可挂载性；未给出跨机制统一开销排名"
+  },
+  {
+    "id": "eb-uprobe",
+    "title": "Linux: uprobe inode/offset identity and software breakpoints",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/events/uprobes.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 50,
+        "end": 78,
+        "path": "kernel/events/uprobes.c"
+      },
+      {
+        "start": 125,
+        "end": 152,
+        "path": "kernel/events/uprobes.c"
+      },
+      {
+        "start": 560,
+        "end": 609,
+        "path": "kernel/events/uprobes.c"
+      }
+    ],
+    "key_claims": [
+      "uprobe 按 inode 和文件偏移关联目标",
+      "文件偏移和进程虚拟地址通过映射换算",
+      "软件断点与原指令保存说明触发成本不能忽略"
+    ],
+    "limitations": [
+      "实际陷入与异位执行细节具有架构差异",
+      "不声称对 Go ABI 或任意返回路径均可直接套用 C 探针"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/events/uprobes.c",
+    "sha256": "ac5c3ec3e97ace8ebbed46149a7cdbcbc7b3b1305369d618781d82a3f0fb4cc0",
+    "line_count": 2439,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/events/uprobes.c:50–78；kernel/events/uprobes.c:125–152；kernel/events/uprobes.c:560–609；实际陷入与异位执行细节具有架构差异；不声称对 Go ABI 或任意返回路径均可直接套用 C 探针"
+  },
+  {
+    "id": "eb-map-array-doc",
+    "title": "Linux: ARRAY/PERCPU_ARRAY layout and concurrency",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/map_array.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 130,
+        "path": "Documentation/bpf/map_array.rst"
+      }
+    ],
+    "key_claims": [
+      "数组元素预分配、清零、八字节对齐",
+      "per-CPU map 默认访问当前 CPU 槽",
+      "共享更新需要适当并发原语"
+    ],
+    "limitations": [
+      "per-CPU 不自动提供多字段原子快照或全部上下文无竞态"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/map_array.rst",
+    "sha256": "9d812910f568b12ce1e90764f66171bb07ab94a6062da5eef3cb3b5f9cd6dd35",
+    "line_count": 262,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/map_array.rst:1–130；per-CPU 不自动提供多字段原子快照或全部上下文无竞态"
+  },
+  {
+    "id": "eb-map-array-code",
+    "title": "Linux: per-CPU array lookup, copy and memory accounting",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/bpf/arraymap.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 95,
+        "end": 122,
+        "path": "kernel/bpf/arraymap.c"
+      },
+      {
+        "start": 235,
+        "end": 268,
+        "path": "kernel/bpf/arraymap.c"
+      },
+      {
+        "start": 298,
+        "end": 325,
+        "path": "kernel/bpf/arraymap.c"
+      },
+      {
+        "start": 351,
+        "end": 422,
+        "path": "kernel/bpf/arraymap.c"
+      },
+      {
+        "start": 760,
+        "end": 786,
+        "path": "kernel/bpf/arraymap.c"
+      }
+    ],
+    "key_claims": [
+      "BPF 查询通过 this_cpu_ptr 获取分片",
+      "用户态复制遍历 possible CPUs",
+      "内存用量乘以 num_possible_cpus 并包含元数据"
+    ],
+    "limitations": [
+      "示例容量只计算 value 字节，不冒充完整分配开销",
+      "持续读出不是同时全局快照"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/bpf/arraymap.c",
+    "sha256": "50d252b3d00496c3c2a8027548fe7bb0dc26fb35ce7784efd76a8d84aa97b187",
+    "line_count": 1421,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/bpf/arraymap.c:95–122；kernel/bpf/arraymap.c:235–268；kernel/bpf/arraymap.c:298–325；kernel/bpf/arraymap.c:351–422；kernel/bpf/arraymap.c:760–786；示例容量只计算 value 字节，不冒充完整分配开销；持续读出不是同时全局快照"
+  },
+  {
+    "id": "eb-ring-doc",
+    "title": "Linux: BPF ring buffer reservation, ordering and wakeups",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/ringbuf.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 206,
+        "path": "Documentation/bpf/ringbuf.rst"
+      }
+    ],
+    "key_claims": [
+      "共享 MPSC ring 支持跨 CPU 保留顺序",
+      "reserve/submit/discard 有资源义务",
+      "较早 busy 记录阻塞后续消费",
+      "双重虚拟映射不使物理容量翻倍"
+    ],
+    "limitations": [
+      "普通 reserve 的大小约束不代表 dynptr API 全部约束",
+      "保留顺序不是业务因果顺序",
+      "NMI 可能因锁竞争失败"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/ringbuf.rst",
+    "sha256": "1ccf2275e68a3cb3035cc9cb17132a6338c5c5abb78b9611972a3d0292033f21",
+    "line_count": 206,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/ringbuf.rst:1–206；普通 reserve 的大小约束不代表 dynptr API 全部约束；保留顺序不是业务因果顺序；NMI 可能因锁竞争失败"
+  },
+  {
+    "id": "eb-ring-code",
+    "title": "Linux: ring buffer capacity, pending position and publish protocol",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/bpf/ringbuf.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 118,
+        "end": 154,
+        "path": "kernel/bpf/ringbuf.c"
+      },
+      {
+        "start": 190,
+        "end": 231,
+        "path": "kernel/bpf/ringbuf.c"
+      },
+      {
+        "start": 408,
+        "end": 538,
+        "path": "kernel/bpf/ringbuf.c"
+      }
+    ],
+    "key_claims": [
+      "记录长度为 payload 加八字节头再八字节对齐",
+      "容量判断与 mask=R-1、consumer 和 pending 位置有关",
+      "NMI 使用 trylock",
+      "公开提交 helper 为 bpf_ringbuf_submit"
+    ],
+    "limitations": [
+      "容量例子未包含单独元数据页",
+      "不能把 reserve 失败全部解释为消费者已满",
+      "并发成本数字是教学假设"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/bpf/ringbuf.c",
+    "sha256": "f21f85c324430e4941487d9228548203205e86db4099be0da32153fb4aa71c02",
+    "line_count": 808,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/bpf/ringbuf.c:118–154；kernel/bpf/ringbuf.c:190–231；kernel/bpf/ringbuf.c:408–538；容量例子未包含单独元数据页；不能把 reserve 失败全部解释为消费者已满；并发成本数字是教学假设"
+  },
+  {
+    "id": "eb-ring-consume",
+    "title": "libbpf: acquire/consume/release ring consumer",
+    "url": "https://github.com/libbpf/libbpf/blob/09b9e83102eb8ab9e540d36b4559c55f3bcdb95d/src/ringbuf.c",
+    "pinned_version": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "commit": "09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "read_ranges": [
+      {
+        "start": 234,
+        "end": 279,
+        "path": "src/ringbuf.c"
+      }
+    ],
+    "key_claims": [
+      "busy 停止、discard 跳过、回调后推进消费位置",
+      "负回调结果也在越过当前记录后返回",
+      "慢回调延迟空间回收"
+    ],
+    "limitations": [
+      "只分析 libbpf v1.5.0 消费协议",
+      "用户上传与持久化正确性仍需应用层处理"
+    ],
+    "cache_path": "research/ebpf/libbpf-v1.5.0/src/ringbuf.c",
+    "sha256": "f23e87eb17e8619285c9a08d2ecacf8f8ad997785dbeb90104069aece308ca0f",
+    "line_count": 683,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d；src/ringbuf.c:234–279；只分析 libbpf v1.5.0 消费协议；用户上传与持久化正确性仍需应用层处理"
+  },
+  {
+    "id": "eb-perf-abi",
+    "title": "Linux perf ABI: sampling configuration and loss records",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/include/uapi/linux/perf_event.h",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 340,
+        "end": 366,
+        "path": "include/uapi/linux/perf_event.h"
+      },
+      {
+        "start": 392,
+        "end": 443,
+        "path": "include/uapi/linux/perf_event.h"
+      },
+      {
+        "start": 875,
+        "end": 891,
+        "path": "include/uapi/linux/perf_event.h"
+      },
+      {
+        "start": 1090,
+        "end": 1105,
+        "path": "include/uapi/linux/perf_event.h"
+      }
+    ],
+    "key_claims": [
+      "period/frequency 由 freq 区分",
+      "precise_ip 描述 skid 相关要求",
+      "time_enabled/time_running 与复用覆盖有关",
+      "LOST 与 LOST_SAMPLES 是 perf 数据质量记录"
+    ],
+    "limitations": [
+      "perf 丢失记录不自动覆盖自建 BPF ring 的失败",
+      "计数缩放不能恢复未采调用栈"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/include/uapi/linux/perf_event.h",
+    "sha256": "5fc835a3641456b05473907bde2ad64460e600ab645579f3da35c61ed8d086ae",
+    "line_count": 1464,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；include/uapi/linux/perf_event.h:340–366；include/uapi/linux/perf_event.h:392–443；include/uapi/linux/perf_event.h:875–891；include/uapi/linux/perf_event.h:1090–1105；perf 丢失记录不自动覆盖自建 BPF ring 的失败；计数缩放不能恢复未采调用栈"
+  },
+  {
+    "id": "eb-perf-core",
+    "title": "Linux perf: interrupt throttling and sample frequency feedback",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/events/core.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 9652,
+        "end": 9687,
+        "path": "kernel/events/core.c"
+      }
+    ],
+    "key_claims": [
+      "中断阈值可触发节流",
+      "频率模式根据观测时间调整采样周期"
+    ],
+    "limitations": [
+      "名义频率不是严格数量保证",
+      "没有测量当前主机节流状态"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/events/core.c",
+    "sha256": "f73132fdb58a7b170ad1e5419e7e4b48984166923b4fdeed0ed0cbe2f6a7af5a",
+    "line_count": 14218,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/events/core.c:9652–9687；名义频率不是严格数量保证；没有测量当前主机节流状态"
+  },
+  {
+    "id": "eb-perf-record",
+    "title": "Linux perf record: call graph modes and BPF off-CPU scope",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/tools/perf/Documentation/perf-record.txt",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 278,
+        "end": 323,
+        "path": "tools/perf/Documentation/perf-record.txt"
+      },
+      {
+        "start": 809,
+        "end": 837,
+        "path": "tools/perf/Documentation/perf-record.txt"
+      }
+    ],
+    "key_claims": [
+      "用户 callgraph 支持 fp/dwarf/lbr 的不同策略",
+      "固定版本 DWARF 用户栈默认转储 8192 B",
+      "该版本内置 BPF off-CPU 路径要求 FP"
+    ],
+    "limitations": [
+      "不能推广为所有 eBPF profiler 均不支持 DWARF",
+      "用户与内核栈展开机制应分开"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/tools/perf/Documentation/perf-record.txt",
+    "sha256": "71c917620f0178eb1ce4ded46b3f50fb3e508dba8ab9ff9943ce6a05b17508ce",
+    "line_count": 841,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；tools/perf/Documentation/perf-record.txt:278–323；tools/perf/Documentation/perf-record.txt:809–837；不能推广为所有 eBPF profiler 均不支持 DWARF；用户与内核栈展开机制应分开"
+  },
+  {
+    "id": "eb-stack-helper",
+    "title": "Linux BPF helper contract: context IDs, clocks and stack collection",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/include/uapi/linux/bpf.h",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 55,
+        "end": 90,
+        "path": "include/uapi/linux/bpf.h"
+      },
+      {
+        "start": 1884,
+        "end": 1902,
+        "path": "include/uapi/linux/bpf.h"
+      },
+      {
+        "start": 1963,
+        "end": 1987,
+        "path": "include/uapi/linux/bpf.h"
+      },
+      {
+        "start": 2038,
+        "end": 2088,
+        "path": "include/uapi/linux/bpf.h"
+      },
+      {
+        "start": 2105,
+        "end": 2125,
+        "path": "include/uapi/linux/bpf.h"
+      },
+      {
+        "start": 2405,
+        "end": 2465,
+        "path": "include/uapi/linux/bpf.h"
+      },
+      {
+        "start": 3300,
+        "end": 3355,
+        "path": "include/uapi/linux/bpf.h"
+      }
+    ],
+    "key_claims": [
+      "栈 helper 有深度和失败返回",
+      "FAST_STACK_CMP 与 REUSE_STACKID 改变碰撞语义",
+      "build ID 模式文件偏移不是装载基址偏移",
+      "当前 task 的 tgid/pid 打包为 64 位；ktime 时间单位为纳秒"
+    ],
+    "limitations": [
+      "文档建议提高系统限制不是本实验已执行动作",
+      "记录存在与栈完整是两个质量维度"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/include/uapi/linux/bpf.h",
+    "sha256": "7d67e542c00f833a99b4c4e465aa3bc6bc785bc490d4969e879e931907af4807",
+    "line_count": 7526,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；include/uapi/linux/bpf.h:55–90；include/uapi/linux/bpf.h:1884–1902；include/uapi/linux/bpf.h:1963–1987；include/uapi/linux/bpf.h:2038–2088；include/uapi/linux/bpf.h:2105–2125；include/uapi/linux/bpf.h:2405–2465；include/uapi/linux/bpf.h:3300–3355；文档建议提高系统限制不是本实验已执行动作；记录存在与栈完整是两个质量维度"
+  },
+  {
+    "id": "eb-stackmap",
+    "title": "Linux: stack trace hashing, collision and helper call chain",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/bpf/stackmap.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 227,
+        "end": 326,
+        "path": "kernel/bpf/stackmap.c"
+      }
+    ],
+    "key_claims": [
+      "栈 ID 由哈希映射到桶并受碰撞策略影响",
+      "helper 经 get_perf_callchain 收集调用栈",
+      "旧栈可因复用策略被替换"
+    ],
+    "limitations": [
+      "ID 不能视为无限唯一永久身份",
+      "计数 map 与栈表轮转需协同"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/bpf/stackmap.c",
+    "sha256": "c22eb395b36b55cdbe5e83b652d79cd2cc8339dd94bbd00f5045f002eff211c4",
+    "line_count": 762,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/bpf/stackmap.c:227–326；ID 不能视为无限唯一永久身份；计数 map 与栈表轮转需协同"
+  },
+  {
+    "id": "eb-callchain",
+    "title": "Linux perf: callchain selection and uretprobe return repair",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/events/callchain.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 190,
+        "end": 268,
+        "path": "kernel/events/callchain.c"
+      }
+    ],
+    "key_claims": [
+      "内核与用户调用栈路径分开",
+      "用户 callchain 委派到架构函数",
+      "可修复 uretprobe trampoline 产生的返回地址"
+    ],
+    "limitations": [
+      "跨任务和特殊上下文存在限制",
+      "不是 Go goroutine 全量快照"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/events/callchain.c",
+    "sha256": "d28596985155d1d6c52414fdab5b8bb80529c3a4b79139c55c3c06937662e1d6",
+    "line_count": 294,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/events/callchain.c:190–268；跨任务和特殊上下文存在限制；不是 Go goroutine 全量快照"
+  },
+  {
+    "id": "eb-x86-callchain",
+    "title": "Linux x86: user frame-pointer walk",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/arch/x86/events/core.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 2910,
+        "end": 2975,
+        "path": "arch/x86/events/core.c"
+      }
+    ],
+    "key_claims": [
+      "从寄存器 BP 读取下一帧与返回地址",
+      "处理 uprobe 入口 BP 尚未建立的特殊情况",
+      "读取失败和深度上限终止展开"
+    ],
+    "limitations": [
+      "这是固定 x86 内置路径，不代表所有架构或所有 profiler",
+      "不是通用 DWARF unwinder"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/arch/x86/events/core.c",
+    "sha256": "34da21f23d4fb62ca11dc57a3314171222dc1df23ecd5d3d0c9b47eed757a79c",
+    "line_count": 3071,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；arch/x86/events/core.c:2910–2975；这是固定 x86 内置路径，不代表所有架构或所有 profiler；不是通用 DWARF unwinder"
+  },
+  {
+    "id": "eb-go-runtime",
+    "title": "Go runtime HACKING: G/M/P, user/system/signal stacks",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/HACKING.md",
+    "pinned_version": "Go go1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "commit": "6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 110,
+        "path": "src/runtime/HACKING.md"
+      }
+    ],
+    "key_claims": [
+      "G 是 goroutine，M 是 OS 线程，P 是执行资源",
+      "M 可执行用户、runtime、系统调用或空闲",
+      "每个 G 有可增长用户栈，M 有系统/信号栈"
+    ],
+    "limitations": [
+      "runtime 文档自述可能落后，本文固定到明确提交",
+      "线程身份不能替代 goroutine 或请求身份"
+    ],
+    "cache_path": "research/ebpf/go-go1.25.0/src/runtime/HACKING.md",
+    "sha256": "4bd15d3aebe66b5d5d529bd5a1e658b1fb976f07943fb286d212e0ceb83967a6",
+    "line_count": 398,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go go1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/HACKING.md:1–110；runtime 文档自述可能落后，本文固定到明确提交；线程身份不能替代 goroutine 或请求身份"
+  },
+  {
+    "id": "eb-go-stack",
+    "title": "Go runtime: copying stacks and pointer adjustment",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/stack.go",
+    "pinned_version": "Go go1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "commit": "6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "start": 899,
+        "end": 989,
+        "path": "src/runtime/stack.go"
+      }
+    ],
+    "key_claims": [
+      "copystack 分配复制并调整相关指针",
+      "更新 G 栈边界和调度 SP",
+      "栈移动有特定同步条件"
+    ],
+    "limitations": [
+      "不把 runtime 私有结构当跨版本稳定 ABI",
+      "未运行特定 Go unwinder 进行覆盖率验证"
+    ],
+    "cache_path": "research/ebpf/go-go1.25.0/src/runtime/stack.go",
+    "sha256": "4898f3d0add5db8726ec6b57b9cacd0d76b1e8a176d4793778f400ae114c374c",
+    "line_count": 1408,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go go1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/stack.go:899–989；不把 runtime 私有结构当跨版本稳定 ABI；未运行特定 Go unwinder 进行覆盖率验证"
+  },
+  {
+    "id": "eb-sched-trace",
+    "title": "Linux: sched_switch event schema",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/include/trace/events/sched.h",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 218,
+        "end": 278,
+        "path": "include/trace/events/sched.h"
+      }
+    ],
+    "key_claims": [
+      "事件携带 prev/next 任务与 prev_state",
+      "仅时间戳和 current ID 无法区分所有切出原因"
+    ],
+    "limitations": [
+      "最小实验有意不读取上下文字段",
+      "线程事件不自动提供 goroutine 调度状态"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/include/trace/events/sched.h",
+    "sha256": "b0544fa22f209a0f439ebf75942c79d70fd0a5f1bd039f346ac24beae5231d32",
+    "line_count": 830,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；include/trace/events/sched.h:218–278；最小实验有意不读取上下文字段；线程事件不自动提供 goroutine 调度状态"
+  },
+  {
+    "id": "eb-sched-core",
+    "title": "Linux scheduler: trace_sched_switch before context_switch",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/kernel/sched/core.c",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 6678,
+        "end": 6697,
+        "path": "kernel/sched/core.c"
+      }
+    ],
+    "key_claims": [
+      "在实际 context_switch 之前执行 trace_sched_switch",
+      "支持最小实验将当前任务解释为切出任务"
+    ],
+    "limitations": [
+      "固定 v6.12 调用点证据",
+      "不从此推断所有事件均能配成 off-CPU 时长"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/kernel/sched/core.c",
+    "sha256": "4b9bdb7831e1d2b747a9bcbf3e1c7bef187dd1c0555e6cc959fd2118046345bd",
+    "line_count": 10598,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；kernel/sched/core.c:6678–6697；固定 v6.12 调用点证据；不从此推断所有事件均能配成 off-CPU 时长"
+  },
+  {
+    "id": "eb-attach-api",
+    "title": "libbpf public API: object, tracepoint, ring and possible CPUs",
+    "url": "https://github.com/libbpf/libbpf/blob/09b9e83102eb8ab9e540d36b4559c55f3bcdb95d/src/libbpf.h",
+    "pinned_version": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "commit": "09b9e83102eb8ab9e540d36b4559c55f3bcdb95d",
+    "read_ranges": [
+      {
+        "start": 210,
+        "end": 239,
+        "path": "src/libbpf.h"
+      },
+      {
+        "start": 754,
+        "end": 774,
+        "path": "src/libbpf.h"
+      },
+      {
+        "start": 1310,
+        "end": 1337,
+        "path": "src/libbpf.h"
+      },
+      {
+        "start": 1680,
+        "end": 1696,
+        "path": "src/libbpf.h"
+      }
+    ],
+    "key_claims": [
+      "open_file/attach_tracepoint/ring_buffer API 的具体签名",
+      "possible CPU 数决定 per-CPU 用户缓冲区"
+    ],
+    "limitations": [
+      "只做源码 API 审查，未在当前环境编译或加载示例",
+      "实际错误与策略须在目标环境验证"
+    ],
+    "cache_path": "research/ebpf/libbpf-v1.5.0/src/libbpf.h",
+    "sha256": "1475ac049beefec0c5ffaf025c4f5facb8821734c90cd3874105a5eb36dec7e9",
+    "line_count": 1916,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "libbpf v1.5.0; commit 09b9e83102eb8ab9e540d36b4559c55f3bcdb95d；src/libbpf.h:210–239；src/libbpf.h:754–774；src/libbpf.h:1310–1337；src/libbpf.h:1680–1696；只做源码 API 审查，未在当前环境编译或加载示例；实际错误与策略须在目标环境验证"
+  },
+  {
+    "id": "eb-isa",
+    "title": "Linux BPF ISA: basic/wide encoding and program-local calls",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/standardization/instruction-set.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 140,
+        "path": "Documentation/bpf/standardization/instruction-set.rst"
+      },
+      {
+        "start": 145,
+        "end": 265,
+        "path": "Documentation/bpf/standardization/instruction-set.rst"
+      },
+      {
+        "start": 490,
+        "end": 580,
+        "path": "Documentation/bpf/standardization/instruction-set.rst"
+      },
+      {
+        "start": 716,
+        "end": 744,
+        "path": "Documentation/bpf/standardization/instruction-set.rst"
+      }
+    ],
+    "key_claims": [
+      "基本编码八字节，宽编码十六字节",
+      "ldimm64 使用第二槽提供额外立即数",
+      "调用编码区分静态 helper ID、程序内目标和 BTF ID"
+    ],
+    "limitations": [
+      "ISA 规范不等于每个内核与架构支持所有指令组",
+      "Linux helper 与 kfunc 的稳定性需看平台文档"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/standardization/instruction-set.rst",
+    "sha256": "7060684757323cd434542bc505940acb6a97b1987014ad88a975c71904b6819b",
+    "line_count": 782,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/standardization/instruction-set.rst:1–140；Documentation/bpf/standardization/instruction-set.rst:145–265；Documentation/bpf/standardization/instruction-set.rst:490–580；Documentation/bpf/standardization/instruction-set.rst:716–744；ISA 规范不等于每个内核与架构支持所有指令组；Linux helper 与 kfunc 的稳定性需看平台文档"
+  },
+  {
+    "id": "eb-design-qa",
+    "title": "Linux BPF design Q&A: calling convention and API stability",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/bpf_design_QA.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 30,
+        "end": 75,
+        "path": "Documentation/bpf/bpf_design_QA.rst"
+      },
+      {
+        "start": 195,
+        "end": 242,
+        "path": "Documentation/bpf/bpf_design_QA.rst"
+      }
+    ],
+    "key_claims": [
+      "R10 为可访问的帧指针，普通栈指针不直接暴露",
+      "helper ABI 与 kfunc 生命周期承诺不同",
+      "只可调用明确暴露的 helper/kfunc"
+    ],
+    "limitations": [
+      "文档 zero overhead 措辞不作为测得的零开销承诺",
+      "512 B 栈上限需要结合实际调用链验证源码解释"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/bpf_design_QA.rst",
+    "sha256": "dad79b8221ada41a2424a0b0c1ce6ac08ffc1010bbfe1f6306c570617edfc1be",
+    "line_count": 351,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/bpf_design_QA.rst:30–75；Documentation/bpf/bpf_design_QA.rst:195–242；文档 zero overhead 措辞不作为测得的零开销承诺；512 B 栈上限需要结合实际调用链验证源码解释"
+  },
+  {
+    "id": "eb-kfuncs",
+    "title": "Linux: kfunc registration, argument contracts and lifecycle",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/Documentation/bpf/kfuncs.rst",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 1,
+        "end": 220,
+        "path": "Documentation/bpf/kfuncs.rst"
+      },
+      {
+        "start": 290,
+        "end": 445,
+        "path": "Documentation/bpf/kfuncs.rst"
+      }
+    ],
+    "key_claims": [
+      "kfunc 按程序类型注册 BTF ID 集合",
+      "参数和标志约束引用、可空性及可睡眠上下文",
+      "kfunc 不具有用户 UAPI 相同的严格稳定性承诺"
+    ],
+    "limitations": [
+      "存在名称或 BTF 不保证对当前程序类型可调用",
+      "需按目标版本和配置检测支持"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/Documentation/bpf/kfuncs.rst",
+    "sha256": "bdaec2701ad47b92e0e8d6020be7928d723d82638da38d674fc7cd6ed70d2ffc",
+    "line_count": 678,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；Documentation/bpf/kfuncs.rst:1–220；Documentation/bpf/kfuncs.rst:290–445；存在名称或 BTF 不保证对当前程序类型可调用；需按目标版本和配置检测支持"
+  },
+  {
+    "id": "eb-verifier-state",
+    "title": "Linux: verifier call-frame and stack-slot representation",
+    "url": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/include/linux/bpf_verifier.h",
+    "pinned_version": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "read_ranges": [
+      {
+        "start": 335,
+        "end": 365,
+        "path": "include/linux/bpf_verifier.h"
+      }
+    ],
+    "key_claims": [
+      "固定 v6.12 MAX_CALL_FRAMES 为 8",
+      "栈槽相对 R10，以八字节单元跟踪",
+      "MAX_BPF_STACK 的固定基线为 512 B"
+    ],
+    "limitations": [
+      "调用帧常量不允许任意递归或每帧独占相同上限",
+      "tail call 混合调用还有更严格条件"
+    ],
+    "cache_path": "research/ebpf/linux-v6.12/include/linux/bpf_verifier.h",
+    "sha256": "d5fd9297ea39d1ebfba93897ed8322865eb46321f2831adbaa3b4a057188f1c5",
+    "line_count": 991,
+    "evidence_type": "official documentation or implementation; fixed release snapshot",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Linux v6.12; commit adc218676eef25575469234709c2d87185ca223a；include/linux/bpf_verifier.h:335–365；调用帧常量不允许任意递归或每帧独占相同上限；tail call 混合调用还有更严格条件"
+  },
+  {
+    "id": "pp-scope",
+    "title": "pprof 项目定位",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/README.md",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "README.md",
+        "start": 5,
+        "end": 24
+      }
+    ],
+    "key_claims": [
+      "pprof读取profiling samples并生成文本和图形报告",
+      "数据生产者与分析器是不同职责"
+    ],
+    "limitations": [
+      "此项目自述明确不是Google官方产品；不把仓库所有者当作产品支持承诺"
+    ],
+    "local_cache": "research/pprof/google-pprof/README.md",
+    "sha256": "63911f47716fdb9fddf43111931ba88c269079db121d1373f0417364f8dc02dd",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；README.md:5–24；此项目自述明确不是Google官方产品；不把仓库所有者当作产品支持承诺"
+  },
+  {
+    "id": "pp-proto",
+    "title": "profile.proto 数据契约",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/proto/profile.proto",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "proto/profile.proto",
+        "start": 20,
+        "end": 37
+      },
+      {
+        "path": "proto/profile.proto",
+        "start": 46,
+        "end": 233
+      }
+    ],
+    "key_claims": [
+      "sample_type与value位置一一对应",
+      "location_id叶在前；Location.Line描述内联链",
+      "Sample聚合按value逐分量求和；period与duration不是每个Sample的时间戳"
+    ],
+    "limitations": [
+      "格式只能描述字段，具体采样与估计语义仍由producer决定"
+    ],
+    "local_cache": "research/pprof/google-pprof/proto/profile.proto",
+    "sha256": "f541a10a1e01bd885135cb2eba3a6f4cb073ad34872190e1150f772436859fbf",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；proto/profile.proto:20–37；proto/profile.proto:46–233；格式只能描述字段，具体采样与估计语义仍由producer决定"
+  },
+  {
+    "id": "pp-cpu-api",
+    "title": "Go CPU采集生命周期",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/pprof/pprof.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/pprof/pprof.go",
+        "start": 806,
+        "end": 894
+      }
+    ],
+    "key_claims": [
+      "StartCPUProfile使用固定100Hz",
+      "单个活动CPU profile；StopCPUProfile等待写出完成"
+    ],
+    "limitations": [
+      "针对Go1.25标准库API，不推广到其他语言或第三方producer"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/pprof/pprof.go",
+    "sha256": "bc395c51c4bd85891777d08cdff47c1852456236e79a2e969d735ef0eb94a0db",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/pprof/pprof.go:806–894；针对Go1.25标准库API，不推广到其他语言或第三方producer"
+  },
+  {
+    "id": "pp-cpu-runtime",
+    "title": "Go CPU信号入口与额外样本",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/cpuprof.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/cpuprof.go",
+        "start": 5,
+        "end": 195
+      },
+      {
+        "path": "src/runtime/cpuprof.go",
+        "start": 226,
+        "end": 258
+      }
+    ],
+    "key_claims": [
+      "信号处理器写入有界日志；异步reader读取",
+      "常规栈上限64；溢出和外部栈丢样使用特殊记录"
+    ],
+    "limitations": [
+      "丢样计数不等于完整观测误差；无法恢复丢失的原栈"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/cpuprof.go",
+    "sha256": "d90aebaa1a719f339fde318cc8ec98e7312824ec2e2ad469a84fcbc6b5511c5e",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/cpuprof.go:5–195；src/runtime/cpuprof.go:226–258；丢样计数不等于完整观测误差；无法恢复丢失的原栈"
+  },
+  {
+    "id": "pp-cpu-linux",
+    "title": "Linux线程CPU时钟与去重",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/os_linux.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/os_linux.go",
+        "start": 574,
+        "end": 696
+      }
+    ],
+    "key_claims": [
+      "每M线程CPU计时器使用CLOCK_THREAD_CPUTIME_ID和SIGEV_THREAD_ID",
+      "初始延迟随机化；失败回退进程级机制",
+      "validSIGPROF避免线程/进程定时器重复记账"
+    ],
+    "limitations": [
+      "Linux实现细节；不宣称Windows/macOS采用相同信号机制"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/os_linux.go",
+    "sha256": "418af7f7c3407a99793f767c892dbb0a7a0995f817444e5f0b3e531753c4fd31",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/os_linux.go:574–696；Linux实现细节；不宣称Windows/macOS采用相同信号机制"
+  },
+  {
+    "id": "pp-sigprof",
+    "title": "异步栈展开与标签读取",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/proc.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/proc.go",
+        "start": 5574,
+        "end": 5693
+      }
+    ],
+    "key_claims": [
+      "sigprof不能分配，使用有界栈和unwinder",
+      "cgo、VDSO、展开失败存在特定路径；采集当前G标签"
+    ],
+    "limitations": [
+      "未知或抽象帧不自动定位到某个业务函数"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/proc.go",
+    "sha256": "6080c3885b996c1bf10c215e8e84633e13be1c00466d42a12dc182c024318de4",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/proc.go:5574–5693；未知或抽象帧不自动定位到某个业务函数"
+  },
+  {
+    "id": "pp-buffer",
+    "title": "CPU日志双环缓冲与溢出",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/profbuf.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/profbuf.go",
+        "start": 12,
+        "end": 86
+      },
+      {
+        "path": "src/runtime/profbuf.go",
+        "start": 303,
+        "end": 328
+      },
+      {
+        "path": "src/runtime/profbuf.go",
+        "start": 429,
+        "end": 475
+      }
+    ],
+    "key_claims": [
+      "一个reader与一个writer的无锁环缓冲",
+      "栈/头与tags分别存储；溢出保留数量而丢失调用栈",
+      "序列位避免overflow清理中的ABA"
+    ],
+    "limitations": [
+      "writer在CPU入口还需序列化；不是所有runtime路径完全无锁"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/profbuf.go",
+    "sha256": "3ec92c9ab507492043dba33802a97dd3df841883b4933301fe42db1ba7f968b3",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/profbuf.go:12–86；src/runtime/profbuf.go:303–328；src/runtime/profbuf.go:429–475；writer在CPU入口还需序列化；不是所有runtime路径完全无锁"
+  },
+  {
+    "id": "pp-cpu-builder",
+    "title": "原始CPU记录到聚合值向量",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/pprof/proto.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/pprof/proto.go",
+        "start": 274,
+        "end": 393
+      },
+      {
+        "path": "src/runtime/pprof/proto.go",
+        "start": 397,
+        "end": 483
+      },
+      {
+        "path": "src/runtime/pprof/proto.go",
+        "start": 585,
+        "end": 645
+      }
+    ],
+    "key_claims": [
+      "原始记录时间戳被忽略，按栈与tag聚合",
+      "值向量为count和count乘period",
+      "Location一次编码多条内联Line"
+    ],
+    "limitations": [
+      "不能据最终profile恢复事件顺序"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/pprof/proto.go",
+    "sha256": "25be9c67a8f17eef0905c7c3001ca1be816cf72bc210681ae5f4466f0a1050c9",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/pprof/proto.go:274–393；src/runtime/pprof/proto.go:397–483；src/runtime/pprof/proto.go:585–645；不能据最终profile恢复事件顺序"
+  },
+  {
+    "id": "pp-heap-poisson",
+    "title": "堆采样的指数步长",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/malloc.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/malloc.go",
+        "start": 1824,
+        "end": 1884
+      }
+    ],
+    "key_claims": [
+      "nextSample使用均值MemProfileRate的指数随机步长",
+      "rate=1立即采样、0实质禁用",
+      "有限随机精度与整数边界属于实现"
+    ],
+    "limitations": [
+      "数学推导采用理想Poisson模型；未测生产采样偏差"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/malloc.go",
+    "sha256": "ee6b206c996280ed7e455f85ddbe32d7d71437797b3dafbf368a6675afd2d3b5",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/malloc.go:1824–1884；数学推导采用理想Poisson模型；未测生产采样偏差"
+  },
+  {
+    "id": "pp-heap-coverage",
+    "title": "堆分配块、tiny allocator与内存槽覆盖",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/malloc.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/malloc.go",
+        "start": 1124,
+        "end": 1144
+      },
+      {
+        "path": "src/runtime/malloc.go",
+        "start": 1171,
+        "end": 1179
+      },
+      {
+        "path": "src/runtime/malloc.go",
+        "start": 1229,
+        "end": 1243
+      }
+    ],
+    "key_claims": [
+      "tiny allocator将多个语言级小对象组合为一个块",
+      "采样按整个分配槽的elemsize扣减并传递给profilealloc"
+    ],
+    "limitations": [
+      "heap采集不等同所有语言级对象；不含栈上对象清单"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/malloc.go",
+    "sha256": "ee6b206c996280ed7e455f85ddbe32d7d71437797b3dafbf368a6675afd2d3b5",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/malloc.go:1124–1144；src/runtime/malloc.go:1171–1179；src/runtime/malloc.go:1229–1243；heap采集不等同所有语言级对象；不含栈上对象清单"
+  },
+  {
+    "id": "pp-profile-kinds",
+    "title": "Go profile种类与归因契约",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/pprof/pprof.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/pprof/pprof.go",
+        "start": 122,
+        "end": 171
+      },
+      {
+        "path": "src/runtime/pprof/pprof.go",
+        "start": 594,
+        "end": 626
+      }
+    ],
+    "key_claims": [
+      "heap与allocs共享记录而使用不同默认维度",
+      "block按阻塞栈归因；mutex按临界区释放栈归因",
+      "多个并行等待者的竞争量可以超过墙钟时长"
+    ],
+    "limitations": [
+      "文档层面的统计契约；具体边界需结合runtime实现"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/pprof/pprof.go",
+    "sha256": "bc395c51c4bd85891777d08cdff47c1852456236e79a2e969d735ef0eb94a0db",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/pprof/pprof.go:122–171；src/runtime/pprof/pprof.go:594–626；文档层面的统计契约；具体边界需结合runtime实现"
+  },
+  {
+    "id": "pp-heap-scale",
+    "title": "堆样本逆概率外推",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/pprof/protomem.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/pprof/protomem.go",
+        "start": 15,
+        "end": 66
+      },
+      {
+        "path": "src/runtime/pprof/protomem.go",
+        "start": 69,
+        "end": 93
+      }
+    ],
+    "key_claims": [
+      "四维值向量分别校正累计和存活对象数/字节",
+      "包含概率1-exp(-S/R)",
+      "scaleHeapSample用平均分配大小并转为int64"
+    ],
+    "limitations": [
+      "不是精确逐对象清单；聚合和校正顺序不能任意交换"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/pprof/protomem.go",
+    "sha256": "4c4dd02dec9008aeae3798b9d99cea860e2d3a8ef2530214c8035585cfbc5df8",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/pprof/protomem.go:15–66；src/runtime/pprof/protomem.go:69–93；不是精确逐对象清单；聚合和校正顺序不能任意交换"
+  },
+  {
+    "id": "pp-mprof",
+    "title": "堆与同步统计桶和发布周期",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/mprof.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 275,
+        "end": 327
+      },
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 364,
+        "end": 479
+      },
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 483,
+        "end": 524
+      },
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 795,
+        "end": 880
+      },
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 918,
+        "end": 931
+      }
+    ],
+    "key_claims": [
+      "分配释放分期发布，最多可落后两个GC周期",
+      "block按持续时间抽样；mutex按竞争事件抽样",
+      "计数与时间分别进行逆概率校正"
+    ],
+    "limitations": [
+      "累计快照差分不自动按观测窗口裁剪事件"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/mprof.go",
+    "sha256": "ca257ed199dc74a285a791905008fcd7a54cb12f436a617c28ad3598d7fe5196",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/mprof.go:275–327；src/runtime/mprof.go:364–479；src/runtime/mprof.go:483–524；src/runtime/mprof.go:795–880；src/runtime/mprof.go:918–931；累计快照差分不自动按观测窗口裁剪事件"
+  },
+  {
+    "id": "pp-sema",
+    "title": "同步等待记录点与mutex近似收费",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/sema.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/sema.go",
+        "start": 127,
+        "end": 199
+      },
+      {
+        "path": "src/runtime/sema.go",
+        "start": 228,
+        "end": 275
+      }
+    ],
+    "key_claims": [
+      "block在等待完成后发布，readyWithTime保存唤醒时刻",
+      "mutex在释放路径近似累计其他等待者成本",
+      "头尾等待均值乘等待者数避免O(N)扫描"
+    ],
+    "limitations": [
+      "同步等待估计不是每锁每请求精确积分；需考虑再次睡眠和窗口边界"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/sema.go",
+    "sha256": "ef511b8801bef37c45076a64556bd7993883b0a74da89574028a5dd08886f7d4",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/sema.go:127–199；src/runtime/sema.go:228–275；同步等待估计不是每锁每请求精确积分；需考虑再次睡眠和窗口边界"
+  },
+  {
+    "id": "pp-goroutine",
+    "title": "协作式goroutine快照",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/mprof.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 1254,
+        "end": 1409
+      },
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 1412,
+        "end": 1508
+      },
+      {
+        "path": "src/runtime/mprof.go",
+        "start": 1630,
+        "end": 1661
+      },
+      {
+        "path": "src/runtime/pprof/pprof.go",
+        "start": 743,
+        "end": 769
+      }
+    ],
+    "key_claims": [
+      "短STW确立集合后协作采栈，结束再短STW清理",
+      "Absent/InProgress/Satisfied状态防止采栈时运行",
+      "并非整个遍历期间持续STW"
+    ],
+    "limitations": [
+      "不是所有系统G清单，也不是运行时间或请求身份表",
+      "debug>=2走runtime.Stack(buf,true)，在格式化全量traceback期间STW；不适用协作式短暂停顿解释"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/mprof.go",
+    "sha256": "ca257ed199dc74a285a791905008fcd7a54cb12f436a617c28ad3598d7fe5196",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/mprof.go:1254–1409；src/runtime/mprof.go:1412–1508；src/runtime/mprof.go:1630–1661；src/runtime/pprof/pprof.go:743–769；不是所有系统G清单，也不是运行时间或请求身份表；debug>=2走runtime.Stack(buf,true)，在格式化全量traceback期间STW；不适用协作式短暂停顿解释"
+  },
+  {
+    "id": "pp-labels",
+    "title": "Go标签安装和继承",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/pprof/runtime.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/pprof/runtime.go",
+        "start": 32,
+        "end": 51
+      }
+    ],
+    "key_claims": [
+      "Do设置增强context标签，退出时恢复传入context标签",
+      "新G继承创建者标签；WithLabels本身不安装"
+    ],
+    "limitations": [
+      "现存worker需要在执行点安装标签"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/pprof/runtime.go",
+    "sha256": "c20b90af97f1cbfdb63da90c69f7ea81b0c2350abed2f6c1f687f396ea30db8f",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/pprof/runtime.go:32–51；现存worker需要在执行点安装标签"
+  },
+  {
+    "id": "pp-label-support",
+    "title": "Go标签支持范围",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/pprof/label.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/pprof/label.go",
+        "start": 44,
+        "end": 59
+      },
+      {
+        "path": "src/runtime/pprof/label.go",
+        "start": 96,
+        "end": 127
+      }
+    ],
+    "key_claims": [
+      "Go1.25 CPU和goroutine profiles使用labels",
+      "标准库标签是字符串键值"
+    ],
+    "limitations": [
+      "其他producer支持数字或其他标签不等于Go所有profile都支持"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/pprof/label.go",
+    "sha256": "1121fe80f043ad0eb8b042878110879377d951a1caffc97d97c34bc8be7e1abc",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/pprof/label.go:44–59；src/runtime/pprof/label.go:96–127；其他producer支持数字或其他标签不等于Go所有profile都支持"
+  },
+  {
+    "id": "pp-pc",
+    "title": "return PC与内联帧恢复",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/runtime/symtab.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/runtime/symtab.go",
+        "start": 95,
+        "end": 167
+      }
+    ],
+    "key_claims": [
+      "CallersFrames区分返回地址与所关心指令，必要时减一",
+      "内联展开不等于存在多个物理栈帧"
+    ],
+    "limitations": [
+      "不应对已归一化的Location.Address再次无条件减一"
+    ],
+    "local_cache": "research/pprof/go1.25.0/src/runtime/symtab.go",
+    "sha256": "ada37492cd3dd18f8c0e433f6ed81c76bf26fb44c9baf574afcffd40bbe34637",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/runtime/symtab.go:95–167；不应对已归一化的Location.Address再次无条件减一"
+  },
+  {
+    "id": "pp-symbolizer",
+    "title": "pprof本地符号化与Build ID核验",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/symbolizer/symbolizer.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/symbolizer/symbolizer.go",
+        "start": 129,
+        "end": 244
+      }
+    ],
+    "key_claims": [
+      "按mapping归组，已符号化通常跳过",
+      "读取实际二进制；双方BuildID存在且不符则拒绝该符号化",
+      "SourceLine生成Function和Line"
+    ],
+    "limitations": [
+      "缺失二进制或符号时不能保证完整源码行或原生栈"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/symbolizer/symbolizer.go",
+    "sha256": "43a2d729f3f847065fa44d75cc158d5eb2a8927c4444957a2fa656a90f08ef97",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/symbolizer/symbolizer.go:129–244；缺失二进制或符号时不能保证完整源码行或原生栈"
+  },
+  {
+    "id": "pp-binutils",
+    "title": "进程地址到对象文件地址",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/binutils/binutils.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/binutils/binutils.go",
+        "start": 609,
+        "end": 677
+      }
+    ],
+    "key_claims": [
+      "结合ELF程序头和mapping计算base",
+      "ObjAddr=process address-base",
+      "nm快速映射不提供完整文件行号"
+    ],
+    "limitations": [
+      "不能把任意ELF映射简单等同pc减mapping.start"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/binutils/binutils.go",
+    "sha256": "7cba7fb74952cc5e567d31339f78043ad586444717d3e83d063040718e62fc87",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/binutils/binutils.go:609–677；不能把任意ELF映射简单等同pc减mapping.start"
+  },
+  {
+    "id": "pp-merge",
+    "title": "pprof合并、局部ID与归一化",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/profile/merge.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "profile/merge.go",
+        "start": 44,
+        "end": 122
+      },
+      {
+        "path": "profile/merge.go",
+        "start": 155,
+        "end": 245
+      },
+      {
+        "path": "profile/merge.go",
+        "start": 284,
+        "end": 414
+      },
+      {
+        "path": "profile/merge.go",
+        "start": 426,
+        "end": 465
+      },
+      {
+        "path": "profile/merge.go",
+        "start": 468,
+        "end": 544
+      }
+    ],
+    "key_claims": [
+      "重映射局部ID，再按栈与标签合并value",
+      "mapping键含大小/偏移/BuildID或文件，Location规范化处理ASLR",
+      "Normalize缩放当前源profile到基线每一维总量",
+      "Duration合并为求和而非区间并集"
+    ],
+    "limitations": [
+      "类型兼容检查不证明负载、版本和统计总体可比"
+    ],
+    "local_cache": "research/pprof/google-pprof/profile/merge.go",
+    "sha256": "77ddffe4ece9a1cd3375d41fa2bb1d3e5de2716c0487795b9ac883909ed5718e",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；profile/merge.go:44–122；profile/merge.go:155–245；profile/merge.go:284–414；profile/merge.go:426–465；profile/merge.go:468–544；类型兼容检查不证明负载、版本和统计总体可比"
+  },
+  {
+    "id": "pp-filter",
+    "title": "样本筛选与帧隐藏",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/profile/filter.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "profile/filter.go",
+        "start": 20,
+        "end": 78
+      },
+      {
+        "path": "profile/filter.go",
+        "start": 229,
+        "end": 274
+      }
+    ],
+    "key_claims": [
+      "focus/ignore决定整条样本保留",
+      "hide/show修改帧集合，隐藏完所有帧会丢弃样本",
+      "tagfocus基于样本标签"
+    ],
+    "limitations": [
+      "不能从隐藏后的图推断原始直接调用关系"
+    ],
+    "local_cache": "research/pprof/google-pprof/profile/filter.go",
+    "sha256": "bafa0c715906a8130f995f2060c8893ff5c5320a659d104e2dead48ad3978d66",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；profile/filter.go:20–78；profile/filter.go:229–274；不能从隐藏后的图推断原始直接调用关系"
+  },
+  {
+    "id": "pp-scale",
+    "title": "粒度聚合与整数量化",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/profile/profile.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "profile/profile.go",
+        "start": 364,
+        "end": 430
+      },
+      {
+        "path": "profile/profile.go",
+        "start": 445,
+        "end": 489
+      },
+      {
+        "path": "profile/profile.go",
+        "start": 793,
+        "end": 824
+      }
+    ],
+    "key_claims": [
+      "CheckValid核查值维度和引用",
+      "Aggregate删除未保留的地址、行号或内联层",
+      "ScaleN使用math.Round后转换为int64"
+    ],
+    "limitations": [
+      "按更粗粒度聚合后不能逆向恢复原始记录",
+      "ScaleN的keepSample未计入ratio=1列，混合比例且其他列为零时可能丢弃仍有非零列的样本；独立反例已复现"
+    ],
+    "local_cache": "research/pprof/google-pprof/profile/profile.go",
+    "sha256": "69432b3b84dc6831f9933daf3794c2fbf3d5f8cfd94c0c6a2a397cd4df899fd6",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；profile/profile.go:364–430；profile/profile.go:445–489；profile/profile.go:793–824；按更粗粒度聚合后不能逆向恢复原始记录；ScaleN的keepSample未计入ratio=1列，混合比例且其他列为零时可能丢弃仍有非零列的样本；独立反例已复现"
+  },
+  {
+    "id": "pp-diff",
+    "title": "差分的操作顺序",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/driver/fetch.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/driver/fetch.go",
+        "start": 58,
+        "end": 89
+      }
+    ],
+    "key_claims": [
+      "diff_base向基线样本加入pprof::base标签",
+      "可选Normalize作用于当前profile，再基线乘-1并合并"
+    ],
+    "limitations": [
+      "普通差分保留正负变化；不是自动按请求量归一化"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/driver/fetch.go",
+    "sha256": "5b89c67983406fe48c660ba1fe6e7ff19065d246b44a4f37dc6a30f1d4c5fc02",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/driver/fetch.go:58–89；普通差分保留正负变化；不是自动按请求量归一化"
+  },
+  {
+    "id": "pp-denominator",
+    "title": "报告分母与过滤顺序",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/driver/driver.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/driver/driver.go",
+        "start": 74,
+        "end": 107
+      }
+    ],
+    "key_claims": [
+      "默认先创建report保存总量再过滤；relative模式先过滤",
+      "报告配置与可见样本集合可有不同分母"
+    ],
+    "limitations": [
+      "相同函数权重在两种分母下百分比不同，不意味着成本变化"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/driver/driver.go",
+    "sha256": "e29031cca644e73ab1974582226d545e5c95b2c45cf0a0e37450166ac60ecd94",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/driver/driver.go:74–107；相同函数权重在两种分母下百分比不同，不意味着成本变化"
+  },
+  {
+    "id": "pp-total",
+    "title": "差分总量的绝对值与基线规则",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/report/report.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/report/report.go",
+        "start": 1279,
+        "end": 1288
+      },
+      {
+        "path": "internal/report/report.go",
+        "start": 1307,
+        "end": 1335
+      }
+    ],
+    "key_claims": [
+      "通常sum(abs(sample value))",
+      "存在正的diff-base总量时用基线样本的绝对总量"
+    ],
+    "limitations": [
+      "不能把net zero报告解读为无变化"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/report/report.go",
+    "sha256": "e1413c84bd0ff5952d88fb94d914224a83e5e36c0ed499ba8ddf6830eeb5f7ad",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/report/report.go:1279–1288；internal/report/report.go:1307–1335；不能把net zero报告解读为无变化"
+  },
+  {
+    "id": "pp-percent",
+    "title": "百分比使用幅度",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/measurement/measurement.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/measurement/measurement.go",
+        "start": 165,
+        "end": 179
+      }
+    ],
+    "key_claims": [
+      "Percentage计算绝对比例"
+    ],
+    "limitations": [
+      "差分的方向看带符号值，不能仅看flat%"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/measurement/measurement.go",
+    "sha256": "ae3c7949393f3b9fc8c224542ddcbd14a9da07551cae191755c3ebc9dc3f3b73",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/measurement/measurement.go:165–179；差分的方向看带符号值，不能仅看flat%"
+  },
+  {
+    "id": "pp-graph",
+    "title": "flat/cum和调用图累积规则",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/graph/graph.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/graph/graph.go",
+        "start": 330,
+        "end": 391
+      },
+      {
+        "path": "internal/graph/graph.go",
+        "start": 416,
+        "end": 459
+      },
+      {
+        "path": "internal/graph/graph.go",
+        "start": 657,
+        "end": 690
+      }
+    ],
+    "key_claims": [
+      "逐样本根到叶遍历，seenNode/seenEdge避免重复累计",
+      "flat加入叶子；不输出自身到自身的普通图边",
+      "残余边可跨过未显示节点"
+    ],
+    "limitations": [
+      "边权不是调用次数；普通调用图不完整保存路径或递归深度"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/graph/graph.go",
+    "sha256": "61ba6487bc9f103869b9a26544162ce1bce35b496fd6e82a03c8dc687e8f8fdd",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/graph/graph.go:330–391；internal/graph/graph.go:416–459；internal/graph/graph.go:657–690；边权不是调用次数；普通调用图不完整保存路径或递归深度"
+  },
+  {
+    "id": "pp-flame",
+    "title": "火焰图栈数据与递归索引",
+    "url": "https://github.com/google/pprof/blob/ebaad5f31b4d25e6f51abf4d91b9611cff92db7b/internal/report/stacks.go",
+    "pinned_version": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b",
+    "read_ranges": [
+      {
+        "path": "internal/report/stacks.go",
+        "start": 27,
+        "end": 74
+      },
+      {
+        "path": "internal/report/stacks.go",
+        "start": 82,
+        "end": 103
+      },
+      {
+        "path": "internal/report/stacks.go",
+        "start": 159,
+        "end": 195
+      }
+    ],
+    "key_claims": [
+      "栈Value承载所选维度，Sources按根到叶排列",
+      "Sources.Places对同栈重复函数只登记最外层用于聚焦"
+    ],
+    "limitations": [
+      "无逐事件时间信息，横向布局不是时间轴"
+    ],
+    "local_cache": "research/pprof/google-pprof/internal/report/stacks.go",
+    "sha256": "fe12d6d9add6e7fdce7f35cfc6fd298674b69f6818bd1db8d04b323db888c429",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof commit ebaad5f31b4d25e6f51abf4d91b9611cff92db7b；internal/report/stacks.go:27–74；internal/report/stacks.go:82–103；internal/report/stacks.go:159–195；无逐事件时间信息，横向布局不是时间轴"
+  },
+  {
+    "id": "pp-teaching",
+    "title": "48条教学CPU样本的实际查询验证",
+    "url": "research/pprof/teaching/verification.json",
+    "pinned_version": "go version go1.22.12 linux/amd64; synthetic fixture v1",
+    "read_ranges": [
+      {
+        "path": "research/pprof/teaching/verification.json",
+        "scope": "all cases and checks"
+      }
+    ],
+    "key_claims": [
+      "15个真实go tool pprof查询成功",
+      "14项归因、过滤、递归、内联、合并和差分断言通过",
+      "基线48条Sample，其他3个变体各6条，合计66条protobuf Sample消息"
+    ],
+    "limitations": [
+      "样本是教学构造；没有运行真实producer或模拟随机采样",
+      "未编译执行所读最新pprof提交；实际客户端是Go1.22.12内置版本",
+      "关闭符号化并使用虚构地址，不能据此宣称实际ELF符号化已验证"
+    ],
+    "local_cache": "research/pprof/teaching/verification.json",
+    "sha256": "8258c78873673e92c7470b6d12d7ba80ac241d596f6165a83e28186f3b0b2643",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "go version go1.22.12 linux/amd64; synthetic fixture v1；research/pprof/teaching/verification.json；样本是教学构造；没有运行真实producer或模拟随机采样；未编译执行所读最新pprof提交；实际客户端是Go1.22.12内置版本；关闭符号化并使用虚构地址，不能据此宣称实际ELF符号化已验证"
+  },
+  {
+    "id": "pp-scale-repro",
+    "title": "ScaleN混合比例边界的固定源码实际复现",
+    "url": "verification/pprof-review-repro/result.json",
+    "pinned_version": "google/pprof ebaad5f31b4d25e6f51abf4d91b9611cff92db7b profile subpackage; Go 1.22.12",
+    "read_ranges": [
+      {
+        "path": "verification/pprof-review-repro/result.json",
+        "scope": "full result"
+      },
+      {
+        "path": "verification/pprof-review-repro/source-manifest.json",
+        "scope": "unchanged copied source hashes"
+      }
+    ],
+    "key_claims": [
+      "[2,0]乘[1,0.5]后Sample被删除",
+      "源码仅对ratio!=1的列更新keepSample"
+    ],
+    "limitations": [
+      "仅子包边界验证，不代表固定提交完整CLI已运行"
+    ],
+    "local_cache": "verification/pprof-review-repro/result.json",
+    "sha256": "28944feb007399fcf01adcdbd1b3089c5827b413d8576e88c00ead28f0da2b20",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "google/pprof ebaad5f31b4d25e6f51abf4d91b9611cff92db7b profile subpackage; Go 1.22.12；verification/pprof-review-repro/result.json；verification/pprof-review-repro/source-manifest.json；仅子包边界验证，不代表固定提交完整CLI已运行"
+  },
+  {
+    "id": "pf-release",
+    "title": "Perfetto v58.2 release 与固定提交",
+    "url": "https://github.com/google/perfetto/releases/tag/v58.2",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "research/perfetto/release-latest.json",
+        "scope": "tag_name, published_at, linux-amd64.zip asset digest"
+      },
+      {
+        "path": "research/perfetto/pin.json",
+        "scope": "git ls-remote tag and peeled commit"
+      }
+    ],
+    "key_claims": [
+      "固定v58.2提交add693d8b338ba9599dbcbc3e300b1ab8c000897",
+      "linux-amd64 ZIP的release digest为32c739f71b2d39721afd294c0b038f2499a44a71b5b6bcdd85b83faca0b240b9"
+    ],
+    "limitations": [
+      "release元数据不替代运行时--version和下载字节摘要验证"
+    ],
+    "local_cache": "research/perfetto/release-latest.json",
+    "sha256": "d83dfc729b78c4803821049212fc185ed8cd091ee8200236aa1cba512269d764",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；research/perfetto/release-latest.json；research/perfetto/pin.json；release元数据不替代运行时--version和下载字节摘要验证"
+  },
+  {
+    "id": "pf-service",
+    "title": "Producer、consumer、service 与传输边界",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/docs/concepts/service-model.md",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "docs/concepts/service-model.md",
+        "start": 1,
+        "end": 118
+      }
+    ],
+    "key_claims": [
+      "每producer的SMB只与service共享，服务管理数据源与中央缓冲区",
+      "控制IPC和共享内存数据路径分开，服务仍拷贝进私有中央缓冲区"
+    ],
+    "limitations": [
+      "本文不采用文档中的默认SMB容量，另一官方页面默认值不同",
+      "通常进程与producer对应但并非强制一一对应"
+    ],
+    "local_cache": "research/perfetto/pinned/docs/concepts/service-model.md",
+    "sha256": "b5d1c4c32e9d13fccb9c3262fcda941e0967472c96d25692be50caa930a29eb0",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；docs/concepts/service-model.md:1–118；本文不采用文档中的默认SMB容量，另一官方页面默认值不同；通常进程与producer对应但并非强制一一对应"
+  },
+  {
+    "id": "pf-service-impl",
+    "title": "Service 的信任边界、flush 与 scraping",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/tracing/service/tracing_service_impl.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/tracing/service/tracing_service_impl.cc",
+        "start": 2117,
+        "end": 2396
+      },
+      {
+        "path": "src/tracing/service/tracing_service_impl.cc",
+        "start": 2790,
+        "end": 2810
+      },
+      {
+        "path": "src/tracing/service/tracing_service_impl.cc",
+        "start": 3412,
+        "end": 3488
+      },
+      {
+        "path": "src/tracing/service/tracing_service_impl.cc",
+        "start": 3542,
+        "end": 3664
+      }
+    ],
+    "key_claims": [
+      "校验producer的目标buffer权限并通过CopyChunkUntrusted拷贝",
+      "flush协调参与数据源的完成与超时，scraping尽力取得可用尾部数据",
+      "move处理后再应用patch"
+    ],
+    "limitations": [
+      "不把flush解释为全局同时暂停或磁盘fsync",
+      "没有执行恶意producer或断连压力测试"
+    ],
+    "local_cache": "research/perfetto/pinned/src/tracing/service/tracing_service_impl.cc",
+    "sha256": "ecb3e3dc1f7e59d5738ec01a3e17f07bc756290bdecba8688355faa3f41e4791",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/tracing/service/tracing_service_impl.cc:2117–2396；src/tracing/service/tracing_service_impl.cc:2790–2810；src/tracing/service/tracing_service_impl.cc:3412–3488；src/tracing/service/tracing_service_impl.cc:3542–3664；不把flush解释为全局同时暂停或磁盘fsync；没有执行恶意producer或断连压力测试"
+  },
+  {
+    "id": "pf-shmem",
+    "title": "共享内存ABI、页面布局与chunk状态",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/include/perfetto/ext/tracing/core/shared_memory_abi.h",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "include/perfetto/ext/tracing/core/shared_memory_abi.h",
+        "start": 35,
+        "end": 220
+      }
+    ],
+    "key_claims": [
+      "页大小为4KiB倍数且至多64KiB，每页最多14个chunk",
+      "完整交付主路径为Free到BeingWritten到Complete到BeingRead到Free",
+      "chunk由单个writer独占写入"
+    ],
+    "limitations": [
+      "共享内存模拟和直接补丁优化存在不同状态路径",
+      "不是整个SDK全程无锁的证明"
+    ],
+    "local_cache": "research/perfetto/pinned/include/perfetto/ext/tracing/core/shared_memory_abi.h",
+    "sha256": "2ae0f11c361af70a9a265f1f3e90fdb21c9db38bd49a23ef215c556a8e0641c5",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；include/perfetto/ext/tracing/core/shared_memory_abi.h:35–220；共享内存模拟和直接补丁优化存在不同状态路径；不是整个SDK全程无锁的证明"
+  },
+  {
+    "id": "pf-arbiter",
+    "title": "SMB仲裁、回压策略与commit推进",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/tracing/core/shared_memory_arbiter_impl.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/tracing/core/shared_memory_arbiter_impl.cc",
+        "start": 119,
+        "end": 274
+      },
+      {
+        "path": "src/tracing/core/shared_memory_arbiter_impl.cc",
+        "start": 294,
+        "end": 450
+      }
+    ],
+    "key_claims": [
+      "有kDrop、kStall、kStallThenDrop三种耗尽策略",
+      "等待时推进pending commit避免无法取得空块",
+      "安全时直接修补，否则准备带外patch",
+      "本版本持续耗尽达到300次stall阈值时，kStall触发PERFETTO_FATAL，kStallThenDrop返回无效Chunk"
+    ],
+    "limitations": [
+      "源码策略不等于特定工作负载的实际开销",
+      "未运行SMB溢出压力实验"
+    ],
+    "local_cache": "research/perfetto/pinned/src/tracing/core/shared_memory_arbiter_impl.cc",
+    "sha256": "0778bc3d4d54d16a7e460cba7f124fa4a4d1d16151a99bab060368cb37b91d4e",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/tracing/core/shared_memory_arbiter_impl.cc:119–274；src/tracing/core/shared_memory_arbiter_impl.cc:294–450；源码策略不等于特定工作负载的实际开销；未运行SMB溢出压力实验"
+  },
+  {
+    "id": "pf-writer",
+    "title": "TraceWriter 分片序列化与延迟长度回填",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/tracing/core/trace_writer_impl.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/tracing/core/trace_writer_impl.cc",
+        "start": 68,
+        "end": 175
+      },
+      {
+        "path": "src/tracing/core/trace_writer_impl.cc",
+        "start": 230,
+        "end": 390
+      }
+    ],
+    "key_claims": [
+      "packet可跨chunk，嵌套protobuf长度结束时才确定",
+      "写入器预留长度位置并在需要时产生patch"
+    ],
+    "limitations": [
+      "packet大于SMB仍要求服务取得进展和策略允许",
+      "分片已交付不代表完整packet已可读取"
+    ],
+    "local_cache": "research/perfetto/pinned/src/tracing/core/trace_writer_impl.cc",
+    "sha256": "e60b8eab323e07a1964af400ca93dac84a933b580ac4ee98d253be4099d8f86d",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/tracing/core/trace_writer_impl.cc:68–175；src/tracing/core/trace_writer_impl.cc:230–390；packet大于SMB仍要求服务取得进展和策略允许；分片已交付不代表完整packet已可读取"
+  },
+  {
+    "id": "pf-commit",
+    "title": "CommitDataRequest 协议",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/protos/perfetto/common/commit_data_request.proto",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "protos/perfetto/common/commit_data_request.proto",
+        "start": 20,
+        "end": 94
+      }
+    ],
+    "key_claims": [
+      "move使用page/chunk/target_buffer，patch使用writer/chunk/offset/data",
+      "chunks_to_move在chunks_to_patch前处理",
+      "has_more_patches影响读出资格，远程模拟可通过data传字节"
+    ],
+    "limitations": [
+      "commit不是应用事务提交",
+      "patch不能恢复已覆盖的旧内容"
+    ],
+    "local_cache": "research/perfetto/pinned/protos/perfetto/common/commit_data_request.proto",
+    "sha256": "ebfa7361e625c5195c0f960a292a3a0a4ec0773fd1e21f7159bb4c368342d830",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；protos/perfetto/common/commit_data_request.proto:20–94；commit不是应用事务提交；patch不能恢复已覆盖的旧内容"
+  },
+  {
+    "id": "pf-buffer-v1",
+    "title": "默认中央TraceBufferV1的数据结构与读取契约",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/tracing/service/trace_buffer_v1.h",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/tracing/service/trace_buffer_v1.h",
+        "start": 45,
+        "end": 145
+      }
+    ],
+    "key_claims": [
+      "中央chunk按16字节对齐并按producer/writer/chunk建立索引",
+      "ring覆盖完整旧chunk，V1首次discard之后写入持续成为no-op",
+      "只交付完整packet，单writer序列有序而跨writer没有全局顺序",
+      "读取推进游标而非幂等"
+    ],
+    "limitations": [
+      "不能将此行为无条件推广到实验性V2",
+      "缓冲区含字节不保证全部可读"
+    ],
+    "local_cache": "research/perfetto/pinned/src/tracing/service/trace_buffer_v1.h",
+    "sha256": "b0eb6314da6197fd3254f3c359cc745a382f315d256ef182b8deeaa599549278",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/tracing/service/trace_buffer_v1.h:45–145；不能将此行为无条件推广到实验性V2；缓冲区含字节不保证全部可读"
+  },
+  {
+    "id": "pf-buffers",
+    "title": "三层缓冲、容量计算与丢失统计",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/docs/concepts/buffers.md",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "docs/concepts/buffers.md",
+        "start": 1,
+        "end": 180
+      },
+      {
+        "path": "docs/concepts/buffers.md",
+        "start": 180,
+        "end": 294
+      },
+      {
+        "path": "docs/concepts/buffers.md",
+        "start": 295,
+        "end": 366
+      }
+    ],
+    "key_claims": [
+      "内核ftrace、producer SMB、中央buffer的损失需要分别诊断",
+      "容量需结合速率、突发与排空周期",
+      "stats包含ftrace overrun、writer packet loss、chunks overwritten/discarded",
+      "序列首packet可能保守标记前序丢失"
+    ],
+    "limitations": [
+      "文档中的默认容量和严重级别不是跨版本承诺",
+      "本文容量数值属于明确给定假设的教学运算"
+    ],
+    "local_cache": "research/perfetto/pinned/docs/concepts/buffers.md",
+    "sha256": "a18e23af1b8352b6bc2dabb5841b7bec26e5acfb7ade0819771d031533cfb27f",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；docs/concepts/buffers.md:1–180；docs/concepts/buffers.md:180–294；docs/concepts/buffers.md:295–366；文档中的默认容量和严重级别不是跨版本承诺；本文容量数值属于明确给定假设的教学运算"
+  },
+  {
+    "id": "pf-config",
+    "title": "TraceConfig缓冲政策、默认V1和增量清理",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/protos/perfetto/config/trace_config.proto",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "protos/perfetto/config/trace_config.proto",
+        "start": 35,
+        "end": 110
+      },
+      {
+        "path": "protos/perfetto/config/trace_config.proto",
+        "start": 285,
+        "end": 315
+      },
+      {
+        "path": "protos/perfetto/config/trace_config.proto",
+        "start": 467,
+        "end": 489
+      }
+    ],
+    "key_claims": [
+      "默认V1，V2为显式实验模式",
+      "ring与discard政策分开",
+      "clear_period_ms仅通知声明支持增量清理的数据源"
+    ],
+    "limitations": [
+      "配置能否生效还取决于已注册数据源和平台",
+      "中央buffer大小不等于producer SMB大小"
+    ],
+    "local_cache": "research/perfetto/pinned/protos/perfetto/config/trace_config.proto",
+    "sha256": "e06c2fd8de4d5523fb38eed3a555581b47d8e3c7bca73a698b3eb03be0e49466",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；protos/perfetto/config/trace_config.proto:35–110；protos/perfetto/config/trace_config.proto:285–315；protos/perfetto/config/trace_config.proto:467–489；配置能否生效还取决于已注册数据源和平台；中央buffer大小不等于producer SMB大小"
+  },
+  {
+    "id": "pf-trackevent",
+    "title": "TrackEvent、自定义轨道与flow",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/docs/instrumentation/track-events.md",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "docs/instrumentation/track-events.md",
+        "start": 1,
+        "end": 38
+      },
+      {
+        "path": "docs/instrumentation/track-events.md",
+        "start": 96,
+        "end": 120
+      },
+      {
+        "path": "docs/instrumentation/track-events.md",
+        "start": 244,
+        "end": 265
+      },
+      {
+        "path": "docs/instrumentation/track-events.md",
+        "start": 495,
+        "end": 583
+      }
+    ],
+    "key_claims": [
+      "线程轨道支持同步嵌套，自定义轨道能表达其他生命周期",
+      "flow可连接跨线程阶段",
+      "类别筛选影响实际产生的数据"
+    ],
+    "limitations": [
+      "flow关联不自动证明独占归因或完整关键路径",
+      "文章提供设计原则，没有编译TrackEvent SDK埋点程序"
+    ],
+    "local_cache": "research/perfetto/pinned/docs/instrumentation/track-events.md",
+    "sha256": "9fd1b2b80eb6389ac40974594856bbcfa2a96ed0725903c18bf76d8cf032f9ee",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；docs/instrumentation/track-events.md:1–38；docs/instrumentation/track-events.md:96–120；docs/instrumentation/track-events.md:244–265；docs/instrumentation/track-events.md:495–583；flow关联不自动证明独占归因或完整关键路径；文章提供设计原则，没有编译TrackEvent SDK埋点程序"
+  },
+  {
+    "id": "pf-packet",
+    "title": "TracePacket序列身份与增量状态标志",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/protos/perfetto/trace/trace_packet.proto",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "protos/perfetto/trace/trace_packet.proto",
+        "start": 104,
+        "end": 144
+      },
+      {
+        "path": "protos/perfetto/trace/trace_packet.proto",
+        "start": 350,
+        "end": 475
+      }
+    ],
+    "key_claims": [
+      "trusted_packet_sequence_id提供序列身份",
+      "CLEARED和NEEDS_INCREMENTAL_STATE决定字典状态使用",
+      "previous_packet_dropped不应机械当作逐次精确物理丢包计数"
+    ],
+    "limitations": [
+      "不同sequence或代际中的相同整数ID不表示同一字符串",
+      "V2的损失原因位不能泛化到默认V1"
+    ],
+    "local_cache": "research/perfetto/pinned/protos/perfetto/trace/trace_packet.proto",
+    "sha256": "721c51c7cf3efbbadef58805d2217cd9bc7ce216962c8de1d25103bc200999c0",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；protos/perfetto/trace/trace_packet.proto:104–144；protos/perfetto/trace/trace_packet.proto:350–475；不同sequence或代际中的相同整数ID不表示同一字符串；V2的损失原因位不能泛化到默认V1"
+  },
+  {
+    "id": "pf-reader",
+    "title": "ProtoTraceReader的状态恢复、时钟处理与排序输入",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/importers/proto/proto_trace_reader.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/importers/proto/proto_trace_reader.cc",
+        "start": 325,
+        "end": 555
+      },
+      {
+        "path": "src/trace_processor/importers/proto/proto_trace_reader.cc",
+        "start": 1140,
+        "end": 1200
+      }
+    ],
+    "key_claims": [
+      "先处理丢失/重建、defaults和interning再解释时间与事件",
+      "无效增量状态的依赖packet被跳过并记录",
+      "token携带current_generation进入排序器",
+      "暂缺时钟映射可延后处理，不能假定所有时间零点相同"
+    ],
+    "limitations": [
+      "本文没有演示所有多机clock同步模式",
+      "无解析错误不证明生产端没有漏报"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/importers/proto/proto_trace_reader.cc",
+    "sha256": "1065a073f829a6610419e3454094ce9535df7e6bf460f14bba248087df803e12",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/importers/proto/proto_trace_reader.cc:325–555；src/trace_processor/importers/proto/proto_trace_reader.cc:1140–1200；本文没有演示所有多机clock同步模式；无解析错误不证明生产端没有漏报"
+  },
+  {
+    "id": "pf-clocks",
+    "title": "时钟域与ClockSnapshot换算",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/docs/concepts/clock-sync.md",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "docs/concepts/clock-sync.md",
+        "start": 1,
+        "end": 254
+      }
+    ],
+    "key_claims": [
+      "内置、序列局部与自定义全局时钟具有不同ID作用域",
+      "ClockSnapshot提供时钟关系，BOOTTIME与MONOTONIC对休眠的含义不同",
+      "对齐依赖有效快照，跨主机同名时钟不自动可比"
+    ],
+    "limitations": [
+      "文档的单个MONOTONIC数值描述有方向混淆，正文用独立偏移示例",
+      "时间单位不代表实际同步精度，未执行跨机时钟校准"
+    ],
+    "local_cache": "research/perfetto/pinned/docs/concepts/clock-sync.md",
+    "sha256": "3a1080dd7823f4837f0083dace10cbf83ac20bf12e1686d84a5dee28f44e2a1b",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；docs/concepts/clock-sync.md:1–254；文档的单个MONOTONIC数值描述有方向混淆，正文用独立偏移示例；时间单位不代表实际同步精度，未执行跨机时钟校准"
+  },
+  {
+    "id": "pf-architecture",
+    "title": "Trace Processor总体架构",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/docs/design-docs/trace-processor-architecture.md",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "docs/design-docs/trace-processor-architecture.md",
+        "start": 1,
+        "end": 120
+      }
+    ],
+    "key_claims": [
+      "输入识别、tokenize、sort、parse、storage、SQL是不同责任",
+      "时间与状态恢复先于后续查询解释"
+    ],
+    "limitations": [
+      "文档部分入口路径已过时，v58.2实际入口以所引源码为准",
+      "流式输入不保证总内存为常量"
+    ],
+    "local_cache": "research/perfetto/pinned/docs/design-docs/trace-processor-architecture.md",
+    "sha256": "c8b8aaa83383220e6bf5db9896fd5f91ea779459bcab78e3ca905d21257bab55",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；docs/design-docs/trace-processor-architecture.md:1–120；文档部分入口路径已过时，v58.2实际入口以所引源码为准；流式输入不保证总内存为常量"
+  },
+  {
+    "id": "pf-detection",
+    "title": "v58.2 importer registry 的格式检测",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/util/trace_type.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/util/trace_type.cc",
+        "start": 70,
+        "end": 96
+      }
+    ],
+    "key_claims": [
+      "按注册导入器检测优先级调用Sniff",
+      "格式识别依赖实际注册集合"
+    ],
+    "limitations": [
+      "此处不是固定万能魔数列表",
+      "可用导入器受构建/插件影响"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/util/trace_type.cc",
+    "sha256": "8a3bb926d43689c6e7274115b0d68dc9bfc1ba583d185601b1ec67f217485c52",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/util/trace_type.cc:70–96；此处不是固定万能魔数列表；可用导入器受构建/插件影响"
+  },
+  {
+    "id": "pf-importers",
+    "title": "内置导入器工厂清单",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/importers/common/builtin_trace_importers.h",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/importers/common/builtin_trace_importers.h",
+        "start": 20,
+        "end": 54
+      }
+    ],
+    "key_claims": [
+      "包含PerfData、Json、Systrace、Pprof和Proto工厂",
+      "本清单没有原生Go runtime trace工厂"
+    ],
+    "limitations": [
+      "清单缺失与真实负例结合才形成本文兼容性结论",
+      "不否认第三方转换工具或未来版本实现"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/importers/common/builtin_trace_importers.h",
+    "sha256": "969bb46371c252bdd6e7ae04bf7d921cfce1a4cab766eb8f23a4f392fef68d8a",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/importers/common/builtin_trace_importers.h:20–54；清单缺失与真实负例结合才形成本文兼容性结论；不否认第三方转换工具或未来版本实现"
+  },
+  {
+    "id": "pf-sequence",
+    "title": "PacketSequenceStateBuilder代际状态",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/importers/proto/packet_sequence_state_builder.h",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/importers/proto/packet_sequence_state_builder.h",
+        "start": 20,
+        "end": 82
+      }
+    ],
+    "key_claims": [
+      "包丢失与增量清理更新序列状态",
+      "代际保存被排序token解释所需的字典上下文"
+    ],
+    "limitations": [
+      "示例的编号复用用于解释状态绑定，不是新的采集性能测量"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/importers/proto/packet_sequence_state_builder.h",
+    "sha256": "895b4338e47742525410b88a9de35bc72b84e3236acfebae37e0195b1eba972d",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/importers/proto/packet_sequence_state_builder.h:20–82；示例的编号复用用于解释状态绑定，不是新的采集性能测量"
+  },
+  {
+    "id": "pf-sorter",
+    "title": "TraceSorter流内后缀排序与跨流合并",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/sorter/trace_sorter.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/sorter/trace_sorter.cc",
+        "start": 72,
+        "end": 110
+      },
+      {
+        "path": "src/trace_processor/sorter/trace_sorter.cc",
+        "start": 132,
+        "end": 210
+      }
+    ],
+    "key_claims": [
+      "每流队列处理未排序后缀并合并抽取",
+      "乱序事件存在记录路径"
+    ],
+    "limitations": [
+      "不能由分块读取推断常量内存",
+      "不同输入格式的排序策略可能不同"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/sorter/trace_sorter.cc",
+    "sha256": "58409c2fcfdeba08571d608e3fddc52cfce4800745a2e24e77f30feeb52b0f03",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/sorter/trace_sorter.cc:72–110；src/trace_processor/sorter/trace_sorter.cc:132–210；不能由分块读取推断常量内存；不同输入格式的排序策略可能不同"
+  },
+  {
+    "id": "pf-storage",
+    "title": "TraceStorage列式表与字符串驻留",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/storage/trace_storage.h",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/storage/trace_storage.h",
+        "start": 90,
+        "end": 210
+      }
+    ],
+    "key_claims": [
+      "数据以专用列式形式保存",
+      "重复字符串通过InternString与string pool共享"
+    ],
+    "limitations": [
+      "不能将此简化成每个原始事件插入普通SQLite行",
+      "本文未基准测试SQL执行器或零拷贝性能"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/storage/trace_storage.h",
+    "sha256": "ca522591806147428455ef082e326855dc891ee39c8e6b9828f9386bbaa15558",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/storage/trace_storage.h:90–210；不能将此简化成每个原始事件插入普通SQLite行；本文未基准测试SQL执行器或零拷贝性能"
+  },
+  {
+    "id": "pf-thread-state",
+    "title": "线程状态重建与重复唤醒处理",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/importers/common/thread_state_tracker.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/importers/common/thread_state_tracker.cc",
+        "start": 38,
+        "end": 104
+      },
+      {
+        "path": "src/trace_processor/importers/common/thread_state_tracker.cc",
+        "start": 135,
+        "end": 210
+      }
+    ],
+    "key_claims": [
+      "switch关闭旧Running并根据prev_state建立后继状态",
+      "waking将适用阻塞状态转为R，重复唤醒不直接重置等待",
+      "缺口和边界不完整需要单独处理"
+    ],
+    "limitations": [
+      "OS线程状态不是Go goroutine状态",
+      "状态相交本身不证明请求归因"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/importers/common/thread_state_tracker.cc",
+    "sha256": "80dc71a6cf9abbb13736cec4791e3ae5a87bc9edd55ed758012309b4b4930f55",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/importers/common/thread_state_tracker.cc:38–104；src/trace_processor/importers/common/thread_state_tracker.cc:135–210；OS线程状态不是Go goroutine状态；状态相交本身不证明请求归因"
+  },
+  {
+    "id": "pf-go-header",
+    "title": "Go execution trace版本化文件头",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/internal/trace/version/version.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/internal/trace/version/version.go",
+        "start": 61,
+        "end": 80
+      }
+    ],
+    "key_claims": [
+      "原生格式头为go 1.%d trace加三个NUL",
+      "Go reader按版本识别自身执行trace"
+    ],
+    "limitations": [
+      "源码为Go1.25，配套实际负例为Go1.22.12"
+    ],
+    "local_cache": "research/perfetto/go-compat/src/internal/trace/version/version.go",
+    "sha256": "efe404fc8686374c9742fe5ca3066f328052cd13d6a54388ffdd25c5ab5a0fcb",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/internal/trace/version/version.go:61–80；源码为Go1.25，配套实际负例为Go1.22.12"
+  },
+  {
+    "id": "pf-go-main",
+    "title": "go tool trace命令模式",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/cmd/trace/main.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/cmd/trace/main.go",
+        "start": 30,
+        "end": 65
+      }
+    ],
+    "key_claims": [
+      "-pprof支持net、sync、syscall、sched四种派生权重",
+      "-d的wire、parsed、footprint是调试模式，不是Chrome JSON导出"
+    ],
+    "limitations": [
+      "固定Go1.25命令行，不跨版本推断参数"
+    ],
+    "local_cache": "research/perfetto/go-compat/src/cmd/trace/main.go",
+    "sha256": "b9aba52f374d35afd58c56c7d7a15244527d54f6534d349ef9ead3e391658558",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/cmd/trace/main.go:30–65；固定Go1.25命令行，不跨版本推断参数"
+  },
+  {
+    "id": "pf-go-json",
+    "title": "Go viewer JSON生成与视图选择",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/cmd/trace/jsontrace.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/cmd/trace/jsontrace.go",
+        "start": 20,
+        "end": 139
+      }
+    ],
+    "key_claims": [
+      "Go先解析runtime事件再按线程、goroutine/task及范围选择生成viewer数据",
+      "逻辑轨道身份不能默认等于OS TID"
+    ],
+    "limitations": [
+      "未将start/end参数擅自解释为时间单位",
+      "没有在配套中宣称完成Go viewer JSON到Perfetto的全语义验证"
+    ],
+    "local_cache": "research/perfetto/go-compat/src/cmd/trace/jsontrace.go",
+    "sha256": "c9570deb03740811ef334f3d997f7def88d9ad17181053b52a3c91eb9f3c2b0b",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/cmd/trace/jsontrace.go:20–139；未将start/end参数擅自解释为时间单位；没有在配套中宣称完成Go viewer JSON到Perfetto的全语义验证"
+  },
+  {
+    "id": "pf-go-format",
+    "title": "Go viewer使用的Chrome Trace Event数据结构",
+    "url": "https://github.com/golang/go/blob/6e676ab2b809d46623acb5988248d95d1eb7939c/src/internal/trace/traceviewer/format/format.go",
+    "pinned_version": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c",
+    "read_ranges": [
+      {
+        "path": "src/internal/trace/traceviewer/format/format.go",
+        "start": 5,
+        "end": 79
+      }
+    ],
+    "key_claims": [
+      "输出有traceEvents、stackFrames、displayTimeUnit",
+      "event包含ph、ts、dur、pid、tid等Chrome格式字段",
+      "逻辑P/goroutine轨道与内核线程身份需区分"
+    ],
+    "limitations": [
+      "共享JSON字段不证明保留全部Go runtime语义"
+    ],
+    "local_cache": "research/perfetto/go-compat/src/internal/trace/traceviewer/format/format.go",
+    "sha256": "2844c17a1b1cb7b7109361e1874102fc3a2ce0c28f549b017701983f0483e710",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Go 1.25.0; commit 6e676ab2b809d46623acb5988248d95d1eb7939c；src/internal/trace/traceviewer/format/format.go:5–79；共享JSON字段不证明保留全部Go runtime语义"
+  },
+  {
+    "id": "pf-pprof",
+    "title": "v58.2 pprof导入器的信息保留与损失",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/trace_processor/importers/pprof/pprof_trace_reader.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/trace_processor/importers/pprof/pprof_trace_reader.cc",
+        "start": 80,
+        "end": 110
+      },
+      {
+        "path": "src/trace_processor/importers/pprof/pprof_trace_reader.cc",
+        "start": 110,
+        "end": 280
+      },
+      {
+        "path": "src/trace_processor/importers/pprof/pprof_trace_reader.cc",
+        "start": 285,
+        "end": 380
+      },
+      {
+        "path": "src/trace_processor/importers/pprof/pprof_trace_reader.cc",
+        "start": 385,
+        "end": 451
+      }
+    ],
+    "key_claims": [
+      "全量缓存profile并读取mapping/function/location与内联符号",
+      "每sample type建立aggregate profile，反转leaf-first栈建callsite",
+      "value写入aggregate sample，不再次乘Period",
+      "该路径没有读取sample labels，int64转double"
+    ],
+    "limitations": [
+      "超过2^53整数可能失去精度",
+      "聚合导入不恢复时间、调度和请求因果",
+      "不承诺内部aggregate表名永久稳定"
+    ],
+    "local_cache": "research/perfetto/pinned/src/trace_processor/importers/pprof/pprof_trace_reader.cc",
+    "sha256": "e87825ec5fed3496bbec8781bc0786bb4998ae5b29810c40a878242e0cc0be73",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/trace_processor/importers/pprof/pprof_trace_reader.cc:80–110；src/trace_processor/importers/pprof/pprof_trace_reader.cc:110–280；src/trace_processor/importers/pprof/pprof_trace_reader.cc:285–380；src/trace_processor/importers/pprof/pprof_trace_reader.cc:385–451；超过2^53整数可能失去精度；聚合导入不恢复时间、调度和请求因果；不承诺内部aggregate表名永久稳定"
+  },
+  {
+    "id": "pf-traceconv",
+    "title": "traceconv输出模式与分发",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/src/traceconv/traceconv.cc",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "src/traceconv/traceconv.cc",
+        "start": 66,
+        "end": 107
+      },
+      {
+        "path": "src/traceconv/traceconv.cc",
+        "start": 312,
+        "end": 385
+      }
+    ],
+    "key_claims": [
+      "json模式转换为Chrome JSON，profile模式转换支持数据为pprof",
+      "这些模式不构成原生Go trace万能解码器"
+    ],
+    "limitations": [
+      "未执行全部转换模式",
+      "不能由聚合权重逆推真实调用时间线"
+    ],
+    "local_cache": "research/perfetto/pinned/src/traceconv/traceconv.cc",
+    "sha256": "2af18d537028ca1b14ef33c4dca8355d15f03dc0680fcddc45f17a38014b5ab1",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；src/traceconv/traceconv.cc:66–107；src/traceconv/traceconv.cc:312–385；未执行全部转换模式；不能由聚合权重逆推真实调用时间线"
+  },
+  {
+    "id": "pf-launcher",
+    "title": "v58.2源码中的launcher仍引用v57.2二进制",
+    "url": "https://github.com/google/perfetto/blob/add693d8b338ba9599dbcbc3e300b1ab8c000897/tools/trace_processor",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897",
+    "read_ranges": [
+      {
+        "path": "research/perfetto/trace_processor-launcher.py",
+        "start": 30,
+        "end": 76
+      }
+    ],
+    "key_claims": [
+      "脚本生成注释与Linux下载地址仍写v57.2",
+      "需要检查最终二进制--version而非仅看脚本tag"
+    ],
+    "limitations": [
+      "本文选择v58.2官方release ZIP并校验，不运行此launcher下载"
+    ],
+    "local_cache": "research/perfetto/trace_processor-launcher.py",
+    "sha256": "b6d3e100bcd749a6bdb3a2d0a3ec603979867df12b75f18377eae9e896eb771e",
+    "accessed": "2026-10-04",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897；research/perfetto/trace_processor-launcher.py:30–76；本文选择v58.2官方release ZIP并校验，不运行此launcher下载"
+  },
+  {
+    "id": "pf-request",
+    "title": "合成ftrace经官方v58.2解析的8项断言",
+    "url": "verification/request-perfetto.json",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897; synthetic request scenario v1",
+    "read_ranges": [
+      {
+        "path": "examples/request/generate_trace.py",
+        "scope": "full synthetic event scenario"
+      },
+      {
+        "path": "examples/request/verify_perfetto.py",
+        "scope": "full query and assertion protocol"
+      },
+      {
+        "path": "verification/request-perfetto.json",
+        "scope": "version, checks and raw SQL outputs"
+      }
+    ],
+    "key_claims": [
+      "主线程Running8ms、R2ms、S10ms",
+      "mainCPU8ms与workerCPU15ms，总CPU23ms而wall20ms",
+      "8个断言全部通过，slice和thread_state来自真实解析"
+    ],
+    "limitations": [
+      "输入是合成ftrace，未从真实Linux内核采集",
+      "没有由时间重叠推断业务归因，线程归属由场景显式给定",
+      "不能据此评价生产环境采集开销或SMB丢失"
+    ],
+    "local_cache": "verification/request-perfetto.json",
+    "accessed": "2026-10-04",
+    "sha256": "9f2ac163f66148caa5ffa30c175e8308cc95d7b2d8ee1755f3c11054995e654e",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897; synthetic request scenario v1；examples/request/generate_trace.py；examples/request/verify_perfetto.py；verification/request-perfetto.json；输入是合成ftrace，未从真实Linux内核采集；没有由时间重叠推断业务归因，线程归属由场景显式给定；不能据此评价生产环境采集开销或SMB丢失"
+  },
+  {
+    "id": "pf-validation",
+    "title": "实际二进制、原生Go负例与pprof导入证据",
+    "url": "verification/go-trace-import.json",
+    "pinned_version": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897; Go runtime go1.22.12 linux/amd64",
+    "read_ranges": [
+      {
+        "path": "verification/request-perfetto.json",
+        "scope": "official binary full version"
+      },
+      {
+        "path": "verification/go-trace-import.json",
+        "scope": "full generated trace negative test"
+      },
+      {
+        "path": "verification/pprof-perfetto-import.json",
+        "scope": "full aggregate import and empty timing tables"
+      }
+    ],
+    "key_claims": [
+      "原生Go1.22.12 trace真实生成，直接导入退出1并报Unknown trace type provided (ERR:fmt)",
+      "pprof权重4e6、15e6、4e6及cpu/nanoseconds类型单位保留",
+      "直接pprof导入后的sched_slice与slice均0"
+    ],
+    "limitations": [
+      "负例固定输入和版本，不证明所有未来版本或第三方桥接均失败",
+      "pprof为教学构造文件，不是一次真实随机CPU采样",
+      "没有宣称完成Go viewer JSON桥接执行验证"
+    ],
+    "local_cache": "verification/go-trace-import.json",
+    "accessed": "2026-10-04",
+    "sha256": "e86848e9fd98d83a8bb5573fbf31a708bef42a5400133f5dbe44d34b6c9a0f62",
+    "kind": "固定版本源码 / 实验记录",
+    "notes": "Perfetto v58.2; commit add693d8b338ba9599dbcbc3e300b1ab8c000897; Go runtime go1.22.12 linux/amd64；verification/request-perfetto.json；verification/go-trace-import.json；verification/pprof-perfetto-import.json；负例固定输入和版本，不证明所有未来版本或第三方桥接均失败；pprof为教学构造文件，不是一次真实随机CPU采样；没有宣称完成Go viewer JSON桥接执行验证"
+  }
+]

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="bpf-unwind-title bpf-unwind-desc"><title id="bpf-unwind-title">取得用户栈并不是读取几个地址</title><desc id="bpf-unwind-desc">PC、寄存器、映射和运行时元数据决定可展开范围。FP、DWARF 及语言运行时展开策略不同；失败应进入未知归因。</desc><defs><marker id="bpf-unwind-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="40.0" y="75" width="270" height="112" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="175.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">采样现场</text>
+<text x="175.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">PC / SP / 寄存器</text>
+<line x1="313.0" y1="130" x2="341.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#bpf-unwind-arrow)"/>
+<rect x="345.0" y="75" width="270" height="112" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="480.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">展开与身份</text>
+<text x="480.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">FP / DWARF / runtime</text>
+<line x1="618.0" y1="130" x2="646.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#bpf-unwind-arrow)"/>
+<rect x="650.0" y="75" width="270" height="112" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="785.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">符号化与归因</text>
+<text x="785.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">构建 ID / 内联 / 标签</text>
+<text x="480" y="235" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">CO-RE 不会自动修复 Go 的用户态栈展开</text>
+<text x="480" y="264" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">截断、缺失映射、原生代码和 G/M 切换都可能影响结果</text>
+</svg>

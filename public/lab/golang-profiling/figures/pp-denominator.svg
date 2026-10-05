@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="pp-denominator-title pp-denominator-desc"><title id="pp-denominator-title">同一成本，两种正确的百分比</title><desc id="pp-denominator-desc">合成教学基线：全局480ms、route=A共320ms、A中的HashRound为80ms。默认分母和relative_percentages回答不同条件集合。</desc><defs><marker id="pp-denominator-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="50" y="70" width="390" height="150" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="245.0" y="131.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">默认总量：480 ms</text>
+<text x="245.0" y="158.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">80 / 480 = 16.67%</text>
+<rect x="520" y="70" width="390" height="150" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="715.0" y="131.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">条件总量：320 ms</text>
+<text x="715.0" y="158.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">80 / 320 = 25%</text>
+<text x="480" y="280" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">变化的是分母，80 ms 的绝对成本没有变化</text>
+</svg>

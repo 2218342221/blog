@@ -1,0 +1,15 @@
+{
+  "go_version": "go version go1.22.12 linux/amd64",
+  "header": "b'go 1.22 trace\\x00\\x00\\x00'",
+  "trace_bytes": 1727,
+  "command": [
+    "examples/perfetto/bin/linux-amd64/trace_processor_shell",
+    "query",
+    "examples/request/native-go.trace",
+    "SELECT COUNT(*) FROM slice;"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "\nLoading trace: 0.00 MB\nfailed to read trace file (path: examples/request/native-go.trace): Unknown trace type provided (ERR:fmt)\n",
+  "expected": "native Go runtime trace is unsupported by this Perfetto importer"
+}

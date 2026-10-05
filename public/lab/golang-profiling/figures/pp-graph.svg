@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="pp-graph-title pp-graph-desc"><title id="pp-graph-title">局部调用边不等于完整路径</title><desc id="pp-graph-desc">两条原始栈 A→F→X 与 B→F→Y 的合并调用图会共享F；图上的连接不能证明 A→F→Y 曾出现。</desc><defs><marker id="pp-graph-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="40" y="45" width="190" height="85" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="135.0" y="87.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">A</text>
+<rect x="40" y="190" width="190" height="85" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="135.0" y="232.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">B</text>
+<rect x="385" y="110" width="190" height="95" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="480.0" y="157.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">F</text>
+<rect x="730" y="45" width="190" height="85" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="825.0" y="87.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">X</text>
+<rect x="730" y="190" width="190" height="85" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="825.0" y="232.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Y</text>
+<line x1="235" y1="87" x2="380" y2="150" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-graph-arrow)"/>
+<line x1="235" y1="233" x2="380" y2="170" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-graph-arrow)"/>
+<line x1="580" y1="150" x2="725" y2="87" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-graph-arrow)"/>
+<line x1="580" y1="170" x2="725" y2="233" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-graph-arrow)"/>
+<text x="480" y="305" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">调用树 / 栈视图保留更多路径上下文</text>
+</svg>

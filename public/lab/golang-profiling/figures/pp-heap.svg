@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 390" role="img" aria-labelledby="pp-heap-title pp-heap-desc"><title id="pp-heap-title">按字节采样的包含概率</title><desc id="pp-heap-desc">理想 Poisson 模型 q(s)=1-exp(-s/R)，R=512KiB。小对象更难入样，命中后携带更大的逆概率权重；实际实现有近似。</desc><defs><marker id="pp-heap-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="390" fill="white" rx="16"/>
+<line x1="90" y1="300" x2="610" y2="300" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-heap-arrow)"/>
+<line x1="90" y1="300" x2="90" y2="35" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-heap-arrow)"/>
+<text x="110" y="23" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="20" text-anchor="middle" dominant-baseline="middle">q</text>
+<text x="350" y="343" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">分配大小 s / R</text>
+<text x="90.0" y="323" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">0</text>
+<text x="250.0" y="323" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">1</text>
+<text x="410.0" y="323" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">2</text>
+<text x="570.0" y="323" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">3</text>
+<text x="58" y="300" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">0.0</text>
+<text x="58" y="175" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">0.5</text>
+<text x="58" y="50" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">1.0</text>
+<line x1="90.0" y1="300.0" x2="98.0" y2="287.8073561251785" stroke="#58A700" stroke-width="2.3"/>
+<line x1="98.0" y1="287.8073561251785" x2="106.0" y2="276.20935450898986" stroke="#58A700" stroke-width="2.3"/>
+<line x1="106.0" y1="276.20935450898986" x2="114.0" y2="265.17699410626443" stroke="#58A700" stroke-width="2.3"/>
+<line x1="114.0" y1="265.17699410626443" x2="122.0" y2="254.68268826949546" stroke="#58A700" stroke-width="2.3"/>
+<line x1="122.0" y1="254.68268826949546" x2="130.0" y2="244.70019576785123" stroke="#58A700" stroke-width="2.3"/>
+<line x1="130.0" y1="244.70019576785123" x2="138.0" y2="235.20455517042947" stroke="#58A700" stroke-width="2.3"/>
+<line x1="138.0" y1="235.20455517042947" x2="146.0" y2="226.17202242967835" stroke="#58A700" stroke-width="2.3"/>
+<line x1="146.0" y1="226.17202242967835" x2="154.0" y2="217.58001150890982" stroke="#58A700" stroke-width="2.3"/>
+<line x1="154.0" y1="217.58001150890982" x2="162.0" y2="209.40703790544333" stroke="#58A700" stroke-width="2.3"/>
+<line x1="162.0" y1="209.40703790544333" x2="170.0" y2="201.63266492815836" stroke="#58A700" stroke-width="2.3"/>
+<line x1="170.0" y1="201.63266492815836" x2="178.0" y2="194.23745259512168" stroke="#58A700" stroke-width="2.3"/>
+<line x1="178.0" y1="194.23745259512168" x2="186.0" y2="187.2029090235066" stroke="#58A700" stroke-width="2.3"/>
+<line x1="186.0" y1="187.2029090235066" x2="194.0" y2="180.511444190254" stroke="#58A700" stroke-width="2.3"/>
+<line x1="194.0" y1="180.511444190254" x2="202.0" y2="174.14632594785238" stroke="#58A700" stroke-width="2.3"/>
+<line x1="202.0" y1="174.14632594785238" x2="210.0" y2="168.0916381852537" stroke="#58A700" stroke-width="2.3"/>
+<line x1="210.0" y1="168.0916381852537" x2="218.0" y2="162.33224102930538" stroke="#58A700" stroke-width="2.3"/>
+<line x1="218.0" y1="162.33224102930538" x2="226.0" y2="156.85373298718167" stroke="#58A700" stroke-width="2.3"/>
+<line x1="226.0" y1="156.85373298718167" x2="234.0" y2="151.6424149351498" stroke="#58A700" stroke-width="2.3"/>
+<line x1="234.0" y1="151.6424149351498" x2="242.0" y2="146.68525586362531" stroke="#58A700" stroke-width="2.3"/>
+<line x1="242.0" y1="146.68525586362531" x2="250.0" y2="141.96986029286057" stroke="#58A700" stroke-width="2.3"/>
+<line x1="250.0" y1="141.96986029286057" x2="258.0" y2="137.48443727778883" stroke="#58A700" stroke-width="2.3"/>
+<line x1="258.0" y1="137.48443727778883" x2="266.0" y2="133.21777092451987" stroke="#58A700" stroke-width="2.3"/>
+<line x1="266.0" y1="133.21777092451987" x2="274.0" y2="129.1591923447633" stroke="#58A700" stroke-width="2.3"/>
+<line x1="274.0" y1="129.1591923447633" x2="282.0" y2="125.29855297805054" stroke="#58A700" stroke-width="2.3"/>
+<line x1="282.0" y1="125.29855297805054" x2="290.0" y2="121.62619921504754" stroke="#58A700" stroke-width="2.3"/>
+<line x1="290.0" y1="121.62619921504754" x2="298.0" y2="118.13294825850312" stroke="#58A700" stroke-width="2.3"/>
+<line x1="298.0" y1="118.13294825850312" x2="306.0" y2="114.81006516147286" stroke="#58A700" stroke-width="2.3"/>
+<line x1="306.0" y1="114.81006516147286" x2="314.0" y2="111.6492409854016" stroke="#58A700" stroke-width="2.3"/>
+<line x1="314.0" y1="111.6492409854016" x2="322.0" y2="108.64257202344942" stroke="#58A700" stroke-width="2.3"/>
+<line x1="322.0" y1="108.64257202344942" x2="330.0" y2="105.78254003710745" stroke="#58A700" stroke-width="2.3"/>
+<line x1="330.0" y1="105.78254003710745" x2="338.0" y2="103.06199345668577" stroke="#58A700" stroke-width="2.3"/>
+<line x1="338.0" y1="103.06199345668577" x2="346.0" y2="100.47412949866384" stroke="#58A700" stroke-width="2.3"/>
+<line x1="346.0" y1="100.47412949866384" x2="354.0" y2="98.01247715518852" stroke="#58A700" stroke-width="2.3"/>
+<line x1="354.0" y1="98.01247715518852" x2="362.0" y2="95.67088101318367" stroke="#58A700" stroke-width="2.3"/>
+<line x1="362.0" y1="95.67088101318367" x2="370.0" y2="93.44348586261128" stroke="#58A700" stroke-width="2.3"/>
+<line x1="370.0" y1="93.44348586261128" x2="378.0" y2="91.32472205539665" stroke="#58A700" stroke-width="2.3"/>
+<line x1="378.0" y1="91.32472205539665" x2="386.0" y2="89.30929157840691" stroke="#58A700" stroke-width="2.3"/>
+<line x1="386.0" y1="89.30929157840691" x2="394.0" y2="87.39215480565878" stroke="#58A700" stroke-width="2.3"/>
+<line x1="394.0" y1="87.39215480565878" x2="402.0" y2="85.5685178966284" stroke="#58A700" stroke-width="2.3"/>
+<line x1="402.0" y1="85.5685178966284" x2="410.0" y2="83.83382080915317" stroke="#58A700" stroke-width="2.3"/>
+<line x1="410.0" y1="83.83382080915317" x2="418.0" y2="82.18372589695107" stroke="#58A700" stroke-width="2.3"/>
+<line x1="418.0" y1="82.18372589695107" x2="426.0" y2="80.61410706324546" stroke="#58A700" stroke-width="2.3"/>
+<line x1="426.0" y1="80.61410706324546" x2="434.0" y2="79.12103944337423" stroke="#58A700" stroke-width="2.3"/>
+<line x1="434.0" y1="79.12103944337423" x2="442.0" y2="77.70078959058347" stroke="#58A700" stroke-width="2.3"/>
+<line x1="442.0" y1="77.70078959058347" x2="450.0" y2="76.34980614046609" stroke="#58A700" stroke-width="2.3"/>
+<line x1="450.0" y1="76.34980614046609" x2="458.0" y2="75.06471093070095" stroke="#58A700" stroke-width="2.3"/>
+<line x1="458.0" y1="75.06471093070095" x2="466.0" y2="73.84229055388741" stroke="#58A700" stroke-width="2.3"/>
+<line x1="466.0" y1="73.84229055388741" x2="474.0" y2="72.67948832235311" stroke="#58A700" stroke-width="2.3"/>
+<line x1="474.0" y1="72.67948832235311" x2="482.0" y2="71.57339662484262" stroke="#58A700" stroke-width="2.3"/>
+<line x1="482.0" y1="71.57339662484262" x2="490.0" y2="70.52124965597471" stroke="#58A700" stroke-width="2.3"/>
+<line x1="490.0" y1="70.52124965597471" x2="498.0" y2="69.52041650028829" stroke="#58A700" stroke-width="2.3"/>
+<line x1="498.0" y1="69.52041650028829" x2="506.0" y2="68.56839455358346" stroke="#58A700" stroke-width="2.3"/>
+<line x1="506.0" y1="68.56839455358346" x2="514.0" y2="67.66280326510739" stroke="#58A700" stroke-width="2.3"/>
+<line x1="514.0" y1="67.66280326510739" x2="522.0" y2="66.80137818493742" stroke="#58A700" stroke-width="2.3"/>
+<line x1="522.0" y1="66.80137818493742" x2="530.0" y2="65.9819653016769" stroke="#58A700" stroke-width="2.3"/>
+<line x1="530.0" y1="65.9819653016769" x2="538.0" y2="65.20251565630448" stroke="#58A700" stroke-width="2.3"/>
+<line x1="538.0" y1="65.20251565630448" x2="546.0" y2="64.46108021870961" stroke="#58A700" stroke-width="2.3"/>
+<line x1="546.0" y1="64.46108021870961" x2="554.0" y2="63.75580501410181" stroke="#58A700" stroke-width="2.3"/>
+<line x1="554.0" y1="63.75580501410181" x2="562.0" y2="63.084926487108106" stroke="#58A700" stroke-width="2.3"/>
+<line x1="562.0" y1="63.084926487108106" x2="570.0" y2="62.446767091965995" stroke="#58A700" stroke-width="2.3"/>
+<rect x="655" y="65" width="275" height="100" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="792.5" y="101.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">64 KiB：q ≈ 0.1175</text>
+<text x="792.5" y="128.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">权重倍数 ≈ 8.51</text>
+<rect x="655" y="200" width="275" height="100" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="792.5" y="236.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">512 KiB：q ≈ 0.6321</text>
+<text x="792.5" y="263.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">权重倍数 ≈ 1.58</text>
+</svg>

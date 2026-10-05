@@ -1,0 +1,108 @@
+{
+  "status": "passed",
+  "kind": "synthetic model processed by real official binary",
+  "version": "Perfetto v58.2-add693d8b (add693d8b338ba9599dbcbc3e300b1ab8c000897)\nTrace Processor RPC API version: 14",
+  "sha256_ftrace": "82903af115e9eae828da95c08ad44ca4101cbaf6b8f6addaddb85f7727d1887d",
+  "checks": {
+    "main_running_8ms": true,
+    "main_runnable_2ms": true,
+    "main_sleep_10ms": true,
+    "main_cpu_8ms": true,
+    "worker_cpu_15ms": true,
+    "request_cpu_23ms": true,
+    "request_wall_20ms": true,
+    "join_wait_10ms": true
+  },
+  "queries": {
+    "state_totals": {
+      "sql": "-- Synthetic ftrace; known, completed states clipped to the request window.\nWITH request_window AS (\n  SELECT s.ts AS lo, s.ts+s.dur AS hi\n  FROM slice s JOIN thread_track tt ON s.track_id=tt.id\n  JOIN thread t ON tt.utid=t.utid\n  WHERE s.name='request' AND t.tid=101 AND s.dur>=0\n), clipped AS (\n  SELECT t.tid, s.state,\n         MIN(s.ts+s.dur,w.hi)-MAX(s.ts,w.lo) AS ns\n  FROM thread_state s JOIN thread t USING(utid)\n  CROSS JOIN request_window w\n  WHERE t.tid=101 AND s.dur>=0\n    AND s.ts<w.hi AND s.ts+s.dur>w.lo\n)\nSELECT tid,state,SUM(ns)/1e6 AS ms\nFROM clipped GROUP BY tid,state ORDER BY state;\n",
+      "returncode": 0,
+      "stdout": "\"tid\",\"state\",\"ms\"\n101,\"R\",2.000000\n101,\"Running\",8.000000\n101,\"S\",10.000000\n",
+      "stderr": "\nLoading trace: 0.00 MB\n\nLoading trace: 0.00 MB\n[041.542]     common_flags.cc:525 Trace loaded: 0.00 MB in 0.01s (0.2 MB/s)\n[041.543]            query.cc:191 Query execution time: 0 ms\n",
+      "rows": [
+        {
+          "tid": "101",
+          "state": "R",
+          "ms": "2.000000"
+        },
+        {
+          "tid": "101",
+          "state": "Running",
+          "ms": "8.000000"
+        },
+        {
+          "tid": "101",
+          "state": "S",
+          "ms": "10.000000"
+        }
+      ]
+    },
+    "cpu_totals": {
+      "sql": "-- The selected tids are explicitly assigned to this request by the scenario.\n-- In real traces, time overlap alone does not establish request attribution.\nWITH request_window AS (\n  SELECT s.ts AS lo, s.ts+s.dur AS hi\n  FROM slice s JOIN thread_track tt ON s.track_id=tt.id\n  JOIN thread t ON tt.utid=t.utid\n  WHERE s.name='request' AND t.tid=101 AND s.dur>=0\n), clipped AS (\n  SELECT t.tid, MIN(s.ts+s.dur,w.hi)-MAX(s.ts,w.lo) AS ns\n  FROM sched_slice s JOIN thread t USING(utid)\n  CROSS JOIN request_window w\n  WHERE t.tid IN (101,102) AND s.dur>=0\n    AND s.ts<w.hi AND s.ts+s.dur>w.lo\n)\nSELECT tid,SUM(ns)/1e6 AS cpu_ms FROM clipped GROUP BY tid ORDER BY tid;\n",
+      "returncode": 0,
+      "stdout": "\"tid\",\"cpu_ms\"\n101,8.000000\n102,15.000000\n",
+      "stderr": "\nLoading trace: 0.00 MB\n\nLoading trace: 0.00 MB\n[041.574]     common_flags.cc:525 Trace loaded: 0.00 MB in 0.01s (0.2 MB/s)\n[041.574]            query.cc:191 Query execution time: 0 ms\n",
+      "rows": [
+        {
+          "tid": "101",
+          "cpu_ms": "8.000000"
+        },
+        {
+          "tid": "102",
+          "cpu_ms": "15.000000"
+        }
+      ]
+    },
+    "slices": {
+      "sql": "SELECT name,ts,dur FROM slice ORDER BY ts,name;",
+      "returncode": 0,
+      "stdout": "\"name\",\"ts\",\"dur\"\n\"first_work\",10000000000,4000000\n\"request\",10000000000,20000000\n\"worker_work\",10001000000,15000000\n\"join_wait\",10006000000,10000000\n\"finish_work\",10016000000,4000000\n",
+      "stderr": "\nLoading trace: 0.00 MB\n\nLoading trace: 0.00 MB\n[041.606]     common_flags.cc:525 Trace loaded: 0.00 MB in 0.01s (0.2 MB/s)\n[041.606]            query.cc:191 Query execution time: 0 ms\n",
+      "rows": [
+        {
+          "name": "first_work",
+          "ts": "10000000000",
+          "dur": "4000000"
+        },
+        {
+          "name": "request",
+          "ts": "10000000000",
+          "dur": "20000000"
+        },
+        {
+          "name": "worker_work",
+          "ts": "10001000000",
+          "dur": "15000000"
+        },
+        {
+          "name": "join_wait",
+          "ts": "10006000000",
+          "dur": "10000000"
+        },
+        {
+          "name": "finish_work",
+          "ts": "10016000000",
+          "dur": "4000000"
+        }
+      ]
+    },
+    "stats": {
+      "sql": "SELECT name,severity,value FROM stats WHERE value != 0 ORDER BY name;",
+      "returncode": 0,
+      "stdout": "\"name\",\"severity\",\"value\"\n\"guess_trace_type_duration_ns\",\"info\",18721\n\"parse_trace_duration_ns\",\"info\",626761\n",
+      "stderr": "\nLoading trace: 0.00 MB\n\nLoading trace: 0.00 MB\n[041.637]     common_flags.cc:525 Trace loaded: 0.00 MB in 0.01s (0.2 MB/s)\n[041.638]            query.cc:191 Query execution time: 0 ms\n",
+      "rows": [
+        {
+          "name": "guess_trace_type_duration_ns",
+          "severity": "info",
+          "value": "18721"
+        },
+        {
+          "name": "parse_trace_duration_ns",
+          "severity": "info",
+          "value": "626761"
+        }
+      ]
+    }
+  }
+}

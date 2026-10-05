@@ -1,0 +1,261 @@
+{
+  "client": "go version go1.22.12 linux/amd64",
+  "data_kind": "synthetic, not measured CPU samples",
+  "cases": [
+    {
+      "case": "baseline-top",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "baseline-cum",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-cum",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "sample-count",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-sample_index=samples",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "route-a",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-tagfocus=route=A",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "route-a-relative",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-tagfocus=route=A",
+        "-relative_percentages=true",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "focus-handle",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-focus=Handle",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "hide-handle",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-hide=Handle",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "no-inlines",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-noinlines",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "diff",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-diff_base=baseline.pprof",
+        "changed.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "base",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-base=baseline.pprof",
+        "changed.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "normalize",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "-normalize",
+        "-diff_base=baseline.pprof",
+        "double-volume.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "merge-relocated",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-top",
+        "baseline.pprof",
+        "relocated.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "traces",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-traces",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "raw",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-raw",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "callgraph",
+      "argv": [
+        "go",
+        "tool",
+        "pprof",
+        "-symbolize=none",
+        "-nodecount=0",
+        "-nodefraction=0",
+        "-edgefraction=0",
+        "-dot",
+        "baseline.pprof"
+      ],
+      "returncode": 0
+    }
+  ],
+  "checks": {
+    "48_count_equals_480ms_at_10ms": true,
+    "wall_400ms_cpu_480ms": true,
+    "recursive_walk_cum_not_doubled": true,
+    "inline_leaf_attribution": true,
+    "noinlines_attributes_to_hash": true,
+    "route_global_denominator": true,
+    "route_relative_denominator": true,
+    "hide_retains_other_branch": true,
+    "focus_removes_other_branch": true,
+    "diff_keeps_negative": true,
+    "normalization_removes_pure_volume": true,
+    "base_general_difference_denominator_200ms": true,
+    "diff_baseline_denominator_480ms": true,
+    "relocation_merge_doubles_weight": true
+  },
+  "all_passed": true
+}

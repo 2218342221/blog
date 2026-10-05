@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="bpf-ring-title bpf-ring-desc"><title id="bpf-ring-title">ring buffer 的保留顺序与可见性</title><desc id="bpf-ring-desc">多生产者共享 ring buffer。较早记录仍 busy 时，消费者不能跳过它消费后面的已提交记录；reserve 失败必须计数。</desc><defs><marker id="bpf-ring-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="35" y="90" width="210" height="80" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="140.0" y="130.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">A 已提交</text>
+<rect x="260" y="90" width="210" height="80" rx="13" fill="#BD6500" fill-opacity=".075" stroke="#BD6500" stroke-width="2"/>
+<text x="365.0" y="130.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">B busy</text>
+<rect x="485" y="90" width="210" height="80" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="590.0" y="130.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">C 已提交</text>
+<rect x="710" y="90" width="210" height="80" rx="13" fill="#637386" fill-opacity=".075" stroke="#637386" stroke-width="2"/>
+<text x="815.0" y="130.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">空闲容量</text>
+<line x1="140" y1="240" x2="140" y2="175" stroke="#637386" stroke-width="2.3" marker-end="url(#bpf-ring-arrow)"/>
+<text x="140" y="275" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">消费者</text>
+<text x="490" y="215" fill="#BD6500" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">读完 A 后在 B 等待</text>
+<text x="490" y="255" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">C 已提交也不能越过 B</text>
+</svg>

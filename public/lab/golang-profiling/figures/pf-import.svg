@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="pf-import-title pf-import-desc"><title id="pf-import-title">导入格式不等于恢复所有语义</title><desc id="pf-import-desc">Perfetto v58.2 可导入 pprof 聚合权重；本实验 slice 与 sched_slice 仍为空。原生 Go trace 的直接导入失败。</desc><defs><marker id="pf-import-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="35" y="65" width="265" height="105" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="167.5" y="104.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">pprof 文件</text>
+<text x="167.5" y="131.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">栈 + 权重</text>
+<rect x="355" y="65" width="265" height="105" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="487.5" y="104.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">aggregate_sample</text>
+<text x="487.5" y="131.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">4 / 15 / 4 ms</text>
+<rect x="675" y="65" width="250" height="105" rx="13" fill="#BD6500" fill-opacity=".075" stroke="#BD6500" stroke-width="2"/>
+<text x="800.0" y="104.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">时间线并未出现</text>
+<text x="800.0" y="131.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">slice / sched = 0</text>
+<line x1="305" y1="115" x2="350" y2="115" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-import-arrow)"/>
+<line x1="625" y1="115" x2="670" y2="115" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-import-arrow)"/>
+<text x="480" y="245" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">原生 Go trace → 本次 TP：Unknown trace type provided</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" role="img" aria-labelledby="pp-proto-title pp-proto-desc"><title id="pp-proto-title">profile.proto 的共享表与引用</title><desc id="pp-proto-desc">Sample 的栈叶在前；一个 Location 可以包含多条内联 Line。ID 是文件内引用，不是地址。</desc><defs><marker id="pp-proto-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="380" fill="white" rx="16"/>
+<rect x="30" y="80" width="260" height="160" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="160.0" y="133.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Sample</text>
+<text x="160.0" y="160.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">location_id[]</text>
+<text x="160.0" y="187.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">value[] / label[]</text>
+<rect x="360" y="50" width="250" height="105" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="485.0" y="89.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Location</text>
+<text x="485.0" y="116.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">address + Line[]</text>
+<rect x="360" y="220" width="250" height="95" rx="13" fill="#BD6500" fill-opacity=".075" stroke="#BD6500" stroke-width="2"/>
+<text x="485.0" y="254.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Mapping</text>
+<text x="485.0" y="281.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">构建 / 地址映射</text>
+<rect x="690" y="50" width="240" height="105" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="810.0" y="89.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Function</text>
+<text x="810.0" y="116.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">名字 / 文件 / 行</text>
+<line x1="295" y1="130" x2="355" y2="100" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-proto-arrow)"/>
+<line x1="615" y1="100" x2="685" y2="100" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-proto-arrow)"/>
+<line x1="485" y1="160" x2="485" y2="215" stroke="#637386" stroke-width="2.3" marker-end="url(#pp-proto-arrow)"/>
+<text x="800" y="260" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">所有 value 列按</text>
+<text x="800" y="290" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">sample_type 解释</text>
+</svg>

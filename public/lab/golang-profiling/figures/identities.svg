@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="identities-title identities-desc"><title id="identities-title">三种身份不能混为一谈</title><desc id="identities-desc">请求、Go goroutine、OS 线程分别有生命周期；箭头表示需显式建立的关联，不是ID相等。</desc><defs><marker id="identities-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="30" y="60" width="240" height="100" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="150.0" y="96.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">业务请求</text>
+<text x="150.0" y="123.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">request=demo</text>
+<rect x="360" y="60" width="240" height="100" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="480.0" y="96.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">运行时任务</text>
+<text x="480.0" y="123.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">G / task</text>
+<rect x="690" y="60" width="240" height="100" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="810.0" y="96.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">OS 执行实体</text>
+<text x="810.0" y="123.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">PID / TID</text>
+<line x1="275" y1="110" x2="355" y2="110" stroke="#637386" stroke-width="2.3" marker-end="url(#identities-arrow)"/>
+<line x1="605" y1="110" x2="685" y2="110" stroke="#637386" stroke-width="2.3" marker-end="url(#identities-arrow)"/>
+<text x="480" y="220" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">一个请求可涉及多个 G；一个 M 会执行不同 G</text>
+<text x="480" y="258" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">观察到时间重叠，只能得到候选关联，不能直接确认归属</text>
+</svg>

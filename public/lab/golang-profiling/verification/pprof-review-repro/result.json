@@ -1,0 +1,1 @@
+{"actual_sample_count":0,"actual_samples":[],"client":"Go 1.22.12; isolated go.mod","expected_nonzero_sample":[2,0],"input":[2,0],"method":"ScaleN","ratios":[1,0.5],"source":"google/pprof ebaad5f31b4d25e6f51abf4d91b9611cff92db7b profile package copied without changes"}

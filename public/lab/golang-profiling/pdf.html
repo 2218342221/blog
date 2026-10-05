@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5faf6">
+  <title>Go 程序剖析与诊断 · 机制深研增订版 · 在线阅读 PDF</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      --reader-ink: #203e36;
+      --reader-muted: #587166;
+      --reader-line: #dce8df;
+      --reader-green: #58b900;
+      --reader-green-dark: #367400;
+      --reader-cyan: #167d92;
+      color: var(--reader-ink);
+      background: #f1f6f1;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; height: 100vh; height: 100dvh; min-width: 280px; background: radial-gradient(ellipse at 100% 0, #eaf6f6 0, transparent 45%), #f1f6f1; }
+    a { color: var(--reader-green-dark); text-decoration: none; -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, iframe:focus-visible { outline: 3px solid var(--reader-cyan); outline-offset: 4px; }
+    svg { display: block; flex-shrink: 0; }
+    .reader-skip { position: fixed; left: 20px; top: -80px; z-index: 10; padding: 12px 17px; border-radius: 11px; color: white; background: #1f615e; font-size: 14px; font-weight: 750; }
+    .reader-skip:focus { top: 12px; }
+    .reader-header { display: flex; align-items: center; flex-wrap: wrap; gap: 18px 28px; padding: 22px 30px; background: #ffffffed; border-bottom: 1px solid var(--reader-line); box-shadow: 0 1px 0 #fff; }
+    .reader-heading { display: flex; align-items: center; gap: 15px; flex: 1 1 340px; min-width: 0; }
+    .reader-emblem { display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px; color: #397414; background: #e8f6dc; border: 1px solid #cce3bc; border-radius: 15px; box-shadow: 0 3px 0 #d6e9c8; }
+    .reader-emblem svg { width: 27px; height: 27px; }
+    .reader-title-group { min-width: 0; }
+    .reader-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 11px; line-height: 1.4; color: var(--reader-muted); font-weight: 650; letter-spacing: .6px; }
+    .reader-eyebrow > span[aria-hidden] { color: #9ab6a6; }
+    .reader-eyebrow .reader-mode { color: #236b7a; font-size: 10px; font-weight: 750; letter-spacing: .3px; background: #eef8fa; border: 1px solid #d0e9ed; border-radius: 5px; padding: 2px 6px; }
+    h1 { margin: 7px 0 0; font-size: clamp(17px, 1.65vw, 22px); font-weight: 800; line-height: 1.4; letter-spacing: -.3px; overflow-wrap: anywhere; text-wrap: balance; }
+    .reader-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 11px; }
+    .reader-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; border: 1px solid #d3e0d4; border-radius: 12px; padding: 10px 15px; background: #fff; font-size: 12px; font-weight: 750; line-height: 1.5; box-shadow: 0 3px 0 #e2eade; white-space: nowrap; transition: background .15s, transform .15s, box-shadow .15s; }
+    .reader-actions svg { width: 17px; height: 17px; }
+    .reader-actions a:hover { background: #f5faf0; border-color: #b9d3a4; }
+    .reader-actions a:active { transform: translateY(2px); box-shadow: 0 1px 0 #d3dfc8; }
+    .reader-actions .direct-pdf { background: var(--reader-green); border-color: #489b00; color: #173c00; box-shadow: 0 3px 0 #3e8500; }
+    .reader-actions .direct-pdf:hover { background: #66c813; border-color: #489b00; }
+    .reader-context { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 22px; padding: 17px 31px 13px; }
+    .reader-context-label { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 12px; line-height: 1.5; color: #426655; font-weight: 750; }
+    .reader-context-label svg { width: 16px; height: 16px; color: var(--reader-cyan); }
+    .reader-context-label small { margin-left: 3px; padding-left: 11px; border-left: 1px solid #cbdccc; font-size: 11px; color: var(--reader-muted); font-weight: 500; }
+    .reader-hint { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 11px; line-height: 1.5; color: #5b7468; }
+    .reader-hint svg { width: 15px; height: 15px; color: #378390; }
+    .reader-main { display: flex; flex: 1 1 auto; min-height: 0; padding: 0 24px; }
+    .reader-surface { display: flex; flex: 1 1 auto; min-width: 0; min-height: 0; border: 1px solid #ceded2; border-radius: 17px; background: #e2eae2; box-shadow: 0 4px 0 #dfe8dc, 0 12px 30px #274b3510; overflow: hidden; }
+    .reader-frame { display: block; width: 100%; height: 100%; min-height: 0; border: 0; background: #e2eae2; }
+    .reader-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; padding: 13px 31px max(15px, env(safe-area-inset-bottom)); color: var(--reader-muted); font-size: 11px; line-height: 1.6; }
+    .reader-footer p { margin: 0; }
+    .reader-footer a { color: #236e7c; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #8db9bd; }
+    .reader-footer a:hover { text-decoration-color: currentColor; }
+    .reader-footer-label { display: flex; align-items: center; gap: 6px; }
+    .reader-footer-label svg { width: 14px; height: 14px; color: #567e46; }
+    @media (max-width: 900px) {
+      .reader-header { padding: 18px 23px; gap: 16px 20px; }
+      .reader-heading { flex-basis: 310px; gap: 12px; }
+      .reader-emblem { width: 43px; height: 43px; flex-basis: 43px; border-radius: 13px; }
+      .reader-emblem svg { width: 24px; height: 24px; }
+      .reader-actions { gap: 9px; }
+      .reader-actions a { padding: 9px 12px; font-size: 11px; }
+      .reader-context { padding: 15px 24px 12px; }
+      .reader-main { padding: 0 18px; }
+      .reader-footer { padding-left: 24px; padding-right: 24px; }
+    }
+    @media (max-width: 600px) {
+      .reader-header { gap: 15px; padding: 16px 16px 18px; }
+      .reader-heading { flex-basis: 100%; align-items: flex-start; gap: 11px; }
+      .reader-emblem { width: 39px; height: 39px; flex-basis: 39px; border-radius: 12px; margin-top: 3px; }
+      .reader-emblem svg { width: 23px; height: 23px; }
+      .reader-eyebrow { gap: 7px; font-size: 10px; letter-spacing: .3px; }
+      .reader-eyebrow .reader-mode { font-size: 9px; }
+      h1 { font-size: 17px; line-height: 1.45; margin-top: 6px; letter-spacing: -.2px; }
+      .reader-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 10px; }
+      .reader-actions a { min-height: 44px; padding: 9px 10px; font-size: 11px; border-radius: 11px; gap: 7px; }
+      .reader-actions svg { width: 16px; height: 16px; }
+      .reader-context { padding: 13px 17px 11px; gap: 7px; }
+      .reader-context-label { font-size: 11px; }
+      .reader-context-label small { font-size: 10px; margin-left: 0; padding-left: 9px; }
+      .reader-hint { display: none; }
+      .reader-main { padding: 0 9px; }
+      .reader-surface { border-radius: 12px; box-shadow: 0 3px 0 #dfe8dc; }
+      .reader-footer { padding: 12px 17px max(12px, env(safe-area-inset-bottom)); font-size: 10px; gap: 5px; }
+      .reader-footer-label { display: none; }
+    }
+    @media (max-height: 620px) and (min-width: 601px) {
+      .reader-header { padding-top: 12px; padding-bottom: 12px; }
+      .reader-emblem { width: 40px; height: 40px; flex-basis: 40px; }
+      h1 { font-size: 18px; margin-top: 4px; }
+      .reader-context { padding-top: 10px; padding-bottom: 9px; }
+      .reader-footer { padding-top: 9px; padding-bottom: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+    @media (forced-colors: active) {
+      .reader-surface, .reader-actions a, .reader-emblem, .reader-mode { border-color: CanvasText; }
+      .reader-actions a:focus-visible, .reader-skip:focus { outline-color: Highlight; }
+    }
+  </style>
+</head>
+<body>
+  <a class="reader-skip" href="#pdf-document">跳到 PDF 正文</a>
+  <header class="reader-header">
+    <div class="reader-heading">
+      <span class="reader-emblem" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M14 8.5C11.5 6.3 7.8 5.9 4 6.5v15c3.8-.6 7.5-.2 10 2 2.5-2.2 6.2-2.6 10-2v-15c-3.8-.6-7.5-.2-10 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 8.5v15M7.5 11h3M7.5 14.5h3M17.5 11h3M17.5 14.5h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <div class="reader-title-group"><div class="reader-eyebrow"><span>Go 性能实验室</span><span aria-hidden="true">/</span><span class="reader-mode">PDF 阅读</span></div><h1>Go 程序剖析与诊断 · 机制深研增订版</h1></div>
+    </div>
+    <nav class="reader-actions" aria-label="阅读导航">
+      <a href="index.html"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m8 5-5 5 5 5M3 10h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>返回学习首页</a>
+      <a class="direct-pdf" href="golang-profiling.pdf" target="_blank" rel="noopener" aria-label="直接打开 PDF，在新标签页中打开">直接打开 PDF<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M11 3h6v6M17 3l-8 8M7 4H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+  </header>
+  <div class="reader-context"><p class="reader-context-label"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M11.5 2.5H5a1.5 1.5 0 0 0-1.5 1.5v12A1.5 1.5 0 0 0 5 17.5h10a1.5 1.5 0 0 0 1.5-1.5V7.5l-5-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M11.5 2.5v5h5M7 11h6M7 14h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>教材正文<small>保留原版排版</small></p><p class="reader-hint"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="m13 13 4 4M6 8.5h5M8.5 6v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>使用阅读器工具栏缩放、翻页</p></div>
+  <main class="reader-main" aria-label="PDF 教材阅读区">
+    <div class="reader-surface"><iframe id="pdf-document" class="reader-frame" src="golang-profiling.pdf#view=FitH" title="Go 程序剖析与诊断 · 机制深研增订版 PDF 正文"></iframe></div>
+  </main>
+  <footer class="reader-footer"><p class="reader-footer-label"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4 9 3.2 3.2L14 5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>浏览器自带阅读器</p><p>若正文未显示，请<a href="golang-profiling.pdf" target="_blank" rel="noopener" aria-label="直接打开 PDF 文件，在新标签页中打开">直接打开 PDF 文件</a>。</p></footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="pf-chunk-title pf-chunk-desc"><title id="pf-chunk-title">chunk 的正常交接状态</title><desc id="pf-chunk-desc">典型路径是 Free → BeingWritten → Complete → BeingRead → Free。packet 可跨 chunk，长度补丁还可能延后完成；图未列出全部例外路径。</desc><defs><marker id="pf-chunk-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="30" y="90" width="204" height="90" rx="13" fill="#637386" fill-opacity=".075" stroke="#637386" stroke-width="2"/>
+<text x="132.0" y="135.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Free</text>
+<line x1="238" y1="135" x2="258" y2="135" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-chunk-arrow)"/>
+<rect x="262" y="90" width="204" height="90" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="364.0" y="135.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">BeingWritten</text>
+<line x1="470" y1="135" x2="490" y2="135" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-chunk-arrow)"/>
+<rect x="494" y="90" width="204" height="90" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="596.0" y="135.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Complete</text>
+<line x1="702" y1="135" x2="722" y2="135" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-chunk-arrow)"/>
+<rect x="726" y="90" width="204" height="90" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="828.0" y="135.0" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">BeingRead</text>
+<line x1="828" y1="186" x2="828" y2="230" stroke="#637386" stroke-width="2.3"/>
+<line x1="828" y1="230" x2="132" y2="230" stroke="#637386" stroke-width="2.3"/>
+<line x1="132" y1="230" x2="132" y2="186" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-chunk-arrow)"/>
+<text x="480" y="282" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">writer 写入与发布；service 拷贝后释放所有权</text>
+</svg>

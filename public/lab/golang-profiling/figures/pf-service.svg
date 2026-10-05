@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="pf-service-title pf-service-desc"><title id="pf-service-title">Perfetto 的生产者、服务与消费者</title><desc id="pf-service-desc">Producer 通过共享内存提交数据；service 管理会话缓冲；consumer 配置和读取。共享内存减少传输开销，不代表全链路零拷贝。</desc><defs><marker id="pf-service-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="40.0" y="75" width="270" height="112" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="175.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Producer / DataSource</text>
+<text x="175.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">TraceWriter / 共享内存</text>
+<line x1="313.0" y1="130" x2="341.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-service-arrow)"/>
+<rect x="345.0" y="75" width="270" height="112" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="480.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Tracing service</text>
+<text x="480.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">会话缓冲 / 提交协议</text>
+<line x1="618.0" y1="130" x2="646.0" y2="130" stroke="#637386" stroke-width="2.3" marker-end="url(#pf-service-arrow)"/>
+<rect x="650.0" y="75" width="270" height="112" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="785.0" y="117.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">Consumer</text>
+<text x="785.0" y="144.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">配置 / 读取 / 保存</text>
+<text x="480" y="235" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">写入、commit、flush、stop 是不同阶段</text>
+<text x="480" y="264" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle">缓冲策略决定覆盖旧数据还是丢弃新数据等行为</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="bpf-core-title bpf-core-desc"><title id="bpf-core-title">CO-RE：把字段意图迁移到目标布局</title><desc id="bpf-core-desc">图中字段偏移为示意数值。CO-RE 用 BTF 类型与 relocation 信息重写相应访问，不保证 helper、内核功能和语义都兼容。</desc><defs><marker id="bpf-core-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#637386"/></marker></defs><rect width="960" height="340" fill="white" rx="16"/>
+<rect x="25" y="60" width="265" height="120" rx="13" fill="#1976D2" fill-opacity=".075" stroke="#1976D2" stroke-width="2"/>
+<text x="157.5" y="106.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">编译时布局（示意）</text>
+<text x="157.5" y="133.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">字段 state：偏移 16</text>
+<rect x="345" y="60" width="265" height="120" rx="13" fill="#8150B5" fill-opacity=".075" stroke="#8150B5" stroke-width="2"/>
+<text x="477.5" y="106.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">BTF + relocation</text>
+<text x="477.5" y="133.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">定位同名结构成员</text>
+<rect x="665" y="60" width="265" height="120" rx="13" fill="#58A700" fill-opacity=".075" stroke="#58A700" stroke-width="2"/>
+<text x="797.5" y="106.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">目标布局（示意）</text>
+<text x="797.5" y="133.5" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle">字段 state：偏移 24</text>
+<line x1="295" y1="120" x2="340" y2="120" stroke="#637386" stroke-width="2.3" marker-end="url(#bpf-core-arrow)"/>
+<line x1="615" y1="120" x2="660" y2="120" stroke="#637386" stroke-width="2.3" marker-end="url(#bpf-core-arrow)"/>
+<text x="480" y="240" fill="#233448" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle">迁移的是结构访问意图；功能探测和语义兼容仍需另行处理</text>
+</svg>
