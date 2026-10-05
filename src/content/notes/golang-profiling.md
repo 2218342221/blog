@@ -1,5 +1,5 @@
 ---
-title: 'Go 程序剖析与诊断：从 pprof 到 eBPF 与 Perfetto'
+title: 'Go 程序剖析与诊断'
 description: '22 章中文系统课程，用 64 张图、逐步动画、源码研读和跨工具实验，理解 Go 性能数据如何产生、如何解释，以及如何验证优化。'
 destination: 'lab/golang-profiling/'
 published: 2026-10-05
