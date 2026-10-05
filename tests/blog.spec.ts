@@ -61,6 +61,40 @@ async function expectNoHorizontalOverflow(page: Page) {
   ).toBeLessThanOrEqual(dimensions.viewport + 1);
 }
 
+async function expectFragmentTarget(page: Page, url: URL, ids: Set<string>) {
+  const fragment = decodeURIComponent(url.hash.slice(1));
+  // Only these applications declare hash routes; other fragments remain DOM anchors.
+  const applications = [
+    {
+      path: pathTo('lab/golang-profiling/'),
+      attribute: 'data-nav',
+      routes: ['learn', 'library', 'labs', 'review', 'resources'],
+    },
+    {
+      path: pathTo('lab/pytorch/'),
+      attribute: 'data-page',
+      routes: ['learn', 'practice', 'lab', 'notes', 'roadmap'],
+    },
+  ];
+  const application = applications.find(
+    (candidate) =>
+      candidate.path === url.pathname && candidate.routes.includes(fragment),
+  );
+  if (!application) {
+    expect(ids.has(fragment), `锚点应存在：${url.href}`).toBe(true);
+    return;
+  }
+
+  await page.goto(url.href);
+  await expect(page).toHaveURL(url.href);
+  await expect(
+    page.locator(
+      `nav [${application.attribute}="${fragment}"][aria-current="page"]`,
+    ),
+  ).toHaveCount(1);
+  await expect(page.locator('main h1').first()).toBeVisible();
+}
+
 async function parseXml(page: Page, source: string, selector: string) {
   return page.evaluate(
     ({ xml, selector }) => {
@@ -334,13 +368,29 @@ test('published pages, static assets and internal links are reachable', async ({
       checkedPaths.add(url.pathname);
     }
     if (url.hash && idsByPath.has(url.pathname)) {
-      expect(
-        idsByPath.get(url.pathname)?.has(decodeURIComponent(url.hash.slice(1))),
-        `锚点应存在：${href}`,
-      ).toBe(true);
+      await expectFragmentTarget(page, url, idsByPath.get(url.pathname)!);
     }
   }
   expect(failedRequests, '页面及 CSS、JS、图片等资源请求不应失败').toEqual([]);
+});
+
+test('hash links activate registered app routes and reject missing anchors', async ({
+  page,
+}, testInfo) => {
+  const origin = testInfo.project.use.baseURL as string;
+  for (const route of [
+    'lab/golang-profiling/#learn',
+    'lab/pytorch/#learn',
+    'lab/pytorch/#lab',
+  ]) {
+    await expectFragmentTarget(page, new URL(pathTo(route), origin), new Set());
+  }
+
+  for (const route of ['lab/pytorch/#missing-anchor', 'about/#learn']) {
+    await expect(
+      expectFragmentTarget(page, new URL(pathTo(route), origin), new Set()),
+    ).rejects.toThrow('锚点应存在');
+  }
 });
 
 test('RSS, search index and sitemap preserve the deployment base path', async ({
