@@ -3,6 +3,7 @@ title: 'MemGPT：让大语言模型管理自己的记忆'
 description: '三页复习卡：30秒重建 MemGPT 的记忆框架，跟一次检索理解控制流，再用实验与自测校准判断。'
 destination: 'papers/memgpt/'
 published: 2026-10-05
+updated: 2026-10-05
 category: 'AI 工程'
 tags: ['论文精读', 'MemGPT', 'Agent', 'Memory']
 cover: 'memory'
