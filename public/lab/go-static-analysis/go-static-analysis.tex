@@ -1,0 +1,60 @@
+% !TeX program = xelatex
+% ============================================================
+%  《Go 语言代码静态分析技术与应用》
+%  主文件 —— 使用 XeLaTeX 编译
+%  编译命令： latexmk -xelatex main.tex
+% ============================================================
+\documentclass[11pt,a4paper,oneside]{book}
+\input{preamble}
+
+\begin{document}
+
+% ---------------- 封面 ----------------
+\input{frontmatter/cover}
+
+% ---------------- 前言与目录 ----------------
+\frontmatter
+\pagestyle{plain}
+\input{frontmatter/preface}
+\cleardoublepage
+{\hypersetup{linkcolor=GoDark}
+ \tableofcontents}
+\cleardoublepage
+
+% ---------------- 正文 ----------------
+\mainmatter
+\pagestyle{fancy}
+
+% 第一篇 基础篇
+\part{基础篇：静态分析的根基}
+\input{chapters/ch01-overview}
+\input{chapters/ch02-compiler-frontend}
+\input{chapters/ch03-ast}
+
+% 第二篇 核心技术篇
+\part{核心技术篇：从语法到语义}
+\input{chapters/ch04-types}
+\input{chapters/ch05-ssa}
+\input{chapters/ch06-cfg-dataflow}
+\input{chapters/ch07-pointer-callgraph}
+
+% 第三篇 工具与框架篇
+\part{工具与框架篇：构建你的分析器}
+\input{chapters/ch08-analysis-framework}
+\input{chapters/ch09-custom-analyzer}
+\input{chapters/ch10-ecosystem}
+
+% 第四篇 应用篇
+\part{应用篇：面向真实工程}
+\input{chapters/ch11-security}
+\input{chapters/ch12-concurrency}
+\input{chapters/ch13-engineering}
+
+% ---------------- 附录 ----------------
+\appendix
+\input{chapters/appendix}
+
+\backmatter
+\printindex
+
+\end{document}
