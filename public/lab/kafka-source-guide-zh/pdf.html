@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff7ed" />
+    <title>深入浅出 Kafka · 在线阅读 PDF</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          'PingFang SC',
+          'Microsoft YaHei',
+          'Noto Sans CJK SC',
+          sans-serif;
+        --ink: #3f2925;
+        --muted: #765b53;
+        --line: #ead8ce;
+        --accent: #e8582d;
+        --accent-dark: #a93017;
+        --focus: #087f8c;
+        color: var(--ink);
+        background: #fbf4ef;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        min-width: 280px;
+        height: 100vh;
+        height: 100dvh;
+        flex-direction: column;
+        background:
+          radial-gradient(ellipse at 100% 0, #fff0dd 0, transparent 44%),
+          #fbf4ef;
+      }
+
+      a {
+        color: var(--accent-dark);
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      a:focus-visible,
+      iframe:focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 4px;
+      }
+
+      svg {
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 10;
+        top: -80px;
+        left: 20px;
+        padding: 12px 17px;
+        border-radius: 11px;
+        color: #fff;
+        background: #6f3225;
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      .skip-link:focus {
+        top: 12px;
+      }
+
+      .reader-header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 18px 28px;
+        padding: 22px 30px;
+        border-bottom: 1px solid var(--line);
+        background: #fffdfaed;
+        box-shadow: 0 1px 0 #fff;
+      }
+
+      .reader-heading {
+        display: flex;
+        min-width: 0;
+        flex: 1 1 360px;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .reader-emblem {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        place-items: center;
+        border: 1px solid #f2c8b5;
+        border-radius: 15px;
+        color: #b83b20;
+        background: #fff0e7;
+        box-shadow: 0 3px 0 #f3d5c6;
+      }
+
+      .reader-emblem svg {
+        width: 27px;
+        height: 27px;
+      }
+
+      .reader-title-group {
+        min-width: 0;
+      }
+
+      .reader-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 650;
+        letter-spacing: 0.6px;
+        line-height: 1.4;
+      }
+
+      .reader-eyebrow > span[aria-hidden] {
+        color: #c4a599;
+      }
+
+      .reader-mode {
+        padding: 2px 6px;
+        border: 1px solid #cce2e2;
+        border-radius: 5px;
+        color: #176b74;
+        background: #eff9f8;
+        font-size: 10px;
+        font-weight: 750;
+        letter-spacing: 0.3px;
+      }
+
+      h1 {
+        margin: 7px 0 0;
+        overflow-wrap: anywhere;
+        font-size: clamp(17px, 1.65vw, 22px);
+        font-weight: 800;
+        letter-spacing: -0.3px;
+        line-height: 1.4;
+        text-wrap: balance;
+      }
+
+      .reader-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 11px;
+      }
+
+      .reader-actions a {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 15px;
+        border: 1px solid #e4d2c9;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 3px 0 #eee0d9;
+        font-size: 12px;
+        font-weight: 750;
+        line-height: 1.5;
+        white-space: nowrap;
+        transition:
+          background 0.15s,
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+
+      .reader-actions svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .reader-actions a:hover {
+        border-color: #e4b9a5;
+        background: #fff8f3;
+      }
+
+      .reader-actions a:active {
+        transform: translateY(2px);
+        box-shadow: 0 1px 0 #e5d3ca;
+      }
+
+      .reader-actions .direct-pdf {
+        border-color: #c84624;
+        color: #fff;
+        background: var(--accent);
+        box-shadow: 0 3px 0 #a8371b;
+      }
+
+      .reader-actions .direct-pdf:hover {
+        border-color: #b33a1d;
+        background: #ef6840;
+      }
+
+      .reader-context {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+        padding: 17px 31px 13px;
+      }
+
+      .reader-context-label,
+      .reader-hint {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .reader-context-label {
+        gap: 8px;
+        color: #6f4a3d;
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .reader-context-label svg {
+        width: 16px;
+        height: 16px;
+        color: var(--accent);
+      }
+
+      .reader-context-label small {
+        margin-left: 3px;
+        padding-left: 11px;
+        border-left: 1px solid #dec8bc;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .reader-hint {
+        gap: 6px;
+        color: #745f57;
+        font-size: 11px;
+      }
+
+      .reader-hint svg {
+        width: 15px;
+        height: 15px;
+        color: var(--focus);
+      }
+
+      .reader-main {
+        display: flex;
+        min-height: 0;
+        flex: 1 1 auto;
+        padding: 0 24px;
+      }
+
+      .reader-surface {
+        display: flex;
+        min-width: 0;
+        min-height: 0;
+        flex: 1 1 auto;
+        overflow: hidden;
+        border: 1px solid #dbc8bf;
+        border-radius: 17px;
+        background: #e9e2dd;
+        box-shadow:
+          0 4px 0 #eee3dc,
+          0 12px 30px #5c322510;
+      }
+
+      .reader-frame {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        border: 0;
+        background: #e9e2dd;
+      }
+
+      .reader-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        padding: 13px 31px max(15px, env(safe-area-inset-bottom));
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .reader-footer p {
+        margin: 0;
+      }
+
+      .reader-footer a {
+        color: #a33b22;
+        text-decoration: underline;
+        text-decoration-color: #d6a28f;
+        text-underline-offset: 3px;
+      }
+
+      .reader-footer a:hover {
+        text-decoration-color: currentColor;
+      }
+
+      .reader-footer-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .reader-footer-label svg {
+        width: 14px;
+        height: 14px;
+        color: #8e5b38;
+      }
+
+      @media (max-width: 900px) {
+        .reader-header {
+          gap: 16px 20px;
+          padding: 18px 23px;
+        }
+
+        .reader-heading {
+          flex-basis: 310px;
+          gap: 12px;
+        }
+
+        .reader-emblem {
+          width: 43px;
+          height: 43px;
+          flex-basis: 43px;
+          border-radius: 13px;
+        }
+
+        .reader-emblem svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        .reader-context {
+          padding: 15px 24px 12px;
+        }
+
+        .reader-main {
+          padding: 0 18px;
+        }
+
+        .reader-footer {
+          padding-right: 24px;
+          padding-left: 24px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .reader-header {
+          gap: 15px;
+          padding: 16px 16px 18px;
+        }
+
+        .reader-heading {
+          flex-basis: 100%;
+          align-items: flex-start;
+          gap: 11px;
+        }
+
+        .reader-emblem {
+          width: 39px;
+          height: 39px;
+          flex-basis: 39px;
+          margin-top: 3px;
+          border-radius: 12px;
+        }
+
+        .reader-emblem svg {
+          width: 23px;
+          height: 23px;
+        }
+
+        .reader-eyebrow {
+          gap: 7px;
+          font-size: 10px;
+          letter-spacing: 0.3px;
+        }
+
+        .reader-mode {
+          font-size: 9px;
+        }
+
+        h1 {
+          margin-top: 6px;
+          font-size: 17px;
+          letter-spacing: -0.2px;
+          line-height: 1.45;
+        }
+
+        .reader-actions {
+          display: grid;
+          width: 100%;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+
+        .reader-actions a {
+          min-height: 44px;
+          gap: 7px;
+          padding: 9px 10px;
+          border-radius: 11px;
+          font-size: 11px;
+        }
+
+        .reader-context {
+          gap: 7px;
+          padding: 13px 17px 11px;
+        }
+
+        .reader-context-label {
+          font-size: 11px;
+        }
+
+        .reader-context-label small {
+          margin-left: 0;
+          padding-left: 9px;
+          font-size: 10px;
+        }
+
+        .reader-hint {
+          display: none;
+        }
+
+        .reader-main {
+          padding: 0 9px;
+        }
+
+        .reader-surface {
+          border-radius: 12px;
+          box-shadow: 0 3px 0 #eee3dc;
+        }
+
+        .reader-footer {
+          gap: 5px;
+          padding: 12px 17px max(12px, env(safe-area-inset-bottom));
+          font-size: 10px;
+        }
+
+        .reader-footer-label {
+          display: none;
+        }
+      }
+
+      @media (max-height: 620px) and (min-width: 601px) {
+        .reader-header {
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+
+        .reader-emblem {
+          width: 40px;
+          height: 40px;
+          flex-basis: 40px;
+        }
+
+        h1 {
+          margin-top: 4px;
+          font-size: 18px;
+        }
+
+        .reader-context {
+          padding-top: 10px;
+          padding-bottom: 9px;
+        }
+
+        .reader-footer {
+          padding-top: 9px;
+          padding-bottom: 9px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+
+      @media (forced-colors: active) {
+        .reader-surface,
+        .reader-actions a,
+        .reader-emblem,
+        .reader-mode {
+          border-color: CanvasText;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#pdf-document">跳到 PDF 正文</a>
+    <header class="reader-header">
+      <div class="reader-heading">
+        <span class="reader-emblem" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none">
+            <circle
+              cx="14"
+              cy="14"
+              r="3"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <circle
+              cx="14"
+              cy="5"
+              r="2"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+            <circle
+              cx="6.2"
+              cy="18.5"
+              r="2"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+            <circle
+              cx="21.8"
+              cy="18.5"
+              r="2"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+            <path
+              d="M14 7v4M11.4 15.5 8 17.4M16.6 15.5l3.4 1.9"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+        <div class="reader-title-group">
+          <div class="reader-eyebrow">
+            <span>Kafka 中文源码指南</span><span aria-hidden="true">/</span
+            ><span class="reader-mode">PDF 阅读</span>
+          </div>
+          <h1>深入浅出 Kafka：从一条消息到分布式事件流平台</h1>
+        </div>
+      </div>
+      <nav class="reader-actions" aria-label="阅读导航">
+        <a href="/blog/notes/kafka-source-guide-zh/">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d="m8 5-5 5 5 5M3 10h14"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          返回文章介绍
+        </a>
+        <a
+          class="direct-pdf"
+          href="kafka-source-guide-zh.pdf"
+          target="_blank"
+          rel="noopener"
+          aria-label="直接打开 PDF，在新标签页中打开"
+        >
+          直接打开 PDF
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d="M11 3h6v6M17 3l-8 8M7 4H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-3"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </nav>
+    </header>
+    <div class="reader-context">
+      <p class="reader-context-label">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path
+            d="M11.5 2.5H5A1.5 1.5 0 0 0 3.5 4v12A1.5 1.5 0 0 0 5 17.5h10a1.5 1.5 0 0 0 1.5-1.5V7.5l-5-5Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M11.5 2.5v5h5M7 11h6M7 14h4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        教材正文<small>47 页 · 23 章 · A4 排版</small>
+      </p>
+      <p class="reader-hint">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle
+            cx="8.5"
+            cy="8.5"
+            r="5.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <path
+            d="m13 13 4 4M6 8.5h5M8.5 6v5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        使用阅读器工具栏缩放、翻页
+      </p>
+    </div>
+    <main class="reader-main" aria-label="PDF 教材阅读区">
+      <div class="reader-surface">
+        <iframe
+          id="pdf-document"
+          class="reader-frame"
+          src="kafka-source-guide-zh.pdf#view=FitH"
+          title="深入浅出 Kafka PDF 正文"
+        ></iframe>
+      </div>
+    </main>
+    <footer class="reader-footer">
+      <p class="reader-footer-label">
+        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path
+            d="m4 9 3.2 3.2L14 5.5"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        浏览器自带阅读器
+      </p>
+      <p>
+        若正文未显示，请<a
+          href="kafka-source-guide-zh.pdf"
+          target="_blank"
+          rel="noopener"
+          >直接打开 PDF 文件</a
+        >。
+      </p>
+    </footer>
+  </body>
+</html>
