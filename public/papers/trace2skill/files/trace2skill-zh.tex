@@ -1,0 +1,179 @@
+% main_v2.tex — Failure-Grounded Distillation framing (Story Revision v2)
+% New system name: Trace2Skill
+% New title: Trace2Skill: Failure-Grounded Distillation of Transferable Agent Skills
+%
+% File strategy:
+%   _v2 sections: abstract, intro, related, analysis, conclusion
+%   Shared sections (unchanged): method, experiments, appendix
+
+% 清洁再分发版：不附带原始包中的第三方 class/style/bst 文件，改用标准
+% article 版式与 TeX Live 常规宏包，论文正文、表格和图片内容保持不变。
+\documentclass[10pt, a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{authblk}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{needspace}
+\usepackage{times}
+\usepackage[UTF8,scheme=plain,heading=false,fontset=none]{ctex}
+\renewcommand{\CJKrmdefault}{gbsn}
+\renewcommand{\CJKsfdefault}{gbsn}
+\renewcommand{\CJKttdefault}{gbsn}
+\renewcommand{\CJKfamilydefault}{gbsn}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\bfdefault}{bx}
+\setlength{\emergencystretch}{2em}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{natbib}
+\usepackage[capitalise]{cleveref}
+\crefname{figure}{图}{图}
+\Crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\Crefname{table}{表}{表}
+\crefname{appendix}{附录}{附录}
+\Crefname{appendix}{附录}{附录}
+\crefname{section}{节}{节}
+\Crefname{section}{节}{节}
+\crefformat{section}{第~#2#1#3~节}
+\Crefformat{section}{第~#2#1#3~节}
+\crefname{equation}{式}{式}
+\Crefname{equation}{式}{式}
+\newcommand{\setChineseCrefConjunctions}{%
+  \def\crefpairconjunction{、}%
+  \def\crefmiddleconjunction{、}%
+  \def\creflastconjunction{~和~}%
+  \def\crefpairgroupconjunction{~和~}%
+  \def\crefmiddlegroupconjunction{、}%
+  \def\creflastgroupconjunction{~和~}%
+  \def\crefrangeconjunction{至}%
+}
+\setChineseCrefConjunctions
+\addto{\captionsenglish}{\setChineseCrefConjunctions}
+\AtBeginDocument{\setChineseCrefConjunctions}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{stfloats}
+\usepackage{float}
+\usepackage{etoolbox}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{soul,xcolor}
+
+\input{math_commands.tex}
+
+% ============================================================
+% Float placement tuning. The single-column layout turns every
+% figure/table into a full-width float, so the default top-only
+% queue (topnumber=2) backs up and main-body figures spill past
+% the bibliography. Allow bottom placement and fuller float pages
+% so figures stay close to the text that references them.
+% ============================================================
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.7}
+\renewcommand{\dbltopfraction}{0.9}
+\renewcommand{\dblfloatpagefraction}{0.7}
+
+\newcommand\myparagraph[1]{
+\vskip 0.05in
+\noindent{\bf {#1}}}
+
+% Verbatim-like blocks that can contain Chinese under pdfLaTeX/ctex.
+% The standard listings environment cannot process UTF-8 CJK text reliably.
+\newenvironment{cjkcode}{%
+  \par\begingroup\scriptsize\ttfamily\raggedright
+  \obeylines\obeyspaces
+  \catcode35=12\relax  % #
+  \catcode37=12\relax  % %
+  \catcode38=12\relax  % &
+  \catcode94=12\relax  % ^
+  \catcode95=12\relax  % _
+  \catcode126=12\relax % ~
+}{\par\endgroup}
+
+% ============================================================
+% Highlight commands for tables
+% ============================================================
+\definecolor{ArrowGreen}{HTML}{2E7D32}
+\definecolor{ArrowRed}{HTML}{C62828}
+\definecolor{Green3}{RGB}{0,205,0}
+\definecolor{Red1}{RGB}{255,0,0}
+\newcommand{\good}[1]{#1{\color{ArrowGreen}$\uparrow$}}
+\newcommand{\bad}[1]{#1{\color{ArrowRed}$\downarrow$}}
+\newcommand{\samemodel}[1]{\cellcolor{gray!20}#1}
+\newcommand{\hlc}[2][yellow]{{%
+    \colorlet{foo}{#1}%
+    \sethlcolor{foo}\hl{#2}}%
+}
+
+% ============================================================
+% Title — Story Revision v2
+% ============================================================
+\newcommand{\systemname}{Trace2Skill}
+\title{\systemname{}：将轨迹局部经验蒸馏为可迁移的智能体技能}
+
+% ============================================================
+% Authors
+% ============================================================
+\author[2,3]{Jingwei Ni\textsuperscript{$\S$,*}}
+\author[4]{Yihao Liu\textsuperscript{$\S$,*}}
+\author[4]{Xinpeng Liu\textsuperscript{$\S$,*}}
+\author[5]{Yutao Sun\textsuperscript{$\S$,*}}
+\author[1]{Mengyu Zhou\textsuperscript{$\dag$}}
+\author[1]{Pengyu Cheng}
+\author[1]{Dexin Wang}
+\author[1]{Erchao Zhao}
+\author[1]{Xiaoxi Jiang}
+\author[1]{Guanjun Jiang}
+\affil[1]{阿里巴巴 Qwen 大模型应用团队}
+\affil[2]{苏黎世联邦理工学院（ETH Zürich）}
+\affil[3]{苏黎世大学}
+\affil[4]{北京大学}
+\affil[5]{浙江大学}
+\date{\small \textsuperscript{$\S$}核心贡献者。通讯作者：\href{mailto:zhoumengyu.zmy@alibaba-inc.com}{zhoumengyu.zmy@alibaba-inc.com}}
+
+\begin{document}
+\captionsetup[figure]{name=图}
+\captionsetup[table]{name=表}
+\maketitle
+
+\begin{abstract}
+\input{sections_v2/abstract_v2}
+\end{abstract}
+
+\input{sections_v2/intro_v2}
+\input{sections_v2/method}
+\input{sections_v2/experiments}
+\input{sections_v2/analysis_v2}
+\input{sections_v2/related_v2}
+\input{sections_v2/conclusion_v2}
+
+\bibliography{main_v2}
+\bibliographystyle{plainnat}
+
+\appendix
+% \clearpage
+\input{sections_v2/appendix}
+
+\end{document}
