@@ -10,6 +10,7 @@ cover: 'memory'
 featured: false
 draft: false
 paper:
+  mode: 'study'
   shortTitle: 'MemGPT'
   originalTitle: 'MemGPT: Towards LLMs as Operating Systems'
   authors:

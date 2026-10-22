@@ -17,7 +17,7 @@ const reviewQuestion = z
     path: ['correct'],
   });
 
-const paperMetadata = z.object({
+const paperCommonMetadata = z.object({
   shortTitle: z.string().min(1),
   originalTitle: z.string().min(1),
   authors: z.array(z.string().min(1)).min(1),
@@ -27,9 +27,13 @@ const paperMetadata = z.object({
   codeUrl: z.url(),
   codeVersion: z.string().min(1),
   license: z.string().min(1),
-  reportPages: z.number().int().min(1).max(3),
   readingMinutes: z.number().int().positive(),
   takeaway: z.string().min(1),
+});
+
+const studyPaperMetadata = paperCommonMetadata.extend({
+  mode: z.literal('study'),
+  reportPages: z.number().int().min(1).max(3),
   assets: z.object({
     translationPdf: paperAsset,
     translationTex: paperAsset,
@@ -40,6 +44,15 @@ const paperMetadata = z.object({
   }),
   questions: z.array(reviewQuestion).min(1),
 });
+
+const htmlPaperMetadata = paperCommonMetadata.extend({
+  mode: z.literal('html'),
+});
+
+const paperMetadata = z.discriminatedUnion('mode', [
+  studyPaperMetadata,
+  htmlPaperMetadata,
+]);
 
 const notes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/notes' }),

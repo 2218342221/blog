@@ -5,6 +5,7 @@ const basePath = prefix ? `/${prefix}/` : '/';
 const pathTo = (path = '') => `${basePath}${path.replace(/^\/+/, '')}`;
 const libraryPath = pathTo('papers/');
 const memgptPath = pathTo('papers/memgpt/');
+const vllmPath = pathTo('papers/vllm-v1-deep-tutorial/');
 const assetPath = pathTo('papers/memgpt/files/');
 const expectedFiles = [
   'memgpt-zh.pdf',
@@ -50,6 +51,27 @@ async function expectNoHorizontalOverflow(page: Page) {
     `论文学习页面不应出现横向溢出：${page.url()}`,
   ).toBeLessThanOrEqual(dimensions.viewport + 1);
 }
+
+test('open the vLLM paper as its original HTML page', async ({ page }) => {
+  const response = await page.goto(libraryPath);
+  expect(response?.status()).toBe(200);
+  const card = page.locator('[data-paper-id="vllm-v1-deep-tutorial"]');
+  await expect(card).toBeVisible();
+  expect(await card.getAttribute('data-paper-card')).toBeNull();
+  await expect(card.locator('.paper-card-progress')).toHaveText('原始 HTML');
+  const link = card.getByRole('link', { name: 'vLLM V1', exact: true });
+  await expect(link).toHaveAttribute('href', vllmPath);
+  await link.click();
+  expect(new URL(page.url()).pathname).toBe(vllmPath);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'vLLM V1 深度教程：从 HTTP 请求到 GPU，再到流式响应',
+  );
+  await expect(page.locator('[data-paper-detail]')).toHaveCount(0);
+  await expect(page.locator('.paper-id')).toHaveText(
+    'TECHNICAL TUTORIAL · SOURCE-CODE STUDY',
+  );
+  await expectNoHorizontalOverflow(page);
+});
 
 test('open MemGPT from the paper library and navigate the three learning tabs', async ({
   page,

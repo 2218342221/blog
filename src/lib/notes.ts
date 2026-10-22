@@ -5,9 +5,8 @@ export const href = (path = '') =>
   `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
 export const noteUrl = (note: Note) =>
   href(
-    note.data.paper
-      ? `papers/${note.id}/`
-      : note.data.destination || `notes/${note.id}/`,
+    note.data.destination ||
+      (note.data.paper ? `papers/${note.id}/` : `notes/${note.id}/`),
   );
 export const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('zh-CN', {

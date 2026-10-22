@@ -4,20 +4,20 @@ import Layout from '../../layouts/Layout.astro';
 import BookScene from '../../components/papers/BookScene.astro';
 import LearningScript from '../../components/papers/LearningScript.astro';
 import {
-  getPapers,
+  getStudyPapers,
   questionRevision,
   href,
-  type Paper,
+  type StudyPaper,
 } from '../../lib/papers';
 import '../../styles/papers.css';
 export async function getStaticPaths() {
-  return (await getPapers()).map((paper) => ({
+  return (await getStudyPapers()).map((paper) => ({
     params: { slug: paper.id },
     props: { paper },
   }));
 }
 interface Props {
-  paper: Paper;
+  paper: StudyPaper;
 }
 const { paper } = Astro.props;
 const metadata = paper.data.paper;

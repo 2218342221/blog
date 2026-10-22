@@ -110,7 +110,16 @@ git push origin main
 
 ## 6. 维护论文学习区
 
-论文书架位于 `/papers/`，从顶部“论文学习”导航进入；每篇论文的学习页面位于 `/papers/文件名/`。每篇只维护一份 `src/content/notes/文件名.md`，在普通文章字段上增加 `paper` 元数据；系统会同时生成书架、报告、译稿下载和复习题，并接入专题、归档、搜索与 RSS。论文不进入首页笔记卡片，也不在首页增加论文推广卡片。参考现有的 `src/content/notes/memgpt.md`，不要新建用于演示的占位论文。
+论文书架位于 `/papers/`，从顶部“论文学习”导航进入；每篇只维护一份 `src/content/notes/文件名.md`，在普通文章字段上增加 `paper` 元数据，并接入专题、归档、搜索与 RSS。论文不进入首页笔记卡片，也不在首页增加论文推广卡片。不要新建用于演示的占位论文。
+
+`paper.mode` 决定阅读方式：
+
+- `study`：生成报告、译稿下载和复习题详情页，参考 `src/content/notes/memgpt.md`。
+- `html`：书架卡片直接打开原始 HTML，适合已经完成排版和交互的长教程；不会生成 paper 详情页，也不需要 PDF、LaTeX、源码包或复习题。
+
+`html` 模式把原始页面放在 `public/papers/文件名/index.html`，并设置 `destination: 'papers/文件名/'`。页面内资源使用相对路径；公开前检查外链依赖、内部地址、本地路径和敏感信息。原始 HTML 与仓库文件应做校验，确保没有在搬运时意外改写。
+
+以下规则适用于 `study` 模式。
 
 正文采用 **1–3 页读书报告**，用于快速回顾，建议按以下顺序写：
 
@@ -124,17 +133,18 @@ git push origin main
 
 `paper` 元数据字段：
 
-| 字段                            | 填写方式                                                                                                         |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `shortTitle`、`originalTitle`   | 简称与原文完整标题。                                                                                             |
-| `authors`、`year`、`version`    | 原作者列表、首次发表年份、实际阅读版本。                                                                         |
-| `sourceUrl`                     | 论文正式来源，尽量固定 arXiv 版本。                                                                              |
-| `codeUrl`、`codeVersion`        | 所核对实现的固定链接、版本与日期。                                                                               |
-| `license`                       | 原论文与译稿所依据的许可；发布前核对再分发权限。                                                                 |
-| `reportPages`、`readingMinutes` | 实际 PDF 页数（1–3）与报告预计阅读分钟数。                                                                       |
-| `takeaway`                      | 用一句话说明论文最值得记住的想法。                                                                               |
-| `assets`                        | 下表中的六种资源，路径均为 `papers/文件名/files/资源文件名`，不带开头 `/` 或部署前缀。                           |
-| `questions`                     | 复习题数组；每题包含 `prompt`、2–5 个 `options`、从 0 开始的正确选项 `correct` 和解释 `explanation`，建议 5 题。 |
+| 字段                            | 填写方式                                                                                                          |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `mode`                          | `study` 生成学习详情页；`html` 直接打开 `destination` 指向的原始 HTML。                                           |
+| `shortTitle`、`originalTitle`   | 简称与原文完整标题。                                                                                              |
+| `authors`、`year`、`version`    | 原作者列表、首次发表年份、实际阅读版本。                                                                          |
+| `sourceUrl`                     | 论文正式来源，尽量固定 arXiv 版本。                                                                               |
+| `codeUrl`、`codeVersion`        | 所核对实现的固定链接、版本与日期。                                                                                |
+| `license`                       | 原论文与译稿所依据的许可；发布前核对再分发权限。                                                                  |
+| `reportPages`、`readingMinutes` | `study` 填实际 PDF 页数（1–3）与报告预计阅读分钟数；`html` 只填完整页面预计阅读分钟数。                           |
+| `takeaway`                      | 用一句话说明论文最值得记住的想法。                                                                                |
+| `assets`                        | 仅 `study`：下表中的六种资源，路径均为 `papers/文件名/files/资源文件名`，不带开头 `/` 或部署前缀。                |
+| `questions`                     | 仅 `study`：复习题数组；每题包含 `prompt`、2–5 个 `options`、正确选项 `correct` 和解释 `explanation`，建议 5 题。 |
 
 资源放在 `public/papers/文件名/files/` 下：
 
