@@ -75,6 +75,11 @@ async function expectFragmentTarget(page: Page, url: URL, ids: Set<string>) {
       attribute: 'data-page',
       routes: ['learn', 'practice', 'lab', 'notes', 'roadmap'],
     },
+    {
+      path: pathTo('lab/clickhouse-internals/'),
+      attribute: 'data-nav',
+      routes: Array.from({ length: 12 }, (_, index) => `lesson-${index}`),
+    },
   ];
   const application = applications.find(
     (candidate) =>
@@ -269,7 +274,9 @@ test('published pages, static assets and internal links are reachable', async ({
   page,
   request,
 }, testInfo) => {
-  test.setTimeout(60_000);
+  // This check visits every published standalone tutorial; the route set grows
+  // with each release and several existing labs carry large offline bundles.
+  test.setTimeout(120_000);
   const failedRequests: string[] = [];
   let origin = '';
   page.on('response', (response) => {

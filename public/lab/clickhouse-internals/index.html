@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="从零开始、专业深入地理解 ClickHouse 存储、查询与分布式架构。">
+  <meta name="theme-color" content="#f8c537">
+  <title>Column Quest｜ClickHouse 从原理到生产</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#lesson-view">跳到课程正文</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#lesson-0" aria-label="返回课程起点">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <ellipse cx="20" cy="9" rx="12" ry="5" fill="#f8c537" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M8 9v21c0 3 24 3 24 0V9M8 19c0 3 24 3 24 0M8 29c0 3 24 3 24 0" fill="#fff8d8" stroke="currentColor" stroke-width="2.5"/>
+            <path d="m22 12-8 10h5l-3 8 10-12h-5Z" fill="#24b47e" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span><strong>Column Quest</strong><small>ClickHouse 深度课程</small></span>
+      </a>
+
+      <div class="course-progress">
+        <div class="progress-label-row">
+          <span id="unit-label">单元 1 · 建立心智模型</span>
+          <span id="progress-label">0 / 12</span>
+        </div>
+        <div id="course-progress" class="progress-track" role="progressbar" aria-label="课程完成进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="course-progress-fill"></span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <span id="mastery-label" class="mastery-label">尚未完成课程</span>
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="切换深色主题" aria-pressed="false">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-course-nav">
+    <button id="mobile-menu-toggle" class="secondary-button" type="button" aria-expanded="false" aria-controls="course-sidebar">课程目录</button>
+    <span id="mobile-current-title">第 1 课</span>
+  </div>
+
+  <div class="layout">
+    <aside id="course-sidebar" class="course-sidebar" aria-label="课程目录">
+      <div class="sidebar-intro">
+        <span class="sidebar-kicker">学习路线</span>
+        <strong>一条事件如何完成它的 ClickHouse 旅程？</strong>
+        <p>从业务需求出发，依次经过写入、Part、索引、查询 Pipeline 和分布式集群。</p>
+      </div>
+      <nav id="lesson-nav" class="lesson-nav" aria-label="课程章节"></nav>
+      <button id="reset-progress" class="text-button" type="button">重置本课程进度</button>
+    </aside>
+
+    <main class="main-content">
+      <article id="lesson-view" class="lesson-view" tabindex="-1" aria-live="polite"></article>
+    </main>
+
+    <aside class="context-rail" aria-label="当前课程辅助信息">
+      <section class="rail-panel case-panel">
+        <div class="mergy-mini" aria-hidden="true">
+          <svg viewBox="0 0 150 105">
+            <path d="M32 69C6 69 6 101 35 97c14-2 19-16 7-23 15-6 18-18 10-28Z" fill="#dfa31f" stroke="#17212b" stroke-width="3"/>
+            <ellipse cx="83" cy="61" rx="42" ry="34" fill="#f8c537" stroke="#17212b" stroke-width="3"/>
+            <path d="M57 39c19-23 53-24 73-5-24-4-42 5-51 18Z" fill="#ffd86c" stroke="#17212b" stroke-width="3"/>
+            <path d="M119 36c19-4 29 7 25 17-3 8-13 9-25 7Z" fill="#f8c537" stroke="#17212b" stroke-width="3"/>
+            <circle cx="135" cy="44" r="3.5" fill="#17212b"/>
+            <path d="m143 49 7 3-8 4" fill="#ef6b5d" stroke="#17212b" stroke-width="2"/>
+            <path d="m59 42 14 16-17 10-13-17m31-19 16 20-17 9-15-21m32-9 15 19-16 8-15-23" fill="none" stroke="#a86c00" stroke-width="3"/>
+            <rect x="108" y="67" width="36" height="27" rx="6" fill="#2684ff" stroke="#17212b" stroke-width="3"/>
+            <text x="126" y="84" text-anchor="middle" font-family="system-ui" font-size="8" font-weight="800" fill="white">PART</text>
+          </svg>
+        </div>
+        <span class="rail-kicker">贯穿案例</span>
+        <h2>多租户事件分析平台</h2>
+        <ul>
+          <li>持续追加用户事件</li>
+          <li>按租户查询近 24 小时趋势</li>
+          <li>允许迟到数据和版本修正</li>
+          <li>最终扩展到多分片双副本</li>
+        </ul>
+      </section>
+
+      <section class="rail-panel">
+        <span class="rail-kicker">本课先决条件</span>
+        <p id="prerequisite-text">不要求数据库内核知识。</p>
+      </section>
+
+      <section class="rail-panel glossary-panel">
+        <div class="rail-title-row">
+          <span class="rail-kicker">当前术语</span>
+          <button id="glossary-toggle" class="text-button compact" type="button">全部术语</button>
+        </div>
+        <div id="lesson-glossary" class="lesson-glossary"></div>
+      </section>
+
+      <section class="rail-panel rail-progress">
+        <span class="rail-kicker">掌握情况</span>
+        <strong id="completed-count">0 / 12 课</strong>
+        <p id="completed-summary">完成每课的 3 道检查题，建立连续的系统模型。</p>
+      </section>
+    </aside>
+  </div>
+
+  <dialog id="glossary-dialog" class="glossary-dialog" aria-labelledby="glossary-title">
+    <div class="dialog-header">
+      <div><span class="rail-kicker">参考手册</span><h2 id="glossary-title">ClickHouse 核心术语</h2></div>
+      <button id="glossary-close" class="icon-button" type="button" aria-label="关闭术语表">×</button>
+    </div>
+    <label class="search-label">搜索术语<input id="glossary-search" type="search" placeholder="例如：Part、Mark、Shard"></label>
+    <div id="glossary-list" class="glossary-list"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="course-content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
